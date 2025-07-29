@@ -1,0 +1,2 @@
+rootProject.name = 'FCEUmmWrapper'
+include ':app' 
