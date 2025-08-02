@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:padding="20dp">
+
+    <!-- Titre de l'application -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎮 Sélection ROM"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Sous-titre -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choisissez votre jeu NES"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Liste des ROMs -->
+    <ListView
+        android:id="@+id/rom_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:divider="@android:color/holo_blue_dark"
+        android:dividerHeight="1dp"
+        android:padding="10dp" />
+
+    <!-- Bouton Retour -->
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="⬅️ Retour"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:background="@android:color/holo_red_dark"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout> 

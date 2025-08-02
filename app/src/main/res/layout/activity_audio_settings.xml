@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#1E1E1E">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Paramètres Audio"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Volume général -->
+    <TextView
+        android:id="@+id/volume_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volume: 100%"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <SeekBar
+        android:id="@+id/volume_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="100"
+        android:layout_marginBottom="24dp"
+        android:progressTint="#4CAF50"
+        android:thumbTint="#4CAF50" />
+
+    <!-- Mute/Unmute -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Son"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <ToggleButton
+        android:id="@+id/mute_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="Muet"
+        android:textOn="Son"
+        android:layout_marginBottom="24dp"
+        android:background="#333333"
+        android:textColor="#FFFFFF" />
+
+    <!-- Qualité audio -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Qualité Audio"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/quality_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="#333333"
+        android:popupBackground="#333333" />
+
+    <!-- Taux d'échantillonnage -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Taux d'échantillonnage"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/sample_rate_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="#333333"
+        android:popupBackground="#333333" />
+
+    <!-- Filtre RF Audio -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filtre RF Audio"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <ToggleButton
+        android:id="@+id/rf_filter_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="Désactivé"
+        android:textOn="Activé"
+        android:layout_marginBottom="24dp"
+        android:background="#333333"
+        android:textColor="#FFFFFF" />
+
+    <!-- Effet Stéréo -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Effet Stéréo"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/stereo_delay_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="#333333"
+        android:popupBackground="#333333" />
+
+    <!-- Échange Cycles de Devoir -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Échange Cycles de Devoir"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <ToggleButton
+        android:id="@+id/swap_duty_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="Désactivé"
+        android:textOn="Activé"
+        android:layout_marginBottom="24dp"
+        android:background="#333333"
+        android:textColor="#FFFFFF" />
+
+    <!-- Bouton fermer -->
+    <Button
+        android:id="@+id/close_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fermer"
+        android:textSize="16sp"
+        android:background="#4CAF50"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout> 

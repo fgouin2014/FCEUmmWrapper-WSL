@@ -1,0 +1,84 @@
+# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+
+# Build directories
+build/
+app/build/
+app/.cxx/
+.gradle/
+FCEUmmWrapper/.gradle/
+
+# IDE directories
+.idea/
+.vscode/
+.vs/
+
+# Large files
+*.zip
+gradle-*.zip
+
+# Log files
+*.log
+log/
+app_logs.txt
+rom_test_logs.txt
+
+# Git repositories
+libretro-super/.git/
+
+# Android specific
+local.properties
+*.apk
+*.aab
+
+# Generated files
+dist/
+
+# Core files and binaries
+*.so
+*.dll
+*.dylib
+fceumm_*.so
+fceumm_libretro_android.so
+
+# ROM files and assets - KEPT for indexing
+# *.nes
+# app/src/main/assets/roms/
+
+# Backup files in assets
+app/src/main/assets/**/*.bak
+
+# Compiled cores - KEPT for indexing
+# app/src/main/assets/coresCompiled/
+# stable_cores/
+# official_cores/
+
+# Large binary files
+*.rar
+*.7z
+*.tar.gz
+
+# Temporary and cache files
+*.tmp
+*.temp
+*.cache
+*.swp
+*.swo
+*~
+
+# Test files
+test_*.sh
+test_*.c
+test_*.cpp
+
+# Documentation and audit files
+*_AUDIT.md
+*_FIX.md
+
+# Scripts (optional - uncomment if you don't want Cursor to index shell scripts)
+# *.sh
+
+# Empty files
+Get
+Task
+Run
+Configure

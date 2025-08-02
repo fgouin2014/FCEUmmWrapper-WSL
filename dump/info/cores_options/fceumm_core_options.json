@@ -1,0 +1,1451 @@
+[
+  {
+    "key": "fceumm_region",
+    "desc": "Region",
+    "info": "Force core to use NTSC, PAL or Dendy region timings.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "NTSC",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "PAL",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "Dendy",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_game_genie",
+    "desc": "Game Genie Add-On (Restart Required)",
+    "info": "Enable emulation of a Game Genie add-on cartridge, allowing cheat codes to be entered when launching games. The Game Genie ROM file 'gamegenie.nes' must be present in the frontend's system directory. Does not apply to FDS or arcade content.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "enabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_show_adv_system_options",
+    "desc": "Show Advanced System Options",
+    "info": "Show advanced system options and tweaks.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "enabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_show_adv_sound_options",
+    "desc": "Show Advanced Sound Options",
+    "info": "Show advanced sound options and tweaks.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "enabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_aspect",
+    "desc": "Aspect Ratio",
+    "info": "Choose preferred aspect ratio.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "4:3",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "PP",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_overscan",
+    "desc": "Crop Overscan",
+    "info": "Removes 8 pixel overscan from all sides of the screen.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_overscan_h_left",
+    "desc": "Crop Horizontal Left Overscan",
+    "info": "Removes pixels from left side of the screen to simulate overscan seen on standard CRT televisions.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "4",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "8",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "12",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "16",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_overscan_h_right",
+    "desc": "Crop Horizontal Right Overscan",
+    "info": "Removes pixels from right side of the screen to simulate overscan seen on standard CRT televisions.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "4",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "8",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "12",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "16",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_overscan_v_top",
+    "desc": "Crop Vertical Top Overscan",
+    "info": "Removes pixels from the top of the screen to simulate overscan seen on standard CRT televisions.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "4",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "8",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "12",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "16",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "20",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "24",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_overscan_v_bottom",
+    "desc": "Crop Vertical Bottom Overscan",
+    "info": "Removes pixels from the bottom of the screen to simulate overscan seen on standard CRT televisions.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "4",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "8",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "12",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "16",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "20",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "24",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_palette",
+    "desc": "Color Palette",
+    "info": "Choose from pre-generated palettes, a custom 64x3 palette from file or raw format (needs to use a nes-decoder shader).",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "asqrealc",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "restored-wii-vc",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "wii-vc",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "rgb",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "yuv-v3",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "unsaturated-final",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "sony-cxa2025as-us",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "pal",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "bmf-final2",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "bmf-final3",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "smooth-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "composite-direct-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "pvm-style-d93-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "ntsc-hardware-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "nes-classic-fbx-fs",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "nescap",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "wavebeam",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "digital-prime-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "magnum-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "smooth-v2-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "nes-classic-fbx",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "royaltea",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "mugicha",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "raw",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "custom",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_ntsc_filter",
+    "desc": "NTSC Filter",
+    "info": "Blargg's NTSC filters are used to replicate RF, Composite, S-Video, and RGB cable signals.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "composite",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "svideo",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "rgb",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "monochrome",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_sndquality",
+    "desc": "Sound Quality",
+    "info": "Enable higher quality sound. Increases performance requirements.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "High",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "Very High",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_sndlowpass",
+    "desc": "Audio RF Filter",
+    "info": "Apply a low pass audio filter to simulate the 'muted' sound of the NES when connected to a television via the RF modulator.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "enabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_sndstereodelay",
+    "desc": "Stereo Sound Effect",
+    "info": "Enable a fake stereo sound effect by delaying the right audio channel when upmixing the mono signal output from the NES.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "01_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "02_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "03_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "04_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "05_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "06_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "07_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "08_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "09_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "10_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "11_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "12_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "13_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "14_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "15_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "16_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "17_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "18_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "19_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "20_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "21_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "22_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "23_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "24_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "25_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "26_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "27_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "28_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "29_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "30_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "31_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "32_ms_delay",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_swapduty",
+    "desc": "Simulates the sound from famiclones that have the pulse wave channels duty cycle bits reversed.",
+    "info": "audio",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "enabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_sndvolume",
+    "desc": "Master Volume",
+    "info": "Change master volume level.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "1",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "2",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "3",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "4",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "5",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "6",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "7",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "8",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "9",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "10",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_apu_1",
+    "desc": "Enables or disables pulse wave generator audio output 1.",
+    "info": "audio",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_apu_2",
+    "desc": "Enables or disables pulse wave generator audio output 2.",
+    "info": "audio",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_apu_3",
+    "desc": "Enables or disables triangle wave generator audio output.",
+    "info": "audio",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_apu_4",
+    "desc": "Enables or disables noise generator audio output.",
+    "info": "audio",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_apu_5",
+    "desc": "Enables or disables delta modulation channel audio output.",
+    "info": "audio",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_turbo_enable",
+    "desc": "Turbo Enable",
+    "info": "Enables or disables turbo buttons.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "Player 1",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "Player 2",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "Both",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_turbo_delay",
+    "desc": "Turbo Delay (in frames)",
+    "info": "Repeat rate of turbo buttons in frames.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "2",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "3",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "5",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "10",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "15",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "30",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "60",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_zapper_mode",
+    "desc": "Zapper Mode",
+    "info": "Selects device to use for Zapper games.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "stlightgun",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "touchscreen",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "mouse",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_show_crosshair",
+    "desc": "Show Zapper Crosshair",
+    "info": "Shows or hides on-screen crosshairs when using a Zapper.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_zapper_tolerance",
+    "desc": "Zapper Tolerance",
+    "info": "Sets how many pixels from target area is on target.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "1",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "2",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "3",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "4",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "5",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "6",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "7",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "8",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "9",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "10",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "11",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "12",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "13",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "14",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "15",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "16",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "17",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "18",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "19",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "20",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_zapper_trigger",
+    "desc": "Invert Zapper Trigger Signal",
+    "info": "Inverts trigger logic when using a Zapper. Disabling it resembles original hardware behavior.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_zapper_sensor",
+    "desc": "Invert Zapper Sensor Signal",
+    "info": "Inverts sensor logic when using a Zapper (Sequential Targets Light gun mode only). Disabling it resembles original NES/FC hardware behavior.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "disabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_arkanoid_mode",
+    "desc": "Arkanoid Mode",
+    "info": "Selects device to use for Arkanoid games.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "mouse",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "stelladaptor",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "touchscreen",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_mouse_sensitivity",
+    "desc": "Mouse Sensitivity",
+    "info": "Mouse sensitivity in percent.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "30",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "40",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "50",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "60",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "70",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "80",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "90",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "100",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "110",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "120",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "130",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "140",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "150",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "160",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "170",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "180",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "190",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "200",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_up_down_allowed",
+    "desc": "Allow Opposing Directions",
+    "info": "Allows simultaneous UP+DOWN or LEFT+RIGHT button combinations, which can create different effects in some games.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "enabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_nospritelimit",
+    "desc": "No Sprite Limit",
+    "info": "Removes the 8-per-scanline hardware limit. This reduces sprite flickering but can cause some games to glitch since some use this for effects.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "enabled",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_overclocking",
+    "desc": "Overclock",
+    "info": "Enables or disables overclocking, which can reduce slowdowns in some games. Postrender method is more compatible with every game, Vblank is more effective for games like Contra Force.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "2x-Postrender",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "2x-VBlank",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fceumm_ramstate",
+    "desc": "RAM Power-On Fill (Restart Required)",
+    "info": "RAM values on power up. Some games rely on initial RAM values for random number generation as an example.",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "fill $00",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  },
+  {
+    "key": "random",
+    "desc": "",
+    "info": "",
+    "default": "",
+    "values": []
+  }
+]

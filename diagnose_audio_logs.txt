@@ -1,0 +1,14 @@
+
+07-30 13:46:59.240  1354  2330 I AudioEffectStageModule: Lazy fx standby, index -2903, name Dolby_FX_GAME
+07-30 13:46:59.242  1177  1211 D audio_hw_primary: out_standby: enter: stream (0xf26ca7e0) usecase(2: low-latency-playback)
+07-30 13:46:59.319  1177  1211 D audio_hw_primary: disable_audio_route: reset and update mixer path: low-latency-playback speaker
+07-30 13:46:59.321  1177  1211 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 2 of type 0 for Event 2, with Raise=0
+07-30 13:46:59.321  1177  1211 D audio_hw_primary: disable_snd_device: snd_device(2: dual-speaker)
+07-30 13:46:59.321  1177  1211 V audio_hw_sec: sec_dsm_spkr_prot_control_tx_topology() enable:0, dsm_is_enabled:1
+07-30 13:46:59.332  1177  1211 D audio_hw_primary: disable_snd_device: snd_device(299: vi-feedback)
+07-30 13:46:59.333  1177  1211 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x12b of type 1 for Event 0, with Raise=0
+07-30 13:46:59.333  1177  1211 D audio_hw_primary: disable_audio_route: reset and update mixer path: spkr-vi-feedback
+07-30 13:46:59.333  1177  1211 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 86 of type 1 for Event 2, with Raise=0
+07-30 13:46:59.333  1177  1211 V audio_hw_sec: sec_dsm_spkr_prot_control_tx_topology() dsm disabled
+07-30 13:46:59.346  1177  1211 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 0, with Raise=0
+

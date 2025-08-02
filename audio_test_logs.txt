@@ -1,0 +1,4 @@
+
+07-30 13:41:12.006 12698 12698 W libOpenSLES: class OutputMix interface 0 requested but unavailable MPH=43
+07-30 13:41:12.086 12698 12698 I libOpenSLES: Emulating old channel mask behavior (ignoring positional mask 0x3, using default mask 0x3 based on channel count of 2)
+07-30 13:41:12.301 12698 12773 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)

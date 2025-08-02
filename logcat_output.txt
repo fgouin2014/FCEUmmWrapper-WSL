@@ -1,0 +1,58 @@
+--------- beginning of main
+07-30 11:57:12.026 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:57:22.022 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:57:32.023 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:57:37.503 17857 18034 I bbax    : (REDACTED) getHotwordActive::active query: %s, watch: %s, devices connected: %s
+07-30 11:57:42.022 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+--------- beginning of system
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: Cannot acquire BluetoothActivityEnergyInfo
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: java.util.concurrent.ExecutionException: java.lang.RuntimeException: error: 11
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:372)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2072)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at com.android.server.power.stats.BluetoothPowerStatsCollector.collectBluetoothActivityInfo(BluetoothPowerStatsCollector.java:192)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at com.android.server.power.stats.BluetoothPowerStatsCollector.collectStats(BluetoothPowerStatsCollector.java:155)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at com.android.server.power.stats.PowerStatsCollector.collectAndDeliverStats(PowerStatsCollector.java:176)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at com.android.server.power.stats.PowerStatsCollector$$ExternalSyntheticLambda0.run(R8$$SyntheticClass:0)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.os.Handler.handleCallback(Handler.java:995)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.os.Handler.dispatchMessage(Handler.java:103)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.os.Looper.loopOnce(Looper.java:248)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.os.Looper.loop(Looper.java:338)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: Caused by: java.lang.RuntimeException: error: 11
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at com.android.server.power.stats.BluetoothPowerStatsCollector$1.onBluetoothActivityEnergyInfoError(BluetoothPowerStatsCollector.java:181)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.bluetooth.BluetoothAdapter$OnBluetoothActivityEnergyInfoProxy.lambda$onBluetoothActivityEnergyInfoAvailable$0(BluetoothAdapter.java:1037)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.bluetooth.BluetoothAdapter$OnBluetoothActivityEnergyInfoProxy$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.bluetooth.BluetoothUtils.lambda$executeFromBinder$0(BluetoothUtils.java:343)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.bluetooth.BluetoothUtils$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at com.android.server.SystemServerInitThreadPool$$ExternalSyntheticLambda0.execute(R8$$SyntheticClass:0)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.bluetooth.BluetoothUtils.executeFromBinder(BluetoothUtils.java:343)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.bluetooth.BluetoothAdapter$OnBluetoothActivityEnergyInfoProxy.onBluetoothActivityEnergyInfoAvailable(BluetoothAdapter.java:1035)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.bluetooth.IBluetoothActivityEnergyInfoListener$Stub.onTransact(IBluetoothActivityEnergyInfoListener.java:98)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.os.Binder.execTransactInternal(Binder.java:1426)
+07-30 11:57:47.419 16764 16813 E BluetoothPowerStatsCollector: 	at android.os.Binder.execTransact(Binder.java:1365)
+07-30 11:57:52.024 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:58:02.024 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:58:12.024 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:58:22.023 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:58:32.024 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:58:37.504 17857 18138 I bbax    : (REDACTED) getHotwordActive::active query: %s, watch: %s, devices connected: %s
+07-30 11:58:42.025 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:58:47.318 16764 17131 D BackgroundInstallControlService: Package event received: 0
+07-30 11:58:47.855 16764 16795 W AppOps  : Noting op not finished: uid 10148 pkg com.google.android.gms code 113 startTime of in progress event=1753875168291
+07-30 11:58:47.863 16764 21309 W AppOps  : Noting op not finished: uid 10148 pkg com.google.android.gms code 79 startTime of in progress event=1753875181126
+07-30 11:58:47.876 17416 18194 I ActivityScheduler: nextTriggerTime: 54831751, in 238100ms, detectorType: 39, FULL_TYPE alarmWindowMillis: 80000
+07-30 11:58:48.857 16764 17147 W AppOps  : Noting op not finished: uid 10148 pkg com.google.android.gms code 113 startTime of in progress event=1753875168291
+07-30 11:58:52.026 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:58:53.728 17267 17398 D ApfFilter: (wlan0): Adding RA fe80::2 -> ff02::1 1800s fec0::/64 86400s/14400s DNS 1200000s fec0::3 
+07-30 11:59:02.026 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:59:12.025 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:59:22.025 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:59:32.026 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:59:37.502 17857 18040 I bbax    : (REDACTED) getHotwordActive::active query: %s, watch: %s, devices connected: %s
+07-30 11:59:42.027 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled
+07-30 11:59:43.010 16764 18026 D WifiNl80211Manager: Scan result ready event
+07-30 11:59:43.011 16764 18026 D WifiNative: Scan result ready event
+07-30 11:59:43.021 17416 17799 I WifiScanner: onFullResults
+07-30 11:59:43.021 17416 17424 I WifiScanner: onFullResults
+07-30 11:59:43.027 16764 17079 I HalDevMgr: bestIfaceCreationProposal is null, requestIface=STA, existingIface=[name=wlan0 type=STA]
+07-30 11:59:52.025 17314 17476 D SatelliteController: iisInCarrierRoamingNbIotNtn: satellite is disabled

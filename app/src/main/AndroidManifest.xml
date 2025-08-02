@@ -2,6 +2,8 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -10,8 +12,10 @@
         android:label="FCEUmm Wrapper"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        
+        <!-- Activité principale : Menu -->
         <activity
-            android:name=".MainActivity"
+            android:name=".MainMenuActivity"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true">
@@ -20,6 +24,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Activité d'émulation -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+            
+        <!-- Activité About -->
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+            
+        <!-- Activité Sélection ROM -->
+        <activity
+            android:name=".RomSelectionActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+            
+        <!-- Activité Paramètres Audio -->
+        <activity
+            android:name=".AudioSettingsActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+            
+        <!-- Activité Test Latence Audio -->
+        <activity
+            android:name=".AudioLatencyTestActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+            
+        <!-- Activité Test Qualité Audio -->
+        <activity
+            android:name=".AudioQualityTestActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+            
+        <!-- Activité Sélection Core -->
+        <activity
+            android:name=".CoreSelectionActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+            
     </application>
 
 </manifest> 

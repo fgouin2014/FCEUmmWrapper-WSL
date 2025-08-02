@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RESSOURCES ARRAYS POUR LES BOUTONS DU HAUT -->
+<!-- Fichier: ressources_arrays.xml -->
+<!-- À ajouter dans res/values/arrays.xml -->
+
+<resources>
+    <!-- ========================================== -->
+    <!-- DURÉES DE REWIND -->
+    <!-- ========================================== -->
+    <string-array name="rewind_durations">
+        <item>5 secondes</item>
+        <item>10 secondes</item>
+        <item>20 secondes</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- NOMS D'AFFICHAGE DES CORES -->
+    <!-- ========================================== -->
+    <string-array name="core_display_names">
+        <item>FCEUmm (Nintendo Entertainment System)</item>
+        <item>Nestopia (Nintendo Entertainment System)</item>
+        <item>QuickNES (Nintendo Entertainment System)</item>
+        <item>MAME 2003 Plus (Arcade)</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- TYPES DE CONTRÔLEURS -->
+    <!-- ========================================== -->
+    <string-array name="controller_types">
+        <item>Manette standard</item>
+        <item>Zapper (Light Gun)</item>
+        <item>Power Pad</item>
+        <item>Arkanoid Controller</item>
+        <item>R.O.B. (Robot)</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- PORTS DE CONTRÔLEURS -->
+    <!-- ========================================== -->
+    <string-array name="controller_ports">
+        <item>Port 1</item>
+        <item>Port 2</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS D'AFFICHAGE -->
+    <!-- ========================================== -->
+    <string-array name="display_options">
+        <item>Original (4:3)</item>
+        <item>Stretch (16:9)</item>
+        <item>Integer Scale</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- FILTRES VIDÉO -->
+    <!-- ========================================== -->
+    <string-array name="video_filters">
+        <item>Aucun</item>
+        <item>Bilinear</item>
+        <item>Trilinear</item>
+        <item>2xSAI</item>
+        <item>Super 2xSAI</item>
+        <item>Super Eagle</item>
+        <item>HQ2x</item>
+        <item>HQ3x</item>
+        <item>HQ4x</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS AUDIO -->
+    <!-- ========================================== -->
+    <string-array name="audio_options">
+        <item>Stéréo</item>
+        <item>Mono</item>
+        <item>Surround</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- NIVEAUX DE VOLUME -->
+    <!-- ========================================== -->
+    <string-array name="volume_levels">
+        <item>Silencieux</item>
+        <item>Faible</item>
+        <item>Moyen</item>
+        <item>Élevé</item>
+        <item>Maximum</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE SAUVEGARDE -->
+    <!-- ========================================== -->
+    <string-array name="save_options">
+        <item>Automatique</item>
+        <item>Manuel</item>
+        <item>Mixte</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE REWIND -->
+    <!-- ========================================== -->
+    <string-array name="rewind_options">
+        <item>Désactivé</item>
+        <item>5 secondes</item>
+        <item>10 secondes</item>
+        <item>20 secondes</item>
+        <item>30 secondes</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE CHEAT -->
+    <!-- ========================================== -->
+    <string-array name="cheat_options">
+        <item>Désactivé</item>
+        <item>Codes de jeu</item>
+        <item>Codes de système</item>
+        <item>Tous</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE NETPLAY -->
+    <!-- ========================================== -->
+    <string-array name="netplay_options">
+        <item>Désactivé</item>
+        <item>Hôte</item>
+        <item>Client</item>
+        <item>Spectateur</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE RECORDING -->
+    <!-- ========================================== -->
+    <string-array name="recording_options">
+        <item>Désactivé</item>
+        <item>Vidéo</item>
+        <item>Audio</item>
+        <item>Vidéo + Audio</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE STREAMING -->
+    <!-- ========================================== -->
+    <string-array name="streaming_options">
+        <item>Désactivé</item>
+        <item>YouTube</item>
+        <item>Twitch</item>
+        <item>Facebook</item>
+        <item>Discord</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE SHADERS -->
+    <!-- ========================================== -->
+    <string-array name="shader_options">
+        <item>Aucun</item>
+        <item>CRT</item>
+        <item>LCD</item>
+        <item>Scanlines</item>
+        <item>Pixel Perfect</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE PERFORMANCE -->
+    <!-- ========================================== -->
+    <string-array name="performance_options">
+        <item>Économie d'énergie</item>
+        <item>Équilibré</item>
+        <item>Performance</item>
+        <item>Maximum</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS DE CONTRÔLE -->
+    <!-- ========================================== -->
+    <string-array name="control_options">
+        <item>Écran tactile</item>
+        <item>Manette Bluetooth</item>
+        <item>Clavier</item>
+        <item>Mixte</item>
+    </string-array>
+
+    <!-- ========================================== -->
+    <!-- OPTIONS D'ACCESSIBILITÉ -->
+    <!-- ========================================== -->
+    <string-array name="accessibility_options">
+        <item>Désactivé</item>
+        <item>Haute visibilité</item>
+        <item>Contraste élevé</item>
+        <item>Grands boutons</item>
+        <item>Vibration</item>
+    </string-array>
+
+</resources> 

@@ -1,0 +1,614 @@
+
+07-30 20:34:45.986  1525  5088 V AS.AudioDeviceBroker: requestedCommunicationDevice: null mAudioModeOwner: AudioModeInfo: mMode=MODE_NORMAL, mPid=0, mUid=0
+07-30 20:34:47.630  1525  5088 V WindowManager: Translucent=false Floating=false ShowWallpaper=false Disable=false
+07-30 20:34:47.633  2762  2815 V WindowManagerShell: Transition requested (#3178): android.os.BinderProxy@fd27919 TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=3007 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.fceumm.wrapper/.MainMenuActivity } baseActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} topActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity} origActivity=null realActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} numActivities=2 lastActiveTime=986246193 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 maxWidth=-1 maxHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@fd95dde} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 99 - 0, 0) topActivityInfo=ActivityInfo{1dacbbf com.fceumm.wrapper.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isTopActivityStyleFloating=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 topActivityLetterboxAppWidth=1080 topActivityLetterboxAppHeight=2196 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive} topActivityBounds=null topActivityInDisplayCompat=false} originallySupportedMultiWindow=true hasWallpaper=false rootAffinity=10269:com.fceumm.wrapper isTopTaskInStage=false topActivityUiMode=17 CoverLauncherWidgetTask=false isKeepScreenOn=true isAllowedSeamlessRotation=false isTopTransparentActivity=false snappingGuideBounds=Rect(81, 612 - 999, 1782) isAliasManaged=false hasConfigChanged=false isAiKeyRemoveAppTask=false}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 3178 }
+07-30 20:34:47.783  1918  1918 I LibretroWrapper: Initialisation du wrapper Libretro
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: Core charg├⌐ avec succ├¿s
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: Fonctions de sauvegarde disponibles
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: Fonctions libretro r├⌐cup├⌐r├⌐es avec succ├¿s
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: Callbacks configur├⌐s
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: Core initialis├⌐
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: === D├ëBUT INITIALISATION AUDIO ULTRA SIMPLE ===
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: Cr├⌐ation du moteur OpenSL ES...
+07-30 20:34:47.788  1918  1918 I LibretroWrapper: Moteur OpenSL ES cr├⌐├⌐ avec succ├¿s
+07-30 20:34:47.789  1918  1918 I LibretroWrapper: Moteur r├⌐alis├⌐ avec succ├¿s
+07-30 20:34:47.789  1918  1918 I LibretroWrapper: Interface du moteur obtenue
+07-30 20:34:47.789  1918  1918 I LibretroWrapper: Cr├⌐ation du mixeur de sortie...
+07-30 20:34:47.789  1918  1918 I LibretroWrapper: Mixeur de sortie cr├⌐├⌐
+07-30 20:34:47.789  1918  1918 I LibretroWrapper: Mixeur r├⌐alis├⌐
+07-30 20:34:47.789  1918  1918 I LibretroWrapper: Configuration du lecteur audio...
+07-30 20:34:47.790  1918  1918 I LibretroWrapper: Lecteur audio cr├⌐├⌐
+07-30 20:34:47.794  1354  2339 D AudioFlinger: ro.audio.silent is ignored since no output device is set
+07-30 20:34:47.794  1354  2332 D AudioFlinger: ro.audio.silent is ignored since no output device is set
+07-30 20:34:47.794  1354 13898 V APM_AudioPolicyManager: getOutputForAttrInt() attributes={ Content type: AUDIO_CONTENT_TYPE_UNKNOWN Usage: AUDIO_USAGE_MEDIA Source: AUDIO_SOURCE_DEFAULT Flags: 0x100 Tags:  } stream=AUDIO_STREAM_MUSIC session 10097 selectedDeviceId 0
+07-30 20:34:47.794  1354  2340 D AudioFlinger: ro.audio.silent is ignored since no output device is set
+07-30 20:34:47.794  1354 13898 D APM_AudioPolicyManager: selectOutputFlags remove raw flag for SPEAKER
+07-30 20:34:47.795  1354 13898 V APM_AudioPolicyManager: getOutputForAttrInt() device {AUDIO_DEVICE_OUT_SPEAKER, @:}, sampling rate 44100, format 0x1, channel mask 0x3, flags 0x4 stream AUDIO_STREAM_MUSIC
+07-30 20:34:47.795  1354 13898 V APM_AudioPolicyManager: selectOutput new bestOutput 13 criteria 0 100 0 0 0 0 4 2 
+07-30 20:34:47.795  1354 13898 V APM_AudioPolicyManager: selectOutput new bestOutput 29 criteria 0 100 0 0 0 1 4 0 
+07-30 20:34:47.795  1354 13898 V APM_AudioPolicyManager: getOutputForAttrInt returns output 29 selectedDeviceId 3
+07-30 20:34:47.795  1354 13898 V APM_AudioPolicyManager: getOutputForAttr() returns output 29 requestedPortId 0 selectedDeviceId 3 for port ID 1067
+07-30 20:34:47.795  1354 13898 I UsecaseValidator: verifyAudioAttributes update usage: 1 to AUDIO_USAGE_GAME for output: 29 pid: 1918 package: com.fceumm.wrapper
+07-30 20:34:47.796  1354 13898 I AudioFlinger: nonSecFlag 104, secFlag 0, outputFlags 4
+07-30 20:34:47.796  1354 13898 W AudioFlinger: createTrack_l(): mismatch between requested flags (00000104) and output flags (00000004)
+07-30 20:34:47.796  1354 13898 D AudioFlinger: AUDIO_OUTPUT_FLAG_FAST denied: sharedBuffer=0x0 frameCount=0 mFrameCount=192 format=0x1 mFormat=0x5 isLinear=1 channelMask=0x3 sampleRate=44100 mSampleRate=48000 hasFastMixer=1 tid=2094 fastTrackAvailMask=0xfc
+07-30 20:34:47.796  1354 13898 I AudioFlinger: FastTrack denied, resize fc 1764
+07-30 20:34:47.796  1354 13898 D AudioFlinger: Client defaulted notificationFrames to 882 for frameCount 1764
+07-30 20:34:47.801  1918  1918 I AudioTrack: Need throttle time for OpenSLES player
+07-30 20:34:47.805  1918  1918 I LibretroWrapper: Lecteur r├⌐alis├⌐
+07-30 20:34:47.805  1918  1918 I LibretroWrapper: Interface de lecture obtenue
+07-30 20:34:47.805  1918  1918 I LibretroWrapper: Interface de queue obtenue
+07-30 20:34:47.805  1918  1918 I LibretroWrapper: Interface de volume obtenue
+07-30 20:34:47.805  1918  1918 I LibretroWrapper: Callback enregistr├⌐
+07-30 20:34:47.807  1525  1525 D AudioPlayerStateMonitor: Found a new active media playback. AudioPlaybackConfiguration piid:6223 deviceId:3 type:OpenSL ES AudioPlayer (Buffer Queue) u/pid:10269/1918 state:started attr:AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null sessionId:10097 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x0, sampleRate=0}
+07-30 20:34:47.807  1525  1525 D MediaSessionService: Audio playback is changed, config=AudioPlaybackConfiguration piid:6223 deviceId:3 type:OpenSL ES AudioPlayer (Buffer Queue) u/pid:10269/1918 state:started attr:AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null sessionId:10097 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x0, sampleRate=0}, removed=false
+07-30 20:34:47.807  1525  1525 D MediaSessionStack: updateMediaButtonSessionIfNeeded, callers=com.android.server.media.AudioPlayerStateMonitor$MessageHandler.handleMessage:19 android.os.Handler.dispatchMessage:107 
+07-30 20:34:47.808  1354 13898 I AudioPolicyEffectException: MySpaceHandler::checkDetachCondition media 1, ring 0, mp 0
+07-30 20:34:47.808  1354 13898 I AudioPolicyEffectException: MySpace detach value 1
+07-30 20:34:47.808  1354 13898 V APM_AudioPolicyManager: startOutput portId 1067
+07-30 20:34:47.808  1354 13898 V APM_AudioPolicyManager: startOutput() output 29, stream 3, session 10097
+07-30 20:34:47.808  1354 13898 V APM_AudioPolicyManager: setBeaconMute(1) mBeaconMuteRefCount=1 mBeaconPlayingRefCount=0
+07-30 20:34:47.808  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : lastStartedPackageName=null, lastStartedUid=-1, newStartedUid=10269, newStartPackageName=com.fceumm.wrapper, thread=Thread[RoutineHandlerThread,5,main]
+07-30 20:34:47.808  1354 13898 V APM_AudioPolicyManager: selectOutputForMusicEffects activeOnly 1 output 29 flags 0x00000004
+07-30 20:34:47.808  1354 13898 V APM_AudioPolicyManager: selectOutputForMusicEffects selected output 13
+07-30 20:34:47.808  1525  2592 D MediaRouterService: onAudioPlayerActiveStateChanged: uid=10269, active=true, restoreUid=10269
+07-30 20:34:47.808  1354 13898 V APM_AudioPolicyManager: getNewOutputDevices selected devices {AUDIO_DEVICE_OUT_SPEAKER, @:}
+07-30 20:34:47.808  1354 13898 V APM_AudioPolicyManager: setOutputDevices caller startSource[[portId:7][io:29, fast]] device {AUDIO_DEVICE_OUT_SPEAKER, @:} delayMs 0
+07-30 20:34:47.809  1354 13898 V APM_AudioPolicyManager: setOutputDevices: caller startSource[[portId:7][io:29, fast]] suppressing checkDeviceMuteStrategies
+07-30 20:34:47.809  1354 13898 V APM_AudioPolicyManager: setOutputDevices caller startSource[[portId:7][io:29, fast]] setting same device {AUDIO_DEVICE_OUT_SPEAKER, @:} or null device, force=0, patch handle=29
+07-30 20:34:47.809  1354 13898 V APM_AudioPolicyManager: checkAndSetVolume: output 29, stream 3, index 13, devices 0x2, volume 0.298538
+07-30 20:34:47.809  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : notifyChanged
+07-30 20:34:47.810  1354  1802 D AudioFlinger: setParameters: filtered dev setParameters keyvalue l_stream_music_active=true
+07-30 20:34:47.810  1177 30365 V sec_audio_hw: sec_dev_set_parameters : l_stream_music_active=true
+07-30 20:34:47.810  1177 30365 D audio_hw_primary: adev_set_parameters: enter: l_stream_music_active=true
+07-30 20:34:47.810  1177 30365 V audio_hw_sec: sec_set_parameters: enter
+07-30 20:34:47.810  1177 30365 D AudioSAEffectOffload: update offload effect: VM,0,0,0,0,2,0
+07-30 20:34:47.810  1177 30365 D audio_hw_primary: adev_set_parameters: exit with code(0)
+07-30 20:34:47.811  1177  2343 I Audio_a2dpsink_hw: adev_set_parameters: kevpairs=[l_stream_music_active=true]
+07-30 20:34:47.814  1354 13898 I AudioFlinger: updateStageIndex new -2903
+07-30 20:34:47.814  1354 13898 D audioserver: logFgsApiBegin: FGS Logger Transaction failed, -129
+07-30 20:34:47.815  1354  2330 D DlbEffectContext: transformExternalGain() volume:0x4C6D01 fVol:0.298538 extVal:-168
+07-30 20:34:47.816  1177  4947 D audio_hw_primary: start_output_stream: enter: stream(0xf26ca7e0)usecase(2: low-latency-playback) devices(0x2) is_haptic_usecase(0)
+07-30 20:34:47.816  1177  4947 D audio_hw_primary: select_devices for use case (low-latency-playback)
+07-30 20:34:47.816  1177  4947 D audio_hw_primary: check_usecases_codec_backend:becf: force routing 1
+07-30 20:34:47.816  1177  4947 D audio_hw_primary: check_usecases_codec_backend:becf: (88) check_usecases curr device: speaker, usecase device: backends match 0
+07-30 20:34:47.816  1177  4947 D audio_hw_primary: check_usecases_codec_backend:becf: check_usecases num.of Usecases to switch 0
+07-30 20:34:47.816  1177  4947 D audio_hw_sec: sec_get_enable_path_name type:0 result_str: dual-speaker
+07-30 20:34:47.816  1177  4947 V audio_hw_sec: sec_dsm_spkr_prot_control_tx_topology() enable:1, dsm_is_enabled:0
+07-30 20:34:47.816  1177  4947 D audio_hw_primary: enable_snd_device: snd_device(299: vi-feedback)
+07-30 20:34:47.816  1918  1918 I LibretroWrapper: Lecture d├⌐marr├⌐e
+07-30 20:34:47.816  1918  1918 I LibretroWrapper: Envoi du buffer initial...
+07-30 20:34:47.816  1918  2094 D AudioTrack: stop(1067): called with 0 frames delivered
+07-30 20:34:47.817  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : lastStartedPackageName=com.fceumm.wrapper, lastStartedUid=10269, newStartedUid=10269, newStartPackageName=com.fceumm.wrapper, thread=Thread[RoutineHandlerThread,5,main]
+07-30 20:34:47.817  1525  1525 D MediaSessionService: Audio playback is changed, config=AudioPlaybackConfiguration piid:6223 deviceId:3 type:OpenSL ES AudioPlayer (Buffer Queue) u/pid:10269/1918 state:stopped attr:AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null sessionId:10097 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x3, sampleRate=44100}, removed=false
+07-30 20:34:47.817  1525  2592 D MediaRouterService: onAudioPlayerActiveStateChanged: uid=10269, active=false, delaying
+07-30 20:34:47.817  1525  1525 D MediaSessionStack: updateMediaButtonSessionIfNeeded, callers=com.android.server.media.AudioPlayerStateMonitor$MessageHandler.handleMessage:19 android.os.Handler.dispatchMessage:107 
+07-30 20:34:47.817  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : lastStartedPackageName=com.fceumm.wrapper, lastStartedUid=10269, newStartedUid=-1, newStartPackageName=null, thread=Thread[RoutineHandlerThread,5,main]
+07-30 20:34:47.818  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : notifyChanged
+07-30 20:34:47.818  1177  4947 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x12b of type 1 for Event 1, with Raise=0
+07-30 20:34:47.818  1177  4947 D audio_route: Apply path: vi-feedback
+07-30 20:34:47.818  1177  4947 D sm8350_platform: fluence nn disabled
+07-30 20:34:47.818  1177  4947 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 86 of type 1 for Event 3, with Raise=0
+07-30 20:34:47.818  1177  4947 D audio_hw_utils: audio_extn_utils_send_app_type_cfg: usecase->in_snd_device vi-feedback
+07-30 20:34:47.818  1177  4947 I audio_hw_utils: send_app_type_cfg_for_device default app_type 69938, acdb_dev_id 102, sample_rate 48000, snd_device_be_idx 56
+07-30 20:34:47.819  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : lastStartedPackageName=null, lastStartedUid=-1, newStartedUid=10269, newStartPackageName=com.fceumm.wrapper, thread=Thread[RoutineHandlerThread,5,main]
+07-30 20:34:47.819  1525  1525 D AudioPlayerStateMonitor: Found a new active media playback. AudioPlaybackConfiguration piid:6223 deviceId:3 type:OpenSL ES AudioPlayer (Buffer Queue) u/pid:10269/1918 state:started attr:AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null sessionId:10097 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x3, sampleRate=44100}
+07-30 20:34:47.819  1525  1525 D MediaSessionService: Audio playback is changed, config=AudioPlaybackConfiguration piid:6223 deviceId:3 type:OpenSL ES AudioPlayer (Buffer Queue) u/pid:10269/1918 state:started attr:AudioAttributes: usage=USAGE_MEDIA content=CONTENT_TYPE_UNKNOWN source=DEFAULT flags=0x0 tags= bundle=null sessionId:10097 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x3, sampleRate=44100}, removed=false
+07-30 20:34:47.820  1525  1525 D MediaSessionStack: updateMediaButtonSessionIfNeeded, callers=com.android.server.media.AudioPlayerStateMonitor$MessageHandler.handleMessage:19 android.os.Handler.dispatchMessage:107 
+07-30 20:34:47.820  1177  4947 D ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 102, path = 1, app id = 0x11132, sample rate = 48000, use_case = 0,buffer_idx_w_path =1, afe_sample_rate = 48000, cal_mode = 1, offset_index = 0
+07-30 20:34:47.820  1525  2592 D MediaRouterService: onAudioPlayerActiveStateChanged: uid=10269, active=true, restoreUid=10269
+07-30 20:34:47.820  1177  4947 D ACDB-LOADER: ACDB -> AUDIO_SET_AUDPROC_CAL cal_type[11] acdb_id[102] app_type[69938]
+07-30 20:34:47.820  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : notifyChanged
+07-30 20:34:47.820  1177  4947 D android.hardware.audio.service: [Data Manager]-> No data found
+07-30 20:34:47.821  1177  4947 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000066 
+07-30 20:34:47.821  1177  4947 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000066 
+07-30 20:34:47.821  1177  4947 D ACDB-LOADER: ACDB -> AUDIO_SET_AFE_CAL cal_type[17] acdb_id[102]
+07-30 20:34:47.821  1177  4947 D sm8350_platform: fluence nn disabled
+07-30 20:34:47.821  1177  4947 D audio_hw_primary: enable_audio_route: apply mixer and update path: spkr-vi-feedback
+07-30 20:34:47.821  1177  4947 D audio_route: Apply path: spkr-vi-feedback
+07-30 20:34:47.821  1918  1918 I LibretroWrapper: Buffer initial envoy├⌐ avec succ├¿s
+07-30 20:34:47.821  1918  1918 I LibretroWrapper: === AUDIO INITIALIS├ë AVEC SUCC├êS - APPROCHE ULTRA SIMPLE ===
+07-30 20:34:47.822  1918  1918 I LibretroWrapper: Chargement ROM: /data/user/0/com.fceumm.wrapper/files/marioduckhunt.nes
+07-30 20:34:47.822  1177  4947 D AudioSAEffectOffload: update offload effect: VM,0,0,0,0,2,0
+07-30 20:34:47.824  1918  1918 I LibretroWrapper: ROM charg├⌐e: 81936 bytes
+07-30 20:34:47.824  1918  1918 D LibretroWrapper: Environment callback: cmd=10
+07-30 20:34:47.829  1918  1918 I LibretroWrapper: ROM charg├⌐e avec succ├¿s
+07-30 20:34:47.829  1918  1918 I LibretroWrapper: Informations vid├⌐o: 256x240, FPS: 0.00
+07-30 20:34:47.829  1918  1918 I LibretroWrapper: Volume audio d├⌐fini ├á 1.00 (0.0 mB)
+07-30 20:34:47.829  1918  1918 I MainActivity: Audio activ├⌐ avec succ├¿s
+07-30 20:34:47.829  1918  1918 I LibretroWrapper: Queue audio vid├⌐e pour optimiser la latence
+07-30 20:34:47.829  1918  1918 I LibretroWrapper: Buffer de latence optimis├⌐e envoy├⌐
+07-30 20:34:47.829  1918  1918 I MainActivity: Latence audio optimis├⌐e
+07-30 20:34:47.845  1918  1918 I MainActivity: MainActivity onResume - Reprise de l'audio
+07-30 20:34:47.845  1918  1918 I LibretroWrapper: Audio repris - APPROCHE SIMPLIFI├ëE
+07-30 20:34:47.845  1918  1918 I MainActivity: Audio repris avec succ├¿s
+07-30 20:34:47.845  1918  1918 I LibretroWrapper: Volume audio d├⌐fini ├á 1.00 (0.0 mB)
+07-30 20:34:47.847  1918  1918 I ViewRootImpl: dVRR is disabled
+07-30 20:34:47.853  1525  5088 D RestrictionPolicy: isScreenCaptureEnabled : ret=true userId=0
+07-30 20:34:47.853  1525  5088 D RestrictionPolicy: isScreenCaptureEnabled : ret=true userId=0
+07-30 20:34:47.857  1177  4947 V audio_hw_sec: sec_dsm_spkr_prot_control_tx_topology() dsm enabled (c:0 d:1 m:0)
+07-30 20:34:47.857  1177  4947 D audio_hw_primary: enable_snd_device: snd_device(2: dual-speaker)
+07-30 20:34:47.857  1177  4947 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 1, with Raise=0
+07-30 20:34:47.857  1177  4947 D audio_route: Apply path: dual-speaker
+07-30 20:34:47.867  1177  4947 I audio_hw_utils: set_app_type_cfg app_type_cfg->app_type 69937, app_type_cfg->sample_rate 48000, app_type_cfg->bit_width 16
+07-30 20:34:47.867  1177  4947 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 2 of type 0 for Event 3, with Raise=0
+07-30 20:34:47.867  1177  4947 D audio_hw_utils: audio_extn_utils_send_app_type_cfg: usecase->out_snd_device speaker
+07-30 20:34:47.867  1177  4947 I audio_hw_utils: send_app_type_cfg_for_device PLAYBACK app_type 69937, acdb_dev_id 13, sample_rate 48000, snd_device_be_idx 55
+07-30 20:34:47.868  1177  4947 D ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 13, path = 0, app id = 0x11131, sample rate = 48000, use_case = 0,buffer_idx_w_path =0, afe_sample_rate = 48000, cal_mode = 1, offset_index = 0
+07-30 20:34:47.868  1177  4947 D ACDB-LOADER: ACDB -> AUDIO_SET_AUDPROC_CAL cal_type[11] acdb_id[13] app_type[69937]
+07-30 20:34:47.868  1177  4947 D android.hardware.audio.service: Failed to fetch the lookup information of the device 0000000D 
+07-30 20:34:47.868  1177  4947 D android.hardware.audio.service: Failed to fetch the lookup information of the device 0000000D 
+07-30 20:34:47.868  1177  4947 D ACDB-LOADER: ACDB -> AUDIO_SET_VOL_CAL cal type = 12
+07-30 20:34:47.868  1177  4947 D android.hardware.audio.service: Failed to fetch the lookup information of the device 0000000D 
+07-30 20:34:47.868  1177  4947 D android.hardware.audio.service: Failed to fetch the lookup information of the device 0000000D 
+07-30 20:34:47.868  1177  4947 D ACDB-LOADER: ACDB -> AUDIO_SET_AFE_CAL cal_type[16] acdb_id[13]
+07-30 20:34:47.868  1177  4947 D audio_hw_primary: enable_audio_route: apply mixer and update path: low-latency-playback speaker
+07-30 20:34:47.868  1177  4947 D audio_route: Apply path: low-latency-playback speaker
+07-30 20:34:47.869  1177  4947 D AudioSAEffectOffload: update offload effect: VM,0,0,0,0,2,0
+07-30 20:34:47.869  1177  4947 D audio_hw_primary: select_devices: done
+07-30 20:34:47.902  1918  1918 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+07-30 20:34:47.910  1177  4947 D audio_hw_primary: start_output_stream: exit
+07-30 20:34:47.910  1177  4947 D audio_hw_sec: sec_set_soundbooster_rotation: SB rotation set 1, 0
+07-30 20:34:47.911  1177  4947 D audio_hw_sec: sec_set_soundbooster_flatmotion: SB flatmotion set 1
+07-30 20:34:47.911  1177  4947 V audio_hw_sec: sec_set_mixer_value_int set SB flatmotion as 1
+07-30 20:34:47.911  1177  4947 D AudioSAEffectOffload: update offload effect: VM,0,0,0,0,2,0
+07-30 20:34:47.912  1354  2330 W FactoryHal: hasAidlHalService android.hardware.audio.effect.IFactory/default: false
+07-30 20:34:47.913   727   727 I hwservicemanager: getTransport: Cannot find entry android.hardware.audio.effect@7.1::IEffectsFactory/default in either framework or device VINTF manifest.
+07-30 20:34:47.914   727   727 I hwservicemanager: getTransport: Cannot find entry android.hardware.audio.effect@7.0::IEffectsFactory/default in either framework or device VINTF manifest.
+07-30 20:34:47.915  1354  2330 W FactoryHal: hasAidlHalService android.hardware.audio.core.IModule/default: false
+07-30 20:34:47.915   727   727 I hwservicemanager: getTransport: Cannot find entry android.hardware.audio@7.1::IDevicesFactory/default in either framework or device VINTF manifest.
+07-30 20:34:47.915   727   727 I hwservicemanager: getTransport: Cannot find entry android.hardware.audio@7.0::IDevicesFactory/default in either framework or device VINTF manifest.
+07-30 20:34:47.919  1918  1918 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+07-30 20:34:47.925  1354  2330 I AudioEffectStageModule: Dolby_FX_GAME(-2903) LazyInit start
+07-30 20:34:47.927  1354  2330 D DlbProfileParamArray: getAvailableTuningDevicesLen, tuning = bluetooth_spatialAudio, length = 22
+07-30 20:34:47.927  1354  2330 D DlbEffectContext: updateInputFormat() mStreamType: 0, channels: 0x3, mDapDevice: 0x0, mAudioFlags: 0x0
+07-30 20:34:47.927  1354  2330 D DlbDlbEffect: handle_EFFECT_CMD_ENABLE()
+07-30 20:34:47.927  1354  2330 D DlbCrossfadeProcess: setEnabled transitioning from DAP_BYPASSED state to PREROLL_ACTIVE
+07-30 20:34:47.927  1354  2330 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:47.927  1354  2330 D DlbEffectContext: setEnabled(enabled=1) stageIdx:-2903
+07-30 20:34:47.928  1354  2330 D DlbEffectContext: updateInputFormat() mStreamType: 0, channels: 0x3, mDapDevice: 0x2, mAudioFlags: 0x0
+07-30 20:34:47.928  1354  2330 D DlbEffectContext: transformExternalGain() volume:0x4C6D01 fVol:0.298538 extVal:-168
+07-30 20:34:47.929  1354  2330 I AudioEffectStageModule: setEnabled already processed name Dolby_FX_GAME index -2903
+07-30 20:34:47.929  1354  2330 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:47.929  1354  2330 D DlbEffectContext: setEnabled(enabled=0) stageIdx:-2903
+07-30 20:34:47.929  1354  2330 D DlbCrossfadeProcess: setEnabled transitioning from PREROLL_ACTIVE state to DAP_BYPASSED
+07-30 20:34:47.929  1354  2330 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_AUX_GAIN_START_VOLUME
+07-30 20:34:47.929  1354  2330 D DlbEffectContext: transformExternalGain() volume:0x8FF59A fVol:0.562341 extVal:-80
+07-30 20:34:47.929  1354  2330 I AudioEffectStageModule: Dolby_FX_GAME(-2903) LazyInit end
+07-30 20:34:47.949  1354  2330 I AudioMixer: create resampler src 44100, 2, dst 48000, 2, f 0x5, q 8
+07-30 20:34:47.984  1525  1623 V WindowManager: Sent Transition (#3178) createdAt=07-30 20:34:47.624 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=3007 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.fceumm.wrapper/.MainMenuActivity } baseActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} topActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity} origActivity=null realActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} numActivities=2 lastActiveTime=986246193 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 maxWidth=-1 maxHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{d1cb7a Task{ff8e309 #3007 type=standard A=10269:com.fceumm.wrapper}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 99 - 0, 0) topActivityInfo=ActivityInfo{47f844d com.fceumm.wrapper.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isTopActivityStyleFloating=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 topActivityLetterboxAppWidth=1080 topActivityLetterboxAppHeight=2196 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive} topActivityBounds=null topActivityInDisplayCompat=false} originallySupportedMultiWindow=true hasWallpaper=false rootAffinity=10269:com.fceumm.wrapper isTopTaskInStage=false topActivityUiMode=17 CoverLauncherWidgetTask=false isKeepScreenOn=true isAllowedSeamlessRotation=false isTopTransparentActivity=false snappingGuideBounds=Rect(81, 612 - 999, 1782) isAliasManaged=false hasConfigChanged=false isAiKeyRemoveAppTask=false}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 3178 }
+07-30 20:34:47.997  2762  2815 W libc    : Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+07-30 20:34:48.027  1525  2465 D InputMethodManagerService: isImeSwitcherDisabledPackage : false
+07-30 20:34:48.031  1525  3290 D RestrictionPolicy: isScreenCaptureEnabled : ret=true userId=0
+07-30 20:34:48.032 12847 12847 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1311 onStartInput(EditorInfo{EditorInfo{packageName=com.fceumm.wrapper, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=Bundle[{isTextEditor=false, displayId=0}], hintText=null, hintLocales=[]}}, false)
+07-30 20:34:48.042  1525  2888 D InputMethodManagerService: isImeSwitcherDisabledPackage : false
+07-30 20:34:48.316  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.317  8097  8097 I AudioManager: getParameters keys = g_effect_active_sound_info=track
+07-30 20:34:48.317  1354 13898 I SecAudioParamFlinger: getActiveSoundInfo 1, trackFormat 1, outputFormat 5
+07-30 20:34:48.317  8097  8097 I AudioManagerWrapper: getActiveSoundFormat() : active sound format is 1
+07-30 20:34:48.320  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:48.320  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:48.320  8097  8097 I EffectManager: isSpatialAudioActive() : mode is off (0)
+07-30 20:34:48.321  8097  8097 I AudioManager: setParameters keyValuePairs = g_effect_dolby_enable=0;g_effect_dolby_profile=5
+07-30 20:34:48.321  1354 13898 V APM_AudioPolicyManager: setAudioPolicyConfig: g_effect_dolby_enable=0;g_effect_dolby_profile=5
+07-30 20:34:48.322  1354 13898 D DlbSpatializerEffectContext: setParam() received parameter SPATIALIZER_PARAM_ENABLE
+07-30 20:34:48.322  1177 30365 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.322  1177 30365 D AudioSAEffectOffload: update offload effect: DLB,0,2,5
+07-30 20:34:48.322  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.322  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.322  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.322  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.322  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.322  8097  8097 I DolbyAtmosWrapper: setProfileEnabled() : for dolby atmos, false
+07-30 20:34:48.323  1177 30365 D AudioSAEffectOffload: update offload effect: DLB,0,2,5
+07-30 20:34:48.323  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.323  8097  8097 I EffectManager: setEffectDolbyAtmos() : enable is false, mode is off (5)
+07-30 20:34:48.323  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:48.323  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:48.323  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.323  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:48.323  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:48.323  8097  8097 I AudioManager: setParameters keyValuePairs = g_effect_game_dolby_enable=0
+07-30 20:34:48.324  1354 13898 V APM_AudioPolicyManager: setAudioPolicyConfig: g_effect_game_dolby_enable=0
+07-30 20:34:48.325  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.325  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.325  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.325  8097  8097 I DolbyAtmosWrapper: setProfileEnabled() : for dolby atmos for gaming, false
+07-30 20:34:48.325  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.326  1177 30365 D AudioSAEffectOffload: update offload effect: SA,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,1,1,0,0,0,0,0
+07-30 20:34:48.326  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.327  8097  8097 I EffectManager: isSupportUHQUpscalerOnCurrentAudioPath() : path is speaker (0), device type is builtin speaker (2)
+07-30 20:34:48.327  8097  8097 I EffectManager: updateUHQUpscalerState() : uhq upscaler is not available on current audio path
+07-30 20:34:48.327  8097  8097 I EffectManager: updateUHQUpscalerState() : audio path is speaker, so skip writing mode to settings db
+07-30 20:34:48.327  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.327  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:48.327  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.327  8097  8097 I EffectManager: setEffectVolumeNormalization() : mode is 0, current profile is 5
+07-30 20:34:48.327  8097  8097 I EffectManager: isSpatialAudioActive() : mode is off (0)
+07-30 20:34:48.327  8097  8097 I AudioManager: setParameters keyValuePairs = g_effect_dolby_volume_leveler=-1
+07-30 20:34:48.327  1354 13898 V APM_AudioPolicyManager: setAudioPolicyConfig: g_effect_dolby_volume_leveler=-1
+07-30 20:34:48.327  1354 13898 I SecAudioParamPolicy: g_effect_dolby_volume_leveler: 0 
+07-30 20:34:48.328  8097  8097 I AudioManager: setParameters keyValuePairs = g_effect_dolby_enable=0;g_effect_dolby_profile=5
+07-30 20:34:48.329  1354 13898 V APM_AudioPolicyManager: setAudioPolicyConfig: g_effect_dolby_enable=0;g_effect_dolby_profile=5
+07-30 20:34:48.329  1354 13898 D DlbSpatializerEffectContext: setParam() received parameter SPATIALIZER_PARAM_ENABLE
+07-30 20:34:48.329  1177 30365 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.329  1177 30365 D AudioSAEffectOffload: update offload effect: DLB,0,2,5
+07-30 20:34:48.329  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.329  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.329  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.329  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.329  1354 13898 D DlbEffectContext: setParam() received parameter EFFECT_PARAM_ENABLE
+07-30 20:34:48.330  8097  8097 I DolbyAtmosWrapper: setProfileEnabled() : for dolby atmos, false
+07-30 20:34:48.330  1177 30365 D AudioSAEffectOffload: update offload effect: DLB,0,2,5
+07-30 20:34:48.331  8097  8097 I AudioManagerWrapper: getCurrentMediaVolume() : current media volume is 13
+07-30 20:34:48.331  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.331  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:48.331  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:48.331  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:48.331  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:48.331  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:48.374  1525  3852 I AS.AudioService: uid: 10269 is using audio
+07-30 20:34:48.391  1525  3852 I PowerManagerService: [PWL] SetWakeLockEnableDisable uid = 10258 , disable= true
+07-30 20:34:49.333  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:49.333  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:49.333  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:49.333  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:49.333  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:49.333  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:50.335  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:50.335  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:50.335  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:50.335  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:50.335  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:50.335  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:50.336  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:50.336  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:50.336  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:50.336  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:50.336  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:50.336  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:50.368  7413  2104 D BluetoothAdapter: isLeEnabled(): ON
+07-30 20:34:50.370  7413  2015 I NearbySharing: Advertising has started with mode BACKGROUND, Bt enabled : false
+07-30 20:34:50.372  2959  3259 I bluetooth: system/gd/hci/le_advertising_manager.cc:1378 enable_advertiser: advertiser_id=1
+07-30 20:34:50.477  7413  2112 D BluetoothAdapter: isLeEnabled(): ON
+07-30 20:34:50.482  2959  3259 I bluetooth: system/gd/hci/le_advertising_manager.cc:1378 enable_advertiser: advertiser_id=2
+07-30 20:34:50.487  7413  2112 D BluetoothAdapter: isLeEnabled(): ON
+07-30 20:34:50.490  2959  3259 I bluetooth: system/gd/hci/le_advertising_manager.cc:1378 enable_advertiser: advertiser_id=3
+07-30 20:34:50.968  1918  1918 D LibretroWrapper: MainActivity: Bouton SELECT press├⌐ (ID: 7)
+07-30 20:34:51.338  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:51.338  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:51.338  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:51.338  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:51.338  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:51.338  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:51.543  1918  1918 D LibretroWrapper: MainActivity: Bouton SELECT press├⌐ (ID: 7)
+07-30 20:34:52.242  1918  1918 D LibretroWrapper: MainActivity: Bouton SELECT press├⌐ (ID: 7)
+07-30 20:34:52.340  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:52.340  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:52.340  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:52.340  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:52.340  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:52.340  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:52.342  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:52.342  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:52.342  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:52.342  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:52.342  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:52.342  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:52.662  1918  2096 I LibretroWrapper: FPS actuel: 54.9
+07-30 20:34:52.902  1918  1918 D LibretroWrapper: MainActivity: Bouton SELECT press├⌐ (ID: 7)
+07-30 20:34:53.344  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:53.344  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:53.344  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:53.344  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:53.344  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:53.344  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:54.222  1918  1918 D LibretroWrapper: MainActivity: Bouton START press├⌐ (ID: 6)
+07-30 20:34:54.347  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:54.347  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:54.347  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:54.347  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:54.347  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:54.347  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:54.348  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:54.348  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:54.348  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:54.348  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:54.348  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:54.348  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:55.354  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:55.354  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:55.354  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:55.354  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:55.354  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:55.354  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:56.100  1918  1918 D LibretroWrapper: MainActivity: Bouton START press├⌐ (ID: 6)
+07-30 20:34:56.356  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:56.356  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:56.356  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:56.356  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:56.356  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:56.356  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:56.360  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:56.360  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:56.360  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:56.360  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:56.360  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:56.360  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:57.363  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:57.363  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:57.363  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:57.363  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:57.363  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:57.363  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:57.671  1918  2096 I LibretroWrapper: FPS actuel: 56.9
+07-30 20:34:58.366  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:58.366  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:58.366  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:58.366  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:58.366  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:58.366  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:58.372  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:58.372  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:58.372  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:58.372  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:58.372  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:58.372  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:34:59.375  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:59.375  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:34:59.375  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:34:59.375  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:34:59.375  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:34:59.375  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:00.380  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:00.380  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:00.380  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:00.381  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:00.381  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:00.381  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:00.382  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:00.382  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:00.382  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:00.382  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:00.382  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:00.382  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:01.277  1525  3889 D WifiProfileShare: network score provider settings enabled
+07-30 20:35:01.282  1525  3889 I [MCFSDK_android_1.2.27006]_4_McfCasterImpl: isNetworkEnabled - type : 1 ret : true
+07-30 20:35:01.282  1525  3889 D WifiProfileShare.McfCast: -ME--- mIsNetworkEnabled :true
+07-30 20:35:01.282  1525  3889 I [MCFSDK_android_1.2.27006]_4_McfCasterImpl: isNetworkEnabled - type : 1 ret : true
+07-30 20:35:01.282  1525  3889 D WifiProfileShare.McfCast: -ME--- mIsNetworkEnabled :true
+07-30 20:35:01.385  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:01.385  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:01.385  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:01.385  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:01.385  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:01.385  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:01.558  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:01.558  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:01.558  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:02.193  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:02.193  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:02.193  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:02.388  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:02.388  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:02.388  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:02.388  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:02.388  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:02.388  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:02.389  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:02.389  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:02.389  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:02.389  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:02.389  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:02.389  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:02.673  1918  2096 I LibretroWrapper: FPS actuel: 56.4
+07-30 20:35:02.968  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:02.968  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:02.968  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:03.391  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:03.391  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:03.391  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:03.391  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:03.391  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:03.391  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:03.458  2762  2762 D InterruptionStateProvider:  no Heads up : edgelighting enabled app. 0|com.adguard.android|2305|null|10341
+07-30 20:35:03.644  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:03.644  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:03.644  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:04.321  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:04.321  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:04.321  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:04.394  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:04.395  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:04.395  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:04.395  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:04.395  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:04.400  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:04.407  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:04.407  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:04.408  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:04.408  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:04.408  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:04.408  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:04.946  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:04.946  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:04.946  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:05.411  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:05.411  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:05.411  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:05.411  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:05.411  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:05.411  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:05.940  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:05.940  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:05.940  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:06.413  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:06.413  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:06.413  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:06.413  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:06.414  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:06.414  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:06.417  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:06.417  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:06.417  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:06.417  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:06.417  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:06.417  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:06.948  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:06.948  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:06.948  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:07.421  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:07.421  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:07.421  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:07.421  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:07.421  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:07.421  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:07.674  1918  2096 I LibretroWrapper: FPS actuel: 57.4
+07-30 20:35:07.985  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:07.985  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:07.985  1918  1918 D LibretroWrapper: MainActivity: Bouton A+B press├⌐ (ID: 8)
+07-30 20:35:08.424  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:08.424  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:08.424  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:08.424  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:08.424  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:08.424  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:08.428  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:08.429  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:08.429  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:08.429  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:08.429  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:08.429  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:08.718  1918  1918 D LibretroWrapper: MainActivity: Bouton B press├⌐ (ID: 5)
+07-30 20:35:09.086  1918  1918 D LibretroWrapper: MainActivity: Bouton A press├⌐ (ID: 4)
+07-30 20:35:09.247 28082 28113 V CpEventLog(u0): cp_state: [                      etc = {binders=0, country_iso=CA, version=15.4.34, db_version=1901, csc=CAN/RWC, sec_enabled=false, is_roaming=false} ]
+07-30 20:35:09.431  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:09.432  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:09.432  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:09.432  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:09.432  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:09.432  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:10.434  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:10.434  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:10.434  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:10.434  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:10.434  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:10.434  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:10.436  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:10.437  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:10.437  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:10.437  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:10.437  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:10.437  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:11.380 29990 30292 I artd    : GetBestInfo: odex next to the dex file (/data/app/~~jHD7Gpp8t_FGScvhT202Ug==/com.google.audio.hearing.visualization.accessibility.scribe-Ha6gi9Ycwrj31pWD4qXYlA==/oat/arm64/base.odex) is kOatUpToDate with filter 'speed-profile' executable 'false'
+07-30 20:35:11.440  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:11.440  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:11.440  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:11.440  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:11.440  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:11.440  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:12.443  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:12.443  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:12.443  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:12.443  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:12.443  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:12.444  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:12.452  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:12.452  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:12.452  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:12.452  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:12.452  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:12.452  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:12.679  1918  2096 I LibretroWrapper: FPS actuel: 57.0
+07-30 20:35:13.454  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:13.454  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:13.454  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:13.454  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:13.454  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:13.454  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:14.456  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:14.456  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:14.456  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:14.456  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:14.456  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:14.456  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:14.458  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:14.459  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:14.459  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:14.459  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:14.459  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:14.459  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:15.461  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:15.461  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:15.461  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:15.461  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:15.461  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:15.461  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:16.464  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:16.464  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:16.464  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:16.464  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:16.464  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:16.464  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:16.468  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:16.468  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:16.468  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:16.468  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:16.468  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:16.468  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:17.470  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:17.470  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:17.470  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:17.470  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:17.470  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:17.470  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:17.687  1918  2096 I LibretroWrapper: FPS actuel: 55.9
+07-30 20:35:18.473  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:18.473  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:18.473  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:18.473  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:18.473  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:18.473  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:18.477  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:18.477  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:18.477  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:18.477  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:18.477  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:18.477  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:19.480  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:19.481  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:19.481  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:19.481  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:19.481  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:19.481  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:20.483  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:20.483  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:20.483  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:20.484  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:20.484  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:20.484  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:20.485  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:20.485  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:20.485  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:20.485  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:20.485  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:20.485  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:21.487  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:21.487  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:21.487  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:21.487  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:21.487  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:21.487  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:22.489  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:22.489  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:22.489  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:22.489  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:22.489  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:22.490  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:22.493  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:22.493  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : path is speaker (0)
+07-30 20:35:22.493  8097  8097 I EffectManager: isSupportDolbyAtmosOnThisAudioPath() : speaker type is stereo
+07-30 20:35:22.493  8097  8097 I AudioPathManager: loadAudioPath() : loaded audio path is speaker (0)
+07-30 20:35:22.493  8097  8097 I EffectManager: isSupportVolumeNormalizationOnCurrentAudioPath() : path is speaker (0)
+07-30 20:35:22.493  8097  8097 I DVFSHelper: isNecessaryToBoostCPU() : isDolbyOn? false, isUHQUpscalerOn? false, isVoiceBoostOn? false, isVolumeNormalizationOn? false
+07-30 20:35:22.693  1918  2096 I LibretroWrapper: FPS actuel: 55.9

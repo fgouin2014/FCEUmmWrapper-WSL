@@ -1,0 +1,52 @@
+Core: quicknes_libretro_android.so
+Options:
+- key: quicknes_aspect_ratio_par
+  name: Aspect Ratio
+  default: PAR
+  current: PAR
+  values: PAR, 4:3
+- key: quicknes_audio_eq
+  name: Audio Equalizer Preset
+  default: default
+  current: default
+  values: default, famicom, tv, flat, crisp, tinny
+- key: quicknes_audio_nonlinear
+  name: Audio Mode
+  default: nonlinear
+  current: nonlinear
+  values: nonlinear, linear, stereo panning
+- key: quicknes_no_sprite_limit
+  name: No Sprite Limit
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: quicknes_palette
+  name: Color Palette
+  default: default
+  current: default
+  values: default, asqrealc, nintendo-vc, rgb, yuv-v3, unsaturated-final, sony-cxa2025as-us, pal, bmf-final2, bmf-final3, smooth-fbx, composite-direct-fbx, pvm-style-d93-fbx, ntsc-hardware-fbx, nes-classic-fbx-fs, nescap, wavebeam
+- key: quicknes_turbo_enable
+  name: Turbo Enable
+  default: none
+  current: none
+  values: none, player 1, player 2, both
+- key: quicknes_turbo_pulse_width
+  name: Turbo Pulse Width (in frames)
+  default: 3
+  current: 3
+  values: 3, 1, 2, 5, 10, 15, 30, 60
+- key: quicknes_up_down_allowed
+  name: Allow Opposing Directions
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: quicknes_use_overscan_h
+  name: Show Horizontal Overscan
+  default: enabled
+  current: enabled
+  values: enabled, disabled
+- key: quicknes_use_overscan_v
+  name: Show Vertical Overscan
+  default: disabled
+  current: disabled
+  values: disabled, enabled

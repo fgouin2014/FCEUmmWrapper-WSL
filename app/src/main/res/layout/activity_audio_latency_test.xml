@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:padding="20dp">
+
+    <!-- Titre -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⚡ Test Latence Audio"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Informations de latence -->
+    <TextView
+        android:id="@+id/tv_latency_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informations de latence..."
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="15dp"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Boutons de test -->
+    <Button
+        android:id="@+id/btn_test_latency"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="🎯 Test Direct (Java)"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:background="@android:color/holo_green_dark"
+        android:layout_marginBottom="15dp" />
+
+    <Button
+        android:id="@+id/btn_test_core_audio"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="🎮 Test Core (Complet)"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Instructions -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Objectif: Latence inférieure à 50ms\nSi supérieure à 100ms: Problème identifié\nSi inférieure à 50ms: Optimisations réussies"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Bouton retour -->
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="⬅️ Retour"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:background="@android:color/holo_red_dark"
+        android:layout_gravity="center" />
+
+</LinearLayout> 

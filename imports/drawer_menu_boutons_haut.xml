@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DRAWER MENU - OPTIONS DES BOUTONS DU HAUT -->
+<!-- Fichier: drawer_menu_boutons_haut.xml -->
+<!-- À intégrer dans activity_game.xml comme drawer latéral -->
+
+<!-- ========================================== -->
+<!-- DRAWER MENU LATÉRAL À DROITE -->
+<!-- ========================================== -->
+<FrameLayout
+    android:id="@+id/gameMenuDrawer"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="end"
+    android:background="#F8F8F8"
+    android:elevation="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- ========================================== -->
+        <!-- HEADER DU MENU (FIXE EN HAUT) -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#EEE"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btnCloseMenu"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="✕"
+                android:textSize="18sp"
+                android:background="@android:color/transparent"
+                android:textColor="#C00" />
+
+            <TextView
+                android:id="@+id/gameMenuTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Menu de jeu"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- CONTENU SCROLLABLE DU MENU -->
+        <!-- ========================================== -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <!-- ========================================== -->
+                <!-- OPTIONS REWIND -->
+                <!-- ========================================== -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Options de rewind"
+                        android:textStyle="bold"
+                        android:textColor="#222"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <Switch
+                        android:id="@+id/switchRewindEnable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Activer le rewind"
+                        android:checked="true"
+                        android:textColor="#222" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Durée du rewind"
+                        android:textColor="#666"
+                        android:textSize="12sp"
+                        android:layout_marginTop="8dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerRewindDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/rewind_durations"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#222" />
+                </LinearLayout>
+
+                <!-- ========================================== -->
+                <!-- SÉPARATEUR VISUEL -->
+                <!-- ========================================== -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="#CCCCCC" />
+
+                <!-- ========================================== -->
+                <!-- SÉLECTION DU CORE -->
+                <!-- ========================================== -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_core_spinner"
+                    android:textStyle="bold"
+                    android:textColor="#222"
+                    android:paddingStart="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="16dp" />
+                <Spinner
+                    android:id="@+id/spinnerCoreSelect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:entries="@array/core_display_names" />
+
+                <!-- ========================================== -->
+                <!-- ACTIONS SYSTÈME -->
+                <!-- ========================================== -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Actions système"
+                        android:textStyle="bold"
+                        android:textColor="#222"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <Button
+                        android:id="@+id/btnPowerOff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Power-Off"
+                        android:textColor="#C00"
+                        android:background="@android:color/transparent"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <Button
+                        android:id="@+id/btnHardwareReset"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hardware Reset"
+                        android:textColor="#222"
+                        android:background="@android:color/transparent"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <Button
+                        android:id="@+id/btnReturnToTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Retour à l'écran titre"
+                        android:textColor="#222"
+                        android:background="@android:color/transparent"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- ========================================== -->
+                <!-- SÉPARATEUR VISUEL -->
+                <!-- ========================================== -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="#CCCCCC" />
+
+                <!-- ========================================== -->
+                <!-- OPTIONS DE L'ÉMULATEUR -->
+                <!-- ========================================== -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Options de l'émulateur"
+                        android:textStyle="bold"
+                        android:textColor="#222"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <Button
+                        android:id="@+id/btnCoreSelect"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sélection du core"
+                        android:textColor="#222"
+                        android:background="@android:color/transparent"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- ========================================== -->
+                <!-- SÉPARATEUR VISUEL -->
+                <!-- ========================================== -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="#CCCCCC" />
+
+                <!-- ========================================== -->
+                <!-- CONFIGURATION DES CONTRÔLES -->
+                <!-- ========================================== -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Configuration des contrôles"
+                        android:textStyle="bold"
+                        android:textColor="#222"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <Button
+                        android:id="@+id/btnControllerConfig"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Types de contrôleurs"
+                        android:textColor="#222"
+                        android:background="@android:color/transparent"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Configurez les ports 1 et 2 pour les manettes, Zapper, etc."
+                        android:textColor="#666"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout> 

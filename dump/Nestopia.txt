@@ -1,0 +1,217 @@
+Core: nestopia_libretro_android.so
+Options:
+- key: nestopia_arkanoid_device
+  name: Arkanoid device
+  default: mouse
+  current: mouse
+  values: mouse, pointer
+- key: nestopia_arkanoid_paddle_range
+  name: Arkanoid Paddle Range
+  default: combined
+  current: combined
+  values: combined, arkanoidI, arkanoidII
+- key: nestopia_aspect
+  name: Preferred Aspect Ratio
+  default: auto
+  current: auto
+  values: auto, ntsc, pal, 4:3, uncorrected
+- key: nestopia_audio_type
+  name: Audio output
+  default: stereo
+  current: stereo
+  values: stereo, mono
+- key: nestopia_audio_vol_dpcm
+  name: DPCM Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_fds
+  name: FDS Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_mmc5
+  name: MMC5 Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_n163
+  name: N163 Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_noise
+  name: Noise Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_s5b
+  name: S5B Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_sq1
+  name: Square 1 Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_sq2
+  name: Square 2 Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_tri
+  name: Triangle Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_vrc6
+  name: VRC6 Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_audio_vol_vrc7
+  name: VRC7 Channel Volume %
+  default: 100
+  current: 100
+  values: 100, 0, 10, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95
+- key: nestopia_blargg_ntsc_filter
+  name: Blargg NTSC Filter
+  default: disabled
+  current: disabled
+  values: disabled, composite, svideo, rgb, monochrome
+- key: nestopia_button_shift
+  name: Shift Buttons Clockwise
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: nestopia_favored_system
+  name: System Region
+  default: auto
+  current: auto
+  values: auto, ntsc, pal, famicom, dendy
+- key: nestopia_fds_auto_insert
+  name: FDS Auto Insert
+  default: enabled
+  current: enabled
+  values: enabled, disabled
+- key: nestopia_genie_distortion
+  name: Game Genie Sound Distortion
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: nestopia_nospritelimit
+  name: Remove Sprite Limit
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: nestopia_overclock
+  name: CPU Speed (Overclock)
+  default: 1x
+  current: 1x
+  values: 1x, 2x
+- key: nestopia_overscan_h_left
+  name: Mask Overscan (Left Horizontal)
+  default: 0
+  current: 0
+  values: 0, 4, 8, 12, 16
+- key: nestopia_overscan_h_right
+  name: Mask Overscan (Right Horizontal)
+  default: 0
+  current: 0
+  values: 0, 4, 8, 12, 16
+- key: nestopia_overscan_v_bottom
+  name: Mask Overscan (Bottom Vertical)
+  default: 8
+  current: 8
+  values: 8, 0, 4, 12, 16, 20, 24
+- key: nestopia_overscan_v_top
+  name: Mask Overscan (Top Vertical)
+  default: 8
+  current: 8
+  values: 8, 0, 4, 12, 16, 20, 24
+- key: nestopia_palette
+  name: Palette
+  default: cxa2025as
+  current: cxa2025as
+  values: cxa2025as, cxa2025as_jp, royaltea, consumer, canonical, alternative, rgb, pal, composite-direct-fbx, pvm-style-d93-fbx, ntsc-hardware-fbx, nes-classic-fbx-fs, restored-wii-vc, wii-vc, raw, custom
+- key: nestopia_ram_power_state
+  name: RAM Power-on State
+  default: 0x00
+  current: 0x00
+  values: 0x00, 0xFF, random
+- key: nestopia_select_adapter
+  name: 4 Player Adapter
+  default: auto
+  current: auto
+  values: auto, ntsc, famicom
+- key: nestopia_show_advanced_av_settings
+  name: Show Advanced Audio Settings (Reopen menu)
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: nestopia_show_crosshair
+  name: Show Crosshair
+  default: enabled
+  current: enabled
+  values: enabled, disabled
+- key: nestopia_turbo_pulse
+  name: Turbo Pulse Speed
+  default: 2
+  current: 2
+  values: 2, 3, 4, 5, 6, 7, 8, 9
+- key: nestopia_zapper_device
+  name: Zapper device
+  default: lightgun
+  current: lightgun
+  values: lightgun, mouse, pointer
+- key: quicknes_aspect_ratio_par
+  name: Aspect Ratio
+  default: PAR
+  current: PAR
+  values: PAR, 4:3
+- key: quicknes_audio_eq
+  name: Audio Equalizer Preset
+  default: default
+  current: default
+  values: default, famicom, tv, flat, crisp, tinny
+- key: quicknes_audio_nonlinear
+  name: Audio Mode
+  default: nonlinear
+  current: nonlinear
+  values: nonlinear, linear, stereo panning
+- key: quicknes_no_sprite_limit
+  name: No Sprite Limit
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: quicknes_palette
+  name: Color Palette
+  default: default
+  current: default
+  values: default, asqrealc, nintendo-vc, rgb, yuv-v3, unsaturated-final, sony-cxa2025as-us, pal, bmf-final2, bmf-final3, smooth-fbx, composite-direct-fbx, pvm-style-d93-fbx, ntsc-hardware-fbx, nes-classic-fbx-fs, nescap, wavebeam
+- key: quicknes_turbo_enable
+  name: Turbo Enable
+  default: none
+  current: none
+  values: none, player 1, player 2, both
+- key: quicknes_turbo_pulse_width
+  name: Turbo Pulse Width (in frames)
+  default: 3
+  current: 3
+  values: 3, 1, 2, 5, 10, 15, 30, 60
+- key: quicknes_up_down_allowed
+  name: Allow Opposing Directions
+  default: disabled
+  current: disabled
+  values: disabled, enabled
+- key: quicknes_use_overscan_h
+  name: Show Horizontal Overscan
+  default: enabled
+  current: enabled
+  values: enabled, disabled
+- key: quicknes_use_overscan_v
+  name: Show Vertical Overscan
+  default: disabled
+  current: disabled
+  values: disabled, enabled

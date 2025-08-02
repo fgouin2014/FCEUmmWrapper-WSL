@@ -1,0 +1,819 @@
+
+07-30 15:13:06.313  9014  9070 D ProfileInstaller: Installing profile for com.fceumm.wrapper
+07-30 15:13:14.773  1369  1369 I SurfaceFlinger: [com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600] setFrameRateCategory: HighHint
+07-30 15:13:14.845  1525  5899 V WindowManager: Collecting in transition 2956: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityStarter.startActivityUnchecked:626 com.android.server.wm.ActivityStarter.executeRequest:3361 com.android.server.wm.ActivityStarter.execute:1122 com.android.server.wm.ActivityTaskManagerService.startActivityAsUser:88 
+07-30 15:13:14.845  1525  5899 D ActivityTaskManager: TaskLaunchParamsModifier:task=null activity=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t-1} display-area-from-source=DefaultTaskDisplayArea_d0@214964408 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@214964408
+07-30 15:13:14.845  1525  5899 D ActivityTaskManager: TaskLaunchParamsModifier:task=Task{3f363d3 #2937 type=standard A=10269:com.fceumm.wrapper} activity=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t-1} display-area-from-source=DefaultTaskDisplayArea_d0@214964408 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@214964408 inherit-from-source=fullscreen non-freeform-task-display-area display-area=DefaultTaskDisplayArea_d0@214964408 default-portrait freeform-size-mismatch=Rect(81, 612 - 999, 1782)
+07-30 15:13:14.846  1525  5899 V WindowManager: Collecting in transition 2956: ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityStarter.startActivityInner:235 com.android.server.wm.ActivityStarter.startActivityUnchecked:639 com.android.server.wm.ActivityStarter.executeRequest:3361 com.android.server.wm.ActivityStarter.execute:1122 
+07-30 15:13:14.846  1525  5899 D WindowManager: prepareSync <SYNC_STATE_WAITING_FOR_DRAW>, mPrepareSyncSeqId=0, win=Window{ff5258c u0 com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity}
+07-30 15:13:14.846  1369  1423 I SurfaceFlinger: id=42606 createSurf, flag=84004, ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606
+07-30 15:13:14.849  1525  5899 D ActivityTaskManager: scheduleTopResumedActivityChanged, onTop=false, r=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}, caller=com.android.server.wm.ActivityTaskSupervisor.scheduleTopResumedActivityStateLossIfNeeded:11 com.android.server.wm.ActivityTaskSupervisor.updateTopResumedActivityIfNeeded:19 com.android.server.wm.TaskFragment.setResumedActivity:29 com.android.server.wm.ActivityRecord.setState:95 com.android.server.wm.TaskFragment.startPausing$1:210 com.android.server.wm.TaskFragment.resumeTopActivity:698 
+07-30 15:13:14.850  1525  5899 V WindowManager: Collecting in transition 2956: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=com.android.server.wm.Transition.collectExistenceChange:42 com.android.server.wm.ActivityStarter.handleStartResult:523 com.android.server.wm.ActivityStarter.startActivityUnchecked:653 com.android.server.wm.ActivityStarter.executeRequest:3361 com.android.server.wm.ActivityStarter.execute:1122 
+07-30 15:13:14.851  1525  5899 I ActivityTaskManager: START u0 {cmp=com.fceumm.wrapper/.MainActivity} with LAUNCH_MULTIPLE from uid 10269 (BAL_ALLOW_VISIBLE_WINDOW) result code=0
+07-30 15:13:14.854  2762  2815 V WindowManagerShell: Transition requested (#2956): android.os.BinderProxy@d4b6cbd TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=2937 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.fceumm.wrapper/.MainMenuActivity } baseActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} topActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity} origActivity=null realActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} numActivities=2 lastActiveTime=966953412 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 maxWidth=-1 maxHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@b6d12b2} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 99 - 0, 0) topActivityInfo=ActivityInfo{cf6203 com.fceumm.wrapper.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isTopActivityStyleFloating=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 topActivityLetterboxAppWidth=1080 topActivityLetterboxAppHeight=2196 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive} topActivityBounds=null topActivityInDisplayCompat=false} originallySupportedMultiWindow=true hasWallpaper=false rootAffinity=10269:com.fceumm.wrapper isTopTaskInStage=false topActivityUiMode=17 CoverLauncherWidgetTask=false isKeepScreenOn=true isAllowedSeamlessRotation=false isTopTransparentActivity=false snappingGuideBounds=Rect(81, 612 - 999, 1782) isAliasManaged=false hasConfigChanged=false isAiKeyRemoveAppTask=false}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 2956 }
+07-30 15:13:14.854  1525  1626 D SGM:FgCheckThread: notePauseComponent(), received pkgName: com.fceumm.wrapper, userId: 0
+07-30 15:13:14.854  1525  1626 D SGM:FgCheckThread: notePauseComponent(), received pkgName: com.fceumm.wrapper, userId: 0
+07-30 15:13:14.854  1525  1626 D SGM:FgCheckThread: notifyFocusInOut(). of pkg: com.fceumm.wrapper, type: 20, isSecGameFamily: false, userId: 0
+07-30 15:13:14.855  1525  5887 V WindowManager: Collecting in transition 2956: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityRecord.setVisibility:189 com.android.server.wm.EnsureActivitiesVisibleHelper.process:561 com.android.server.wm.TaskFragment.updateActivityVisibilities:12 com.android.server.wm.Task$$ExternalSyntheticLambda3.accept:399 
+07-30 15:13:14.855  1525  5887 V WindowManager: Collecting in transition 2956: ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityRecord.setVisibility:189 com.android.server.wm.ActivityRecord.makeInvisible:39 com.android.server.wm.EnsureActivitiesVisibleHelper.process:637 com.android.server.wm.TaskFragment.updateActivityVisibilities:12 
+07-30 15:13:14.855  1525  5887 D WindowManager: rotationForOrientation, orientationSource=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}
+07-30 15:13:14.855  1525  1626 D SGM:GameManager: identifyGamePackage. com.fceumm.wrapper, mCurrentUserId: 0, callerUserId: 0, callingMethodInfo: com.samsung.android.game.SemGameManager.isGamePackage(SemGameManager.java:105)
+07-30 15:13:14.855  1525  1626 D SGM:SemGameManager: isGamePackage(), pkgName=com.fceumm.wrapper, ret=false
+07-30 15:13:14.855  1525  5887 V WindowManager: Collecting in transition 2956: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityRecord.setVisibility:189 com.android.server.wm.ActivityTaskSupervisor.realStartActivityLocked:234 com.android.server.wm.ActivityTaskSupervisor.startSpecificActivity:27 com.android.server.wm.TaskFragment.resumeTopActivity:2204 
+07-30 15:13:14.856  1525  5887 D SGM:FgCheckThread: notifyAppCreated(), packageName: com.fceumm.wrapper, userId: 0, sendRet: true
+07-30 15:13:14.856  1525  2471 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_APP_CREATE, pkgName: com.fceumm.wrapper, userId: 0
+07-30 15:13:14.856  1525  5887 D InputDispatcher: Focused application(0): ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}
+07-30 15:13:14.857  1525  5887 D WindowManager: Changing focus from Window{ff5258c u0 com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} to null displayId=0 Callers=com.android.server.wm.ActivityTaskManagerService.setLastResumedActivityUncheckLocked:264 com.android.server.wm.ActivityTaskSupervisor.updateTopResumedActivityIfNeeded:50 com.android.server.wm.TaskFragment.setResumedActivity:29 com.android.server.wm.ActivityRecord.setState:104 
+07-30 15:13:14.857  1525  5887 D ActivityTaskManager: scheduleTopResumedActivityChanged, onTop=true, r=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=com.android.server.wm.ActivityTaskSupervisor.updateTopResumedActivityIfNeeded:62 com.android.server.wm.TaskFragment.setResumedActivity:29 com.android.server.wm.ActivityRecord.setState:104 com.android.server.wm.ActivityTaskSupervisor.realStartActivityLocked:949 com.android.server.wm.ActivityTaskSupervisor.startSpecificActivity:27 com.android.server.wm.TaskFragment.resumeTopActivity:2204 
+07-30 15:13:14.857  1525  5887 D WindowManagerServiceExt: updateTaskbarTargetIfNeeded: cn=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity} occludesParent=true isInSplitScreenMode=false styleFloating=false
+07-30 15:13:14.857  1369  1369 I SurfaceFlinger: [ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606] attach to parent LayerHierarchy{RequestedLayerState{Task=2937#42591 parentId=11 z=7} 2 children}
+07-30 15:13:14.859  1525  7774 D GraphicsStatsService: requestRenderEngineFor(com.fceumm.wrapper)
+07-30 15:13:14.859  9014  9014 D ActivityThread: com.fceumm.wrapper will use render engine as VK
+07-30 15:13:14.863  1525  1627 D BLASTSyncEngine: SyncGroup 2956:  Unfinished container: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937} mSyncState=2
+07-30 15:13:14.867  9014  9014 D nativeloader: Load /data/app/~~6BU2HLxpk_vnjL6Ap-OOmA==/com.fceumm.wrapper-UDmrsrIFFkgHKOmD1FmwPg==/lib/arm64/libfceummwrapper.so using class loader ns clns-7 (caller=/data/app/~~6BU2HLxpk_vnjL6Ap-OOmA==/com.fceumm.wrapper-UDmrsrIFFkgHKOmD1FmwPg==/base.apk!classes3.dex): ok
+07-30 15:13:14.871  9014  9014 I MainActivity: D├⌐marrage de l'application FCEUmm Wrapper - MODE FULLSCREEN
+07-30 15:13:14.873  9014  9014 I MainActivity: Architecture d├⌐tect├⌐e: arm64-v8a, utilisant: arm64-v8a
+07-30 15:13:14.874  1525  5899 D InputDispatcher: Focus left window (0): ff5258c com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity
+07-30 15:13:14.876  1525  1626 D SGM:FgCheckThread: noteResumeComponent(), received pkgName: com.fceumm.wrapper, userId: 0
+07-30 15:13:14.876  1525  2471 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_APP_RESUME, pkgName: com.fceumm.wrapper, userid: 0
+07-30 15:13:14.876  5103 28043 I SDHMS:l : handleResumeComponent : put = com.fceumm.wrapper, userid = 0 instanceid =266283371
+07-30 15:13:14.906  9014  9014 I MainActivity: Core fceumm_libretro_android.so pour arm64-v8a copi├⌐ avec succ├¿s
+07-30 15:13:14.950  9014  9014 I MainActivity: Layout d'├⌐mulation utilis├⌐
+07-30 15:13:14.950  9014  9014 I MainActivity: Orientation d├⌐tect├⌐e au d├⌐marrage: 1
+07-30 15:13:14.953  9014  9014 I MainActivity: Boutons de contr├┤le configur├⌐s avec succ├¿s
+07-30 15:13:14.964  9014  9014 I MainActivity: Menu drawer configur├⌐ avec succ├¿s
+07-30 15:13:14.964  9014  9014 I MainActivity: Layout d'├⌐mulation configur├⌐
+07-30 15:13:14.967  9014  9014 W libOpenSLES: class OutputMix interface 0 requested but unavailable MPH=43
+07-30 15:13:14.969  9014  9014 D .fceumm.wrapper: PlayerBase::PlayerBase()
+07-30 15:13:14.969  9014  9014 D .fceumm.wrapper: TrackPlayerBase::TrackPlayerBase()
+07-30 15:13:14.969  9014  9014 I libOpenSLES: Emulating old channel mask behavior (ignoring positional mask 0x3, using default mask 0x3 based on channel count of 2)
+07-30 15:13:14.972  1354  3196 I UsecaseValidator: verifyAudioAttributes update usage: 1 to AUDIO_USAGE_GAME for output: 29 pid: 9014 package: com.fceumm.wrapper
+07-30 15:13:14.986  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : lastStartedPackageName=null, lastStartedUid=-1, newStartedUid=10269, newStartPackageName=com.fceumm.wrapper, thread=Thread[RoutineHandlerThread,5,main]
+07-30 15:13:14.987  1525  7774 D SGM:GameManager: identifyGamePackage. com.fceumm.wrapper, mCurrentUserId: 0, callerUserId: 0, callingMethodInfo: com.samsung.android.game.IGameManagerService$Stub.onTransact(IGameManagerService.java:228)
+07-30 15:13:14.988  2762  3429 D SGM:SemGameManager: isGamePackage(), pkgName=com.fceumm.wrapper, ret=false
+07-30 15:13:14.992  9014  9014 I MainActivity: Wrapper libretro initialis├⌐ avec succ├¿s
+07-30 15:13:14.993  9014  9014 I LibretroWrapper: Chargement ROM: /data/user/0/com.fceumm.wrapper/files/marioduckhunt.nes
+07-30 15:13:14.993  2762  3429 D SoundCraft.PlayingAudioConditionHandler: onPlaybackConfigChanged : lastStartedPackageName=com.fceumm.wrapper, lastStartedUid=10269, newStartedUid=10269, newStartPackageName=com.fceumm.wrapper, thread=Thread[RoutineHandlerThread,5,main]
+07-30 15:13:14.999  9014  9014 I MainActivity: ROM charg├⌐e avec succ├¿s
+07-30 15:13:15.004  9014  9014 I InsetsController: setRequestedVisibleTypes: visible=false, mask=statusBars navigationBars captionBar, host=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity, from=android.view.InsetsController.controlAnimationUnchecked:1498 android.view.InsetsController.applyAnimation:2228 android.view.InsetsController.applyAnimation:2159 android.view.InsetsController.hide:1452 android.view.InsetsController.hide:1368 android.view.ViewRootImpl.controlInsetsForCompatibility:3953 android.view.ViewRootImpl.setView:1955 android.view.WindowManagerGlobal.addView:578 android.view.WindowManagerImpl.addView:158 android.app.ActivityThread.handleResumeActivity:6060 
+07-30 15:13:15.006  1525  5887 D WindowManager: prepareSync <SYNC_STATE_WAITING_FOR_DRAW>, mPrepareSyncSeqId=0, win=Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}
+07-30 15:13:15.006  1369  1423 I SurfaceFlinger: id=42607 createSurf, flag=84004, 2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity#42607
+07-30 15:13:15.008  9014  9014 I InsetsController: onStateChanged: host=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity, from=android.view.ViewRootImpl.setView:1999, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2340), mDisplayCutout=DisplayCutout{insets=Rect(0, 99 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(505, 0 - 575, 99), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={3.0} cutoutSpec={M 0,0 M 0,29 a 35,35 0 1,0 0,70 a 35,35 0 1,0 0,-70 Z} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=108, center=Point(108, 108)}, RoundedCorner{position=TopRight, radius=108, center=Point(972, 108)}, RoundedCorner{position=BottomRight, radius=108, center=Point(972, 2232)}, RoundedCorner{position=BottomLeft, radius=108, center=Point(108, 2232)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2340), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(948, 0 - 1080, 99) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {b2f90001 mType=navigationBars mFrame=[0,2295][1080,2340] mVisible=false mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {b2f90004 mType=systemGestures mFrame=[0,0][90,2340] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {b2f90005 mType=mandatorySystemGestures mFrame=[0,2244][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {b2f90006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {b2f90024 mType=systemGestures mFrame=[990,0][1080,2340] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {cf990000 mType=statusBars mFrame=[0,0][1080,99] mVisible=false mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {cf990005 mType=mandatorySystemGestures mFrame=[0,0][1080,135] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {cf990006 mType=tappableElement mFrame=[0,0][1080,99] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,99] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+07-30 15:13:15.009  9014  9014 I VRI[MainActivity]@5bf1fd9: synced displayState. AttachInfo displayState=2
+07-30 15:13:15.009  9014  9014 I VRI[MainActivity]@5bf1fd9: setView = com.android.internal.policy.DecorView@f7e084c IsHRR=false TM=true
+07-30 15:13:15.011  9014  9014 I SurfaceView@a1d32dd: onWindowVisibilityChanged(0) true com.fceumm.wrapper.EmulatorView{a1d32dd V.E...... ......I. 0,0-0,0} of VRI[MainActivity]@5bf1fd9
+07-30 15:13:15.013  1525  5887 D CoreBackPreview: Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@6b197f8, mPriority=0, mIsAnimationCallback=false}
+07-30 15:13:15.017  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.023  1369  1369 I SurfaceFlinger: [2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity#42607] attach to parent LayerHierarchy{RequestedLayerState{ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606 parentId=42591 z=1} 1 children}
+07-30 15:13:15.028  1525  5887 V WindowManager: Relayout Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}: viewVisibility=0 req=1080x2241 ty=1 d0
+07-30 15:13:15.029  1369  1423 I SurfaceFlinger: id=42608 createSurf, flag=44004, com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608
+07-30 15:13:15.030  1525  5887 D WindowManager: makeSurface duration=2 name=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014
+07-30 15:13:15.033  1525  5887 D BLASTSyncEngine: SyncGroup 2956:  Unfinished container: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937} mSyncState=2
+07-30 15:13:15.034  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.034  1525  5887 D WindowManager: Changing focus from null to Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity} displayId=0 Callers=com.android.server.wm.WindowManagerService.relayoutWindowInner:142 com.android.server.wm.WindowManagerService.relayoutWindow:6 com.android.server.wm.Session.relayout:27 android.view.IWindowSession$Stub.onTransact:861 
+07-30 15:13:15.036  1525  5887 D InsetsSourceProvider: updateControlForTarget: control=InsetsSourceControl: {cf990000 mType=statusBars mSurfacePosition=Point(0, 0) mInsetsHint=Insets{left=0, top=99, right=0, bottom=0}}, target=Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}, from=com.android.server.wm.InsetsStateController.onControlTargetChanged:81 com.android.server.wm.InsetsPolicy.updateBarControlTarget:175 com.android.server.wm.DisplayPolicy.updateSystemBarAttributes:269 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:375 com.android.server.wm.WindowManagerService.relayoutWindowInner:142 
+07-30 15:13:15.037  1525  5887 D InsetsSourceProvider: updateControlForTarget: control=InsetsSourceControl: {b2f90001 mType=navigationBars mSurfacePosition=Point(0, 2196) mInsetsHint=Insets{left=0, top=0, right=0, bottom=45}}, target=Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}, from=com.android.server.wm.InsetsStateController.onControlTargetChanged:81 com.android.server.wm.InsetsPolicy.updateBarControlTarget:188 com.android.server.wm.DisplayPolicy.updateSystemBarAttributes:269 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:375 com.android.server.wm.WindowManagerService.relayoutWindowInner:142 
+07-30 15:13:15.037  1525  5887 V SystemKeyManager: updateFocusedWindow() is called, com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.037  1525  5887 I SystemKeyManager: requested systemKeyInfo size=1 focusedWindow=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.037  1525  5887 I SystemKeyManager: requested systemKeyInfo size=1 focusedWindow=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.039  9014  9014 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= VRI[MainActivity]@5bf1fd9 mNativeObject= 0xb400007343e7a630 sc.mNativeObject= 0xb4000073c3e7c210 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 android.view.Choreographer$CallbackRecord.run:1760 android.view.Choreographer.doCallbacks:1216 android.view.Choreographer.doFrame:1142 android.view.Choreographer$FrameDisplayEventReceiver.run:1707 
+07-30 15:13:15.039  9014  9014 I BLASTBufferQueue_Java: update, w= 1080 h= 2241 mName = VRI[MainActivity]@5bf1fd9 mNativeObject= 0xb400007343e7a630 sc.mNativeObject= 0xb4000073c3e7c210 format= -3 caller= android.graphics.BLASTBufferQueue.<init>:88 android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 
+07-30 15:13:15.040  1369  1369 I SurfaceFlinger: [com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608] attach to parent LayerHierarchy{RequestedLayerState{2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity#42607 parentId=42606} 1 children}
+07-30 15:13:15.040  1369  1369 I SurfaceFlinger: [Letterbox - top#42609] attach to parent LayerHierarchy{RequestedLayerState{ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606 parentId=42591 z=1} 2 children}
+07-30 15:13:15.040  9014  9014 I VRI[MainActivity]@5bf1fd9: Relayout returned: old=(0,99,1080,2340) new=(0,99,1080,2340) relayoutAsync=false req=(1080,2241)0 dur=11 res=0x3 s={true 0xb400007293e9d5b0} ch=true seqId=0
+07-30 15:13:15.041  9014  9014 I VRI[MainActivity]@5bf1fd9: performConfigurationChange setNightDimText nightDimLevel=0
+07-30 15:13:15.041  9014  9014 D VRI[MainActivity]@5bf1fd9: mThreadedRenderer.initialize() mSurface={isValid=true 0xb400007293e9d5b0} hwInitialized=true
+07-30 15:13:15.047  9014  9014 I SurfaceView@a1d32dd: windowStopped(false) true com.fceumm.wrapper.EmulatorView{a1d32dd V.E...... ......ID 0,0-1080,1286} of VRI[MainActivity]@5bf1fd9
+07-30 15:13:15.047  9014  9014 D VRI[MainActivity]@5bf1fd9: reportNextDraw android.view.ViewRootImpl.performTraversals:5193 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 android.view.Choreographer$CallbackRecord.run:1760 
+07-30 15:13:15.048  1369  1534 I SurfaceFlinger: id=42612 createSurf, flag=20004, Bounds for - com.fceumm.wrapper/com.fceumm.wrapper.MainActivity@0#42612
+07-30 15:13:15.048  1369  1369 I SurfaceFlinger: [Bounds for - com.fceumm.wrapper/com.fceumm.wrapper.MainActivity@0#42612] attach to parent LayerHierarchy{RequestedLayerState{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608 parentId=42607} 1 children}
+07-30 15:13:15.048  1369  1534 I SurfaceFlinger: id=42613 createSurf, flag=84004, SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42613
+07-30 15:13:15.049  1369  1423 I SurfaceFlinger: id=42614 createSurf, flag=44400, SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0(BLAST)#42614
+07-30 15:13:15.049  1369  1423 I SurfaceFlinger: id=42615 createSurf, flag=20404, Background for SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42615
+07-30 15:13:15.050  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.051  1369  1512 D SurfaceFlinger: [input] setFocusedWindow: 2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.051  1525  2888 D InputDispatcher: Once focus requested (0): 2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.051  1525  2888 D InputDispatcher: Focus request (0): 2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity but waiting because NOT_VISIBLE
+07-30 15:13:15.052  9014  9014 I SurfaceView@a1d32dd: surfaceCreated 1 #8 com.fceumm.wrapper.EmulatorView{a1d32dd V.E...... ......ID 0,0-1080,1286}
+07-30 15:13:15.053  9014  9014 I SurfaceView@a1d32dd: surfaceChanged (1080,1286) 1 #8 com.fceumm.wrapper.EmulatorView{a1d32dd V.E...... ......ID 0,0-1080,1286}
+07-30 15:13:15.055  9014  9014 D VRI[MainActivity]@5bf1fd9: Setup new sync=wmsSync-VRI[MainActivity]@5bf1fd9#5
+07-30 15:13:15.055  9014  9014 I VRI[MainActivity]@5bf1fd9: Creating new active sync group VRI[MainActivity]@5bf1fd9#6
+07-30 15:13:15.056  9014  9014 D VRI[MainActivity]@5bf1fd9: registerCallbacksForSync syncBuffer=false
+07-30 15:13:15.056  1369  1369 I SurfaceFlinger: [SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42613] attach to parent LayerHierarchy{RequestedLayerState{Bounds for - com.fceumm.wrapper/com.fceumm.wrapper.MainActivity@0#42612 parentId=42608} 1 children}
+07-30 15:13:15.056  1369  1369 I SurfaceFlinger: [SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0(BLAST)#42614] attach to parent LayerHierarchy{RequestedLayerState{SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42613 parentId=42612} 1 children}
+07-30 15:13:15.056  1369  1369 I SurfaceFlinger: [Background for SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42615] attach to parent LayerHierarchy{RequestedLayerState{SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42613 parentId=42612} 2 children}
+07-30 15:13:15.059  9014  9035 I SurfaceView@a1d32dd: aOrMT: VRI[MainActivity]@5bf1fd9 t = android.view.SurfaceControl$Transaction@9e64d75 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1792 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:398 
+07-30 15:13:15.059  9014  9035 I VRI[MainActivity]@5bf1fd9: mWNT: t=0xb400007483eafb50 mBlastBufferQueue=0xb400007343e7a630 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1723 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1792 
+07-30 15:13:15.060  9014  9046 D VRI[MainActivity]@5bf1fd9: Received frameDrawingCallback syncResult=0 frameNum=1.
+07-30 15:13:15.060  9014  9046 I VRI[MainActivity]@5bf1fd9: mWNT: t=0xb400007483eb0410 mBlastBufferQueue=0xb400007343e7a630 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$11.onFrameDraw:15016 android.view.ThreadedRenderer$1.onFrameDraw:761 <bottom of call stack> 
+07-30 15:13:15.060  9014  9046 I VRI[MainActivity]@5bf1fd9: Setting up sync and frameCommitCallback
+07-30 15:13:15.065  9014  9086 I BLASTBufferQueue: [SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#2](f:0,a:0,s:0) onFrameAvailable the first frame is available
+07-30 15:13:15.066  1369  1423 I SurfaceFlinger: [SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0(BLAST)#42614] setTransactionState with the first frame. bufferData(ID: 38714835206148, frameNumber: 1)
+07-30 15:13:15.067  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.078  9014  9035 I BLASTBufferQueue: [VRI[MainActivity]@5bf1fd9#1](f:0,a:0,s:0) onFrameAvailable the first frame is available
+07-30 15:13:15.078  9014  9035 I VRI[MainActivity]@5bf1fd9: Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+07-30 15:13:15.079  1369  1423 I SurfaceFlinger: [com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608] setTransactionState with the first frame. bufferData(ID: 38714835206149, frameNumber: 1)
+07-30 15:13:15.079  9014  9014 D VRI[MainActivity]@5bf1fd9: reportDrawFinished seqId=0
+07-30 15:13:15.079  1525  5887 D WindowManager: finishDrawingWindow: Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity} mDrawState=DRAW_PENDING seqId=0
+07-30 15:13:15.081  1525  1627 D PowerManagerService: [api] acquire WakeLock SCREEN_BRIGHT_WAKE_LOCK           'WindowManager/displayId:0' ON_AFTER_RELEASE (uid=1000 pid=1525 ws=WorkSource{10269 com.fceumm.wrapper} displayId=0 lock=699c407)
+07-30 15:13:15.081  1369  1369 I SurfaceFlinger: Layer [Bounds for - com.fceumm.wrapper/com.fceumm.wrapper.MainActivity@0#42612] hidden!! flag(0)
+07-30 15:13:15.081  1369  1369 I SurfaceFlinger: Layer [Background for SurfaceView[com.fceum[...]fceumm.wrapper.MainActivity]@0#42615] hidden!! flag(0)
+07-30 15:13:15.081  1369  1369 I SurfaceFlinger: Layer [SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42613] hidden!! flag(0)
+07-30 15:13:15.081  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42613 parentId=42612 relativeParentId=42608 z=-2} 2 children}] RelativeParent to LayerHierarchy{RequestedLayerState{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608 parentId=42607} 2 children}
+07-30 15:13:15.081  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{Background for SurfaceView[com.fceumm.wrapper/com.fceumm.wrapper.MainActivity]@0#42615 parentId=42613 relativeParentId=42608 z=-2147483648} no children}] RelativeParent to LayerHierarchy{RequestedLayerState{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608 parentId=42607} 3 children}
+07-30 15:13:15.082  9014  9014 I BLASTBufferQueue_Java: update, w= 1080 h= 2241 mName = VRI[MainActivity]@5bf1fd9 mNativeObject= 0xb400007343e7a630 sc.mNativeObject= 0xb4000073c3e7c210 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3386 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 
+07-30 15:13:15.082  9014  9014 I VRI[MainActivity]@5bf1fd9: Relayout returned: old=(0,99,1080,2340) new=(0,99,1080,2340) relayoutAsync=true req=(1080,2241)0 dur=0 res=0x0 s={true 0xb400007293e9d5b0} ch=false seqId=0
+07-30 15:13:15.083  9014  9014 I InsetsSourceConsumer: applyRequestedVisibilityToControl: visible=false, type=statusBars, host=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.086  9014  9014 I InsetsSourceConsumer: applyRequestedVisibilityToControl: visible=false, type=navigationBars, host=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.087  1525  1627 V WindowManager: performShowLocked: mDrawState=HAS_DRAWN in Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}
+07-30 15:13:15.087  1525  1627 V WindowManager: Start calculating TransitionInfo based on participants: {ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}}
+07-30 15:13:15.087  1525  1627 V WindowManager:   Final targets: [ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}]
+07-30 15:13:15.087  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.089  1369  3421 I SurfaceFlinger: id=42616 createSurf, flag=84004, Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616
+07-30 15:13:15.090  1369  1369 I SurfaceFlinger: [Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616] attach to parent LayerHierarchy{RequestedLayerState{Task=2937#42591 parentId=11 z=7} 3 children}
+07-30 15:13:15.091  1525  1627 I SurfaceControlRegistry: show, t=StartTransaction_SyncId<2956> sc=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=android.view.SurfaceControl$Transaction.show:3232 com.android.server.wm.Transition.onTransactionReady:2273 com.android.server.wm.BLASTSyncEngine$SyncGroup.finishNow:195 com.android.server.wm.BLASTSyncEngine.onSurfacePlacement:269 com.android.server.wm.RootWindowContainer.performSurfacePlacementNoTrace:471 com.android.server.wm.RootWindowContainer.performSurfacePlacement:9 
+07-30 15:13:15.092  1525  1627 V WindowManager:         {null m=OPEN f=FILLS_TASK|IS_ACTIVITY|EDGE_EXTENSION_RESTRICTION leash=Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0xa134c2 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2340) d=-1->0 r=-1->0:-1 bc=fffafafa component=com.fceumm.wrapper/.MainActivity inset=Rect(0, 0 - 0, 0) dim=true taskIdForActivity=2937},
+07-30 15:13:15.092  1525  1627 V WindowManager:         {null m=TO_BACK f=FILLS_TASK|IS_ACTIVITY leash=Surface(name=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937})/@0x5489a24 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 bc=fffafafa component=com.fceumm.wrapper/.MainMenuActivity inset=Rect(0, 0 - 0, 0) taskIdForActivity=2937}
+07-30 15:13:15.092  1525  1627 I ActivityTaskManager: done cause=notifyTransitionStarting drawn timestamp=299929673046626 info=TransitionInfo{67b6e10 a=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937} d=true}
+07-30 15:13:15.093  9014  9014 I VRI[MainActivity]@5bf1fd9: registerCallbackForPendingTransactions
+07-30 15:13:15.093  9014  9045 I VRI[MainActivity]@5bf1fd9: mWNT: t=0xb400007483eb4d90 mBlastBufferQueue=0xb400007343e7a630 fn= 2 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$9.onFrameDraw:6276 android.view.ViewRootImpl$3.onFrameDraw:2440 android.view.ThreadedRenderer$1.onFrameDraw:761 
+07-30 15:13:15.095  1525  1623 I ActivityTaskManager: Displayed com.fceumm.wrapper/.MainActivity for user 0: +237ms
+07-30 15:13:15.095  1525  1623 I Pageboost: Launch time gathered : pid 9014 com.fceumm.wrapper 237
+07-30 15:13:15.096  1525  1623 V WindowManager: Sent Transition (#2956) createdAt=07-30 15:13:14.844 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=2937 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.fceumm.wrapper/.MainMenuActivity } baseActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} topActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainActivity} origActivity=null realActivity=ComponentInfo{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} numActivities=2 lastActiveTime=966953412 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 maxWidth=-1 maxHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{49fd27a Task{3f363d3 #2937 type=standard A=10269:com.fceumm.wrapper}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 99 - 0, 0) topActivityInfo=ActivityInfo{e76ed09 com.fceumm.wrapper.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isTopActivityStyleFloating=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 topActivityLetterboxAppWidth=1080 topActivityLetterboxAppHeight=2196 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive} topActivityBounds=null topActivityInDisplayCompat=false} originallySupportedMultiWindow=true hasWallpaper=false rootAffinity=10269:com.fceumm.wrapper isTopTaskInStage=false topActivityUiMode=17 CoverLauncherWidgetTask=false isKeepScreenOn=true isAllowedSeamlessRotation=false isTopTransparentActivity=false snappingGuideBounds=Rect(81, 612 - 999, 1782) isAliasManaged=false hasConfigChanged=false isAiKeyRemoveAppTask=false}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 2956 }
+07-30 15:13:15.097  1525  1623 V WindowManager:         {null m=OPEN f=FILLS_TASK|IS_ACTIVITY|EDGE_EXTENSION_RESTRICTION leash=Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0xa134c2 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2340) d=-1->0 r=-1->0:-1 bc=fffafafa component=com.fceumm.wrapper/.MainActivity inset=Rect(0, 0 - 0, 0) dim=true taskIdForActivity=2937},
+07-30 15:13:15.097  1525  1623 V WindowManager:         {null m=TO_BACK f=FILLS_TASK|IS_ACTIVITY leash=Surface(name=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937})/@0x5489a24 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 bc=fffafafa component=com.fceumm.wrapper/.MainMenuActivity inset=Rect(0, 0 - 0, 0) taskIdForActivity=2937}
+07-30 15:13:15.099  2762  2815 V WindowManagerShell: onTransitionReady (#2956) android.os.BinderProxy@d4b6cbd: {id=2956 t=OPEN f=0x0 trk=0 opt={t=FROM_STYLE} r=[0@Point(0, 0)] c=[{null m=OPEN f=FILLS_TASK|IS_ACTIVITY|EDGE_EXTENSION_RESTRICTION leash=Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2340) d=-1->0 r=-1->0:-1 bc=fffafafa component=com.fceumm.wrapper/.MainActivity inset=Rect(0, 0 - 0, 0) dim=true taskIdForActivity=2937},{null m=TO_BACK f=FILLS_TASK|IS_ACTIVITY leash=Surface(name=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937})/@0x5c717b9 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 bc=fffafafa component=com.fceumm.wrapper/.MainMenuActivity inset=Rect(0, 0 - 0, 0) taskIdForActivity=2937}]}
+07-30 15:13:15.099  2762  2815 I SurfaceControlRegistry: hide, t=FinishTransaction_SyncId<2956> sc=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}, caller=android.view.SurfaceControl$Transaction.hide:3258 com.android.wm.shell.transition.Transitions.dispatchReady:929 com.android.wm.shell.transition.Transitions.onTransitionReady:243 com.android.wm.shell.transition.Transitions$TransitionPlayerImpl$$ExternalSyntheticLambda0.run:13 android.os.Handler.handleCallback:959 android.os.Handler.dispatchMessage:100 
+07-30 15:13:15.099  2762  2815 I SurfaceControlRegistry: show, t=StartTransaction_SyncId<2956> sc=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=android.view.SurfaceControl$Transaction.show:3232 com.android.wm.shell.transition.Transitions.dispatchReady:934 com.android.wm.shell.transition.Transitions.onTransitionReady:243 com.android.wm.shell.transition.Transitions$TransitionPlayerImpl$$ExternalSyntheticLambda0.run:13 android.os.Handler.handleCallback:959 android.os.Handler.dispatchMessage:100 
+07-30 15:13:15.099  2762  2815 I SurfaceControlRegistry: show, t=FinishTransaction_SyncId<2956> sc=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=android.view.SurfaceControl$Transaction.show:3232 com.android.wm.shell.transition.Transitions.dispatchReady:988 com.android.wm.shell.transition.Transitions.onTransitionReady:243 com.android.wm.shell.transition.Transitions$TransitionPlayerImpl$$ExternalSyntheticLambda0.run:13 android.os.Handler.handleCallback:959 android.os.Handler.dispatchMessage:100 
+07-30 15:13:15.099  2762  2815 I SurfaceControlRegistry: show, t=StartTransaction_SyncId<2956> sc=Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}, caller=android.view.SurfaceControl$Transaction.show:3232 com.android.wm.shell.transition.Transitions.playTransition:81 com.android.wm.shell.transition.Transitions.processReadyQueue:250 com.android.wm.shell.transition.Transitions.dispatchReady:1007 com.android.wm.shell.transition.Transitions.onTransitionReady:243 com.android.wm.shell.transition.Transitions$TransitionPlayerImpl$$ExternalSyntheticLambda0.run:13 
+07-30 15:13:15.099  2762  2815 V WindowManagerShell: Transition doesn't have explicit remote, search filters for match for {id=2956 t=OPEN f=0x0 trk=0 opt={t=FROM_STYLE} r=[0@Point(0, 0)] c=[{null m=OPEN f=FILLS_TASK|IS_ACTIVITY|EDGE_EXTENSION_RESTRICTION leash=Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2340) d=-1->0 r=-1->0:-1 bc=fffafafa component=com.fceumm.wrapper/.MainActivity inset=Rect(0, 0 - 0, 0) dim=true taskIdForActivity=2937},{null m=TO_BACK f=FILLS_TASK|IS_ACTIVITY leash=Surface(name=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937})/@0x5c717b9 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 bc=fffafafa component=com.fceumm.wrapper/.MainMenuActivity inset=Rect(0, 0 - 0, 0) taskIdForActivity=2937}]}
+07-30 15:13:15.100  1525  5887 V WindowManager: Relayout Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}: viewVisibility=0 req=1080x2241 ty=1 d0
+07-30 15:13:15.100  2762  2815 V WindowManagerShell: start default transition animation, info = {id=2956 t=OPEN f=0x0 trk=0 opt={t=FROM_STYLE} r=[0@Point(0, 0)] c=[{null m=OPEN f=FILLS_TASK|IS_ACTIVITY|EDGE_EXTENSION_RESTRICTION leash=Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2340) d=-1->0 r=-1->0:-1 bc=fffafafa component=com.fceumm.wrapper/.MainActivity inset=Rect(0, 0 - 0, 0) dim=true taskIdForActivity=2937},{null m=TO_BACK f=FILLS_TASK|IS_ACTIVITY leash=Surface(name=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937})/@0x5c717b9 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 bc=fffafafa component=com.fceumm.wrapper/.MainMenuActivity inset=Rect(0, 0 - 0, 0) taskIdForActivity=2937}]}
+07-30 15:13:15.100  2762  2815 V WindowManagerShell:    change={null m=TO_BACK f=FILLS_TASK|IS_ACTIVITY leash=Surface(name=ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937})/@0x5c717b9 sb=Rect(0, 0 - 1080, 2340) eb=Rect(0, 0 - 1080, 2340) d=0 bc=fffafafa component=com.fceumm.wrapper/.MainMenuActivity inset=Rect(0, 0 - 0, 0) taskIdForActivity=2937}
+07-30 15:13:15.104  1369  1423 I SurfaceFlinger: id=42618 createSurf, flag=84000, d553edc ActivityRecordInputSink com.fceumm.wrapper/.MainActivity#42618
+07-30 15:13:15.105  1369  1434 D RenderEngine: [SEC_SF_EFFECTS] drawLayersInternal,1299, Rendering layer com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600 at index 2
+07-30 15:13:15.106  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.106  1369  1369 I SurfaceFlinger: [Right Edge Extension#42617] attach to parent LayerHierarchy{RequestedLayerState{ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}#42592 parentId=42591} 5 children}
+07-30 15:13:15.106  1369  1369 I SurfaceFlinger: [d553edc ActivityRecordInputSink com.fceumm.wrapper/.MainActivity#42618] attach to parent LayerHierarchy{RequestedLayerState{ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606 parentId=42591 z=1} 3 children}
+07-30 15:13:15.117  2762  2815 V WindowManagerShell:    change={null m=OPEN f=FILLS_TASK|IS_ACTIVITY|EDGE_EXTENSION_RESTRICTION leash=Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2340) d=-1->0 r=-1->0:-1 bc=fffafafa component=com.fceumm.wrapper/.MainActivity inset=Rect(0, 0 - 0, 0) dim=true taskIdForActivity=2937}
+07-30 15:13:15.118  1369  3421 I SurfaceFlinger: id=42620 createSurf, flag=20004, DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580#42620
+07-30 15:13:15.118  2762  2815 I SurfaceControlRegistry: show, t=StartTransaction_SyncId<2956> sc=DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580, caller=android.view.SurfaceControl$Transaction.show:3232 com.android.wm.shell.transition.DefaultTransitionHandler.startAnimation:2540 com.android.wm.shell.transition.Transitions.dispatchTransition:93 com.android.wm.shell.transition.Transitions.playTransition:700 com.android.wm.shell.transition.Transitions.processReadyQueue:250 com.android.wm.shell.transition.Transitions.dispatchReady:1007 
+07-30 15:13:15.119  2762  2815 V WindowManagerShell: attach dim transition, change={null m=OPEN f=FILLS_TASK|IS_ACTIVITY|EDGE_EXTENSION_RESTRICTION leash=Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580 sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2340) d=-1->0 r=-1->0:-1 bc=fffafafa component=com.fceumm.wrapper/.MainActivity inset=Rect(0, 0 - 0, 0) dim=true taskIdForActivity=2937}
+07-30 15:13:15.122  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.123  1369  1369 I SurfaceFlinger: Layer [ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606] hidden!! flag(0)
+07-30 15:13:15.123  1369  1369 E SurfaceFlinger: alpha changed 1.000 -> 0.000 - ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606
+07-30 15:13:15.123  1369  1369 I SurfaceFlinger: Layer [Transition Root: ActivityRecord{2db3[...]m.wrapper/.MainActivity t2937}#42616] hidden!! flag(0)
+07-30 15:13:15.123  1369  1369 I SurfaceFlinger: Layer [com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608] hidden!! flag(0)
+07-30 15:13:15.123  1369  1369 E SurfaceFlinger: alpha changed 1.000 -> 0.000 - DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580#42620
+07-30 15:13:15.123  1369  1369 I SurfaceFlinger: Layer [2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity#42607] hidden!! flag(0)
+07-30 15:13:15.123  1369  1369 E SurfaceFlinger: alpha changed 0.000 -> 1.000 - ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606
+07-30 15:13:15.123  1369  1369 E SurfaceFlinger: alpha changed 0.000 -> 0.000 - DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580#42620
+07-30 15:13:15.124  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}#42592 parentId=42616 z=2} 5 children}] reparent to LayerHierarchy{RequestedLayerState{Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616 parentId=42591 z=1} 1 children}
+07-30 15:13:15.124  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606 parentId=42616 z=5} 3 children}] reparent to LayerHierarchy{RequestedLayerState{Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616 parentId=42591 z=1} 2 children}
+07-30 15:13:15.124  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{Letterbox - top#42609 parentId=42606 z=-20000} no children}] reparent to LayerHierarchy{RequestedLayerState{ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606 parentId=42616 z=5} 3 children}
+07-30 15:13:15.124  1369  1369 I SurfaceFlinger: [DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580#42620] attach to parent LayerHierarchy{RequestedLayerState{Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616 parentId=42591 z=1} 3 children}
+07-30 15:13:15.131  1525  2888 D InputDispatcher: Focus entered window (0): 2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.132  9014  9014 D VRI[MainActivity]@5bf1fd9: mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007293e9d5b0}
+07-30 15:13:15.134  1525  2465 I ImeTracker: com.fceumm.wrapper:68b4c3c7: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+07-30 15:13:15.134  1525  2465 I ImeTracker: com.fceumm.wrapper:68b4c3c7: onCancelled at PHASE_SERVER_SHOULD_HIDE
+07-30 15:13:15.137 12847 12847 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1311 onStartInput(EditorInfo{EditorInfo{packageName=com.fceumm.wrapper, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=Bundle[{isTextEditor=false, displayId=0}], hintText=null, hintLocales=[]}}, false)
+07-30 15:13:15.138  1525  2888 D InsetsSourceProvider: updateControlForTarget: control=InsetsSourceControl: {3 mType=ime mSurfacePosition=Point(0, 72) mInsetsHint=Insets{left=0, top=0, right=0, bottom=1032}}, target=Window{2cec26a u0 com.fceumm.wrapper/com.fceumm.wrapper.MainActivity}, from=com.android.server.wm.ImeInsetsSourceProvider.updateControlForTarget:17 com.android.server.wm.InsetsStateController.onControlTargetChanged:81 com.android.server.wm.DisplayContent.updateImeControlTarget:21 com.android.server.wm.DisplayContent.updateImeInputAndControlTarget:81 com.android.server.wm.WindowManagerService$LocalService.updateInputMethodTargetWindow:21 
+07-30 15:13:15.139  1525  7774 W PackageConfigPersister: App-specific configuration not found for packageName: com.fceumm.wrapper and userId: 0
+07-30 15:13:15.139  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.140  1369  1369 E SurfaceFlinger: alpha changed 0.000 -> 0.010 - DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580#42620
+07-30 15:13:15.142  9014  9014 I InsetsSourceConsumer: applyRequestedVisibilityToControl: visible=false, type=ime, host=com.fceumm.wrapper/com.fceumm.wrapper.MainActivity
+07-30 15:13:15.146  1369  1369 D SurfaceFlinger:        DEVICE |   0xb40000788b1a4250 | 0001 | RGBA_8888    |   16.0    0.0 1080.0 2241.0 |    0   99 1064 2340 | com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600 (10)
+07-30 15:13:15.146  1369  1369 D SurfaceFlinger:        DEVICE |   0xb40000788b19a320 | 0002 | RGBx_8888    |    0.0    0.0   49.0 1286.0 | 1031  278 1080 1564 | SurfaceView[com.fceumm.wrapper/com.f[...]wrapper.MainActivity]@0(BLAST)#42614 (6)
+07-30 15:13:15.146  1369  1369 D SurfaceFlinger: DEVICE |   0xb40000788b18a210 | 0001 | RGBA_8888    |    0.0    0.0   49.0 2241.0 | 1031   99 1080 2340 | com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608 (2)
+07-30 15:13:15.149  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{ImeContainer#16 parentId=42606 relativeParentId=42607 z=1} 1 children}] reparent to LayerHierarchy{RequestedLayerState{ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606 parentId=42616 z=5} 5 children}
+07-30 15:13:15.149  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{ImeContainer#16 parentId=42606 relativeParentId=42607 z=1} 1 children}] RelativeParent to LayerHierarchy{RequestedLayerState{2cec26a com.fceumm.wrapper/com.fceumm.wrapper.MainActivity#42607 parentId=42606} 2 children}
+07-30 15:13:15.156  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.172  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.189  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.206  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.223  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.240  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.257  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.273  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.290  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.307  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.324  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.341  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.357  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.374  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.391  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.410  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.428  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.446  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.465  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.484  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.502  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.521  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.538  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.556  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.573  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.583  1369  1369 D SurfaceFlinger:        DEVICE |   0xb40000788b1a4250 | 0001 | RGBA_8888    |  360.0    0.0 1080.0 2241.0 |    0   99  720 2340 | com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600 (10)
+07-30 15:13:15.583  1369  1369 D SurfaceFlinger:        DEVICE |   0xb40000788b1d0830 | 0002 | RGBx_8888    |    0.0    0.0 1080.0 1286.0 |    0  278 1080 1564 | SurfaceView[com.fceumm.wrapper/com.f[...]wrapper.MainActivity]@0(BLAST)#42614 (31)
+07-30 15:13:15.583  1369  1369 D SurfaceFlinger:        DEVICE |   0xb40000788b18a210 | 0001 | RGBA_8888    |    0.0    0.0 1080.0 2241.0 |    0   99 1080 2340 | com.fceumm.wrapper/com.fceum
+07-30 15:13:15.583  1369  1369 D SurfaceFlinger: m.wrapper.MainActivity$_9014#42608 (2)
+07-30 15:13:15.583  1525  7774 V WindowManager: Setting visibility of Window{ff5258c u0 com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity}: false, caller=com.android.server.wm.WindowContainer.sendAppVisibilityToClients:19 com.android.server.wm.WindowToken.setClientVisible:49 com.android.server.wm.ActivityRecord.setClientVisible:8 com.android.server.wm.ActivityRecord.commitVisibility:273 com.android.server.wm.TransitionController.finishTransition:766 
+07-30 15:13:15.584  1369  1369 I SurfaceFlinger: Layer [ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}#42592] hidden!! flag(1)
+07-30 15:13:15.584  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616 z=1} 3 children}] reparent to OffscreenRoot
+07-30 15:13:15.584  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616 z=1} 3 children}] RelativeParent to null
+07-30 15:13:15.584  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{ActivityRecord{f9f060d u0 com.fceumm.wrapper/.MainMenuActivity t2937}#42592 parentId=42591} 4 children}] reparent to LayerHierarchy{RequestedLayerState{Task=2937#42591 parentId=11 z=7} 1 children}
+07-30 15:13:15.584  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42606 parentId=42591 z=1} 5 children}] reparent to LayerHierarchy{RequestedLayerState{Task=2937#42591 parentId=11 z=7} 2 children}
+07-30 15:13:15.584  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580#42620 z=-1} no children}] reparent to OffscreenRoot
+07-30 15:13:15.584  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{DimTransitionLayer for Surface(name=ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937})/@0x97bd580#42620 z=-1} no children}] RelativeParent to null
+07-30 15:13:15.587  1369  1369 I SurfaceFlinger: id=42616 Removed Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616 (188)
+07-30 15:13:15.591  1369  1369 D SurfaceFlinger:        DEVICE |   0xb40000788b19a9e0 | 0002 | RGBx_8888    |    0.0    0.0 1080.0 1286.0 |    0  278 1080 1564 | SurfaceView[com.fceumm.wrapper/com.f[...]wrapper.MainActivity]@0(BLAST)#42614 (32)
+07-30 15:13:15.591  1369  1369 D SurfaceFlinger:        DEVICE |   0xb40000788b18a210 | 0001 | RGBA_8888    |    0.0    0.0 1080.0 2241.0 |    0   99 1080 2340 | com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608 (2)
+07-30 15:13:15.593  1525  7774 V WindowManager: Relayout Window{ff5258c u0 com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity}: viewVisibility=8 req=1080x2241 ty=1 d0
+07-30 15:13:15.593  1369  1369 I SurfaceFlinger: Layer [com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600] hidden!! flag(1)
+07-30 15:13:15.593  1369  1369 I SurfaceFlinger: destroyed Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616
+07-30 15:13:15.595  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.595  1369  1369 I Layer   : id=42616 Destroyed Transition Root: ActivityRecord{2db36ba u0 com.fceumm.wrapper/.MainActivity t2937}#42616
+07-30 15:13:15.597  9014  9014 D VRI[MainMenuActivity]@eaa47e8: WindowStopped on com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity set to true
+07-30 15:13:15.600  1525  1626 D SGM:FgCheckThread: getForegroundApp(), foregroundPkgName=com.fceumm.wrapper
+07-30 15:13:15.600  1525  7774 E WindowManager: win=Window{ff5258c u0 com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity} destroySurfaces: appStopped=true cleanupOnResume=false win.mWindowRemovalAllowed=false win.mRemoveOnExit=false win.mViewVisibility=8 caller=com.android.server.wm.ActivityRecord.destroySurfaces:25 com.android.server.wm.ActivityRecord.activityStopped:204 com.android.server.wm.ActivityClientController.activityStopped:95 android.app.IActivityClientController$Stub.onTransact:722 com.android.server.wm.ActivityClientController.onTransact:1 android.os.Binder.execTransactInternal:1541 android.os.Binder.execTransact:1480 
+07-30 15:13:15.600  1525  7774 I WindowManager: Destroying surface Surface(name=com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014)/@0xab23441 called by com.android.server.wm.WindowStateAnimator.destroySurface:11 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:54 com.android.server.wm.WindowState.destroySurfaceUnchecked:5 com.android.server.wm.WindowState.destroySurface:126 com.android.server.wm.ActivityRecord.destroySurfaces:25 com.android.server.wm.ActivityRecord.activityStopped:204 com.android.server.wm.ActivityClientController.activityStopped:95 android.app.IActivityClientController$Stub.onTransact:722 
+07-30 15:13:15.600  1525  1626 D SGM:FgCheckThread: pkgName: com.fceumm.wrapper is in foreground
+07-30 15:13:15.601  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600} no children}] reparent to OffscreenRoot
+07-30 15:13:15.601  1369  1369 I SurfaceFlinger: [LayerHierarchy{RequestedLayerState{com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600} no children}] RelativeParent to null
+07-30 15:13:15.604  1369  1369 I SurfaceFlinger: id=42600 Removed com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600 (185)
+07-30 15:13:15.608  1369  1369 I SurfaceFlinger: destroyed com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600
+07-30 15:13:15.610  1369  1369 I Layer   : id=42600 Destroyed com.fceumm.wrapper/com.fceumm.wrapper.MainMenuActivity$_9014#42600
+07-30 15:13:15.612  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.630  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.638  1525  1626 D SGM:GameManager: identifyForegroundApp. com.fceumm.wrapper, mCurrentUserId: 0, callerUserId: 0
+07-30 15:13:15.647  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.665  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.683  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.701  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.719  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.738  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.757  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.775  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.793  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.811  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.829  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.848  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.867  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.885  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.903  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.922  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.941  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.959  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.976  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:15.994  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.012  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.031  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.048  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.066  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.084  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.102  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.120  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.137  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.157  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.175  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.192  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.210  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.228  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.246  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.264  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.281  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.299  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.317  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.335  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.353  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.370  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.388  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.406  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.424  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.441  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.459  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.476  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.494  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.512  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.529  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.547  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.564  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.582  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.600  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.618  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.636  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.654  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.671  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.689  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.707  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.725  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.743  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.760  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.778  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.796  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.814  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.832  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.850  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.868  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.885  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.903  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.921  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.938  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.956  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.974  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:16.992  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.002   796   796 D io_stats: !@ Read_top(KB): .fceumm.wrapper(9014) 3744 audioserver(1354) 1084 system_server(1525) 620
+07-30 15:13:17.010  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.028  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.045  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.063  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.081  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.099  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.117  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.134  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.152  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.170  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.188  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.205  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.223  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.241  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.259  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.277  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.295  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.312  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.330  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.348  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.366  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.383  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.401  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.418  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.436  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.454  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.472  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.490  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.508  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.525  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.543  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.561  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.579  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.597  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.615  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.633  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.650  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.668  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.686  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.704  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.722  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.740  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.757  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.775  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.793  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.811  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.828  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.846  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.864  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.882  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.900  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.918  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.936  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.953  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.971  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:17.989  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.007  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.025  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.042  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.060  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.078  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.096  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.114  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.132  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.146  9014  9014 I VRI[MainActivity]@5bf1fd9: ViewPostIme pointer 0
+07-30 15:13:18.146  9014  9014 I LibretroWrapper: MainActivity: Bouton SELECT press├⌐ (ID: 7)
+07-30 15:13:18.146  9014  9014 I VRI[MainActivity]@5bf1fd9: call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@5bf1fd9
+07-30 15:13:18.149  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.153  1369  1369 I SurfaceFlinger: [com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608] setFrameRateCategory: HighHint
+07-30 15:13:18.166  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.183  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.201  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.218  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.227  9014  9014 I VRI[MainActivity]@5bf1fd9: ViewPostIme pointer 1
+07-30 15:13:18.235  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.252  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.269  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.287  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.304  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.321  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.338  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.356  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.373  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.390  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.407  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.425  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.442  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.459  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.476  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.494  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.511  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.528  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.545  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.563  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.580  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.597  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.614  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.631  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.649  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.666  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.683  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.700  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.718  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.735  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.752  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.769  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.787  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.804  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.822  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.840  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.858  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.876  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.894  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.912  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.929  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.947  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.965  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:18.983  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.001  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.019  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.036  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.054  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.072  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.090  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.108  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.125  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.143  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.161  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.178  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.196  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.214  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.232  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.250  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.268  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.285  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.303  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.321  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.339  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.357  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.375  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.392  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.410  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.429  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.446  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.464  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.482  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.500  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.517  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.535  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.553  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.570  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.588  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.606  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.624  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.642  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.659  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.677  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.695  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.713  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.731  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.749  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.766  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.784  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.802  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.820  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.838  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.856  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.873  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.891  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.909  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.927  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.945  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.963  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.980  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:19.998  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.015  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.033  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.051  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.069  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.087  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.104  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.122  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.126  9014  9014 I VRI[MainActivity]@5bf1fd9: ViewPostIme pointer 0
+07-30 15:13:20.126  9014  9014 I LibretroWrapper: MainActivity: Bouton SELECT press├⌐ (ID: 7)
+07-30 15:13:20.139  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.156  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.173  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.190  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.207  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.225  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.242  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.259  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.271  9014  9014 I VRI[MainActivity]@5bf1fd9: ViewPostIme pointer 1
+07-30 15:13:20.276  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.293  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.311  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.328  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.345  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.362  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.380  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.397  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.414  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.432  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.448  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.465  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.482  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.499  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.516  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.533  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.550  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.567  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.583  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.600  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.617  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.634  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.651  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.668  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.685  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.702  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.719  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.736  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.754  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.771  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.789  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.807  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.824  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.842  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.860  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.878  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.895  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.913  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.931  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.949  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.967  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:20.985  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.002  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.020  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.038  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.055  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.073  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.091  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.109  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.127  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.144  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.162  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.180  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.182  9014  9014 I VRI[MainActivity]@5bf1fd9: ViewPostIme pointer 0
+07-30 15:13:21.182  9014  9014 I LibretroWrapper: MainActivity: Bouton SELECT press├⌐ (ID: 7)
+07-30 15:13:21.197  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.215  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.232  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.247  9014  9014 I VRI[MainActivity]@5bf1fd9: ViewPostIme pointer 1
+07-30 15:13:21.249  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.266  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.284  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.301  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.318  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.335  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.352  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.369  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.387  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.404  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.421  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.438  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.456  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.473  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.490  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.507  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.524  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.541  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.558  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.575  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.593  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.610  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.627  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.644  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.662  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.679  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.696  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.713  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.731  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.748  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.765  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.783  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.800  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.817  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.834  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.852  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.870  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.888  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.906  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.924  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.942  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.959  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.977  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:21.995  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.013  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.031  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.049  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.066  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.084  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.102  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.120  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.138  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.156  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.173  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.191  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.209  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.227  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.245  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.262  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.280  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.298  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.316  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.334  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.352  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.369  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.387  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.405  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.423  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.441  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.458  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.476  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.494  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.512  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.529  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.547  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.565  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.583  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.601  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.618  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.635  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.653  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.671  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.689  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.707  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.725  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.742  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.760  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.778  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.796  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.814  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.832  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.850  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.868  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.885  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.903  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.921  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.939  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.957  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.974  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:22.992  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.010  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.028  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.046  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.063  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.081  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.099  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.117  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.135  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.152  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.170  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.188  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.206  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.224  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.242  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.260  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.277  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.295  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.313  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.331  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.349  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.366  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.384  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.402  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.420  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.438  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.456  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.473  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.491  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.509  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.526  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.544  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.562  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.580  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.598  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.616  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.633  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.651  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.670  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.689  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.707  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.725  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.743  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.761  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.779  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.796  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.814  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.832  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.850  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.867  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.885  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.903  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.921  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.939  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.956  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.974  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:23.992  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.010  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.027  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.045  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.063  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.081  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.099  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.117  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.135  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.152  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.170  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.188  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.206  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.224  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.242  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.248  9014  9014 I VRI[MainActivity]@5bf1fd9: call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@5bf1fd9
+07-30 15:13:24.252  1369  1369 I SurfaceFlinger: [com.fceumm.wrapper/com.fceumm.wrapper.MainActivity$_9014#42608] setFrameRateCategory: NoPreference
+07-30 15:13:24.260  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.277  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.295  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.313  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.331  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.349  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.366  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.384  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.401  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.419  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.437  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.455  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.473  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.490  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.509  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.525  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.543  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.561  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.579  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.597  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.614  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.632  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.650  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.668  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.686  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.704  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.721  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.739  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.757  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.775  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.793  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.811  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.828  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.845  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.864  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.881  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.899  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.917  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.935  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.953  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.971  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:24.989  9014  9090 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.006  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.024  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.042  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.060  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.078  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.096  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.113  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.131  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.149  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.167  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.185  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.202  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.220  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.238  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.256  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.274  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.291  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.309  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.327  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.344  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.362  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.380  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.398  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.416  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.434  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.451  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+07-30 15:13:25.469  9014  9093 W libOpenSLES: Leaving BufferQueue::Enqueue (SL_RESULT_BUFFER_INSUFFICIENT)
+

@@ -1,0 +1,20 @@
+
+07-30 20:57:29.351  7973  7973 I LibretroWrapper: Audio du jeu activ├⌐ avec succ├¿s
+07-30 20:57:29.351  7973  7973 I MainActivity: Audio du jeu activ├⌐ avec succ├¿s
+07-30 20:57:29.352  7973  7973 I LibretroWrapper: Audio du jeu maintenu actif avec succ├¿s
+07-30 20:57:29.352  7973  7973 I MainActivity: Audio du jeu maintenu actif
+07-30 20:57:46.868  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 1000
+07-30 20:58:04.753  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 2000
+07-30 20:58:22.627  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 798 frames, count: 3000
+07-30 20:58:40.493  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 4000
+07-30 20:58:58.366  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 5000
+07-30 20:59:16.241  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 6000
+07-30 20:59:34.096  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 798 frames, count: 7000
+07-30 20:59:51.975  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 8000
+07-30 21:00:09.863  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 9000
+07-30 21:00:27.722  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 10000
+07-30 21:00:45.531  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 11000
+07-30 21:01:03.404  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 798 frames, count: 12000
+07-30 21:01:21.303  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 799 frames, count: 13000
+07-30 21:01:39.174  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 798 frames, count: 14000
+07-30 21:01:57.041  7973  8024 I LibretroWrapper: Audio du jeu trait├⌐: 798 frames, count: 15000

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DIALOG DE CHARGEMENT - SLOTS MULTIPLES -->
+<!-- Fichier: dialog_load_slots.xml -->
+<!-- Layout pour le dialog de chargement avec slots multiples -->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- ========================================== -->
+    <!-- TITRE DU DIALOG -->
+    <!-- ========================================== -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Charger une partie"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#222"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ========================================== -->
+    <!-- SLOT 1 -->
+    <!-- ========================================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/slot1_preview"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="#333"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/slot1_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Slot 1 - Vide"
+                android:textColor="#666"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/slot1_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Charger le slot 1"
+                android:textSize="12sp"
+                android:background="@drawable/btn_round_b_selector"
+                android:textColor="#fff"
+                android:enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ========================================== -->
+    <!-- SLOT 2 -->
+    <!-- ========================================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/slot2_preview"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="#333"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/slot2_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Slot 2 - Vide"
+                android:textColor="#666"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/slot2_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Charger le slot 2"
+                android:textSize="12sp"
+                android:background="@drawable/btn_round_b_selector"
+                android:textColor="#fff"
+                android:enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ========================================== -->
+    <!-- SLOT 3 -->
+    <!-- ========================================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/slot3_preview"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="#333"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/slot3_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Slot 3 - Vide"
+                android:textColor="#666"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/slot3_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Charger le slot 3"
+                android:textSize="12sp"
+                android:background="@drawable/btn_round_b_selector"
+                android:textColor="#fff"
+                android:enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ========================================== -->
+    <!-- SLOT 4 -->
+    <!-- ========================================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/slot4_preview"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="#333"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/slot4_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Slot 4 - Vide"
+                android:textColor="#666"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/slot4_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Charger le slot 4"
+                android:textSize="12sp"
+                android:background="@drawable/btn_round_b_selector"
+                android:textColor="#fff"
+                android:enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ========================================== -->
+    <!-- SLOT 5 -->
+    <!-- ========================================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/slot5_preview"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="#333"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/slot5_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Slot 5 - Vide"
+                android:textColor="#666"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/slot5_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Charger le slot 5"
+                android:textSize="12sp"
+                android:background="@drawable/btn_round_b_selector"
+                android:textColor="#fff"
+                android:enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ========================================== -->
+    <!-- SÉPARATEUR -->
+    <!-- ========================================== -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ========================================== -->
+    <!-- QUICKSAVE -->
+    <!-- ========================================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/quicksave_preview"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="#333"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/quicksave_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quicksave - Vide"
+                android:textColor="#666"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/quicksave_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Charger le quicksave"
+                android:textSize="12sp"
+                android:background="@drawable/btn_round_b_selector"
+                android:textColor="#fff"
+                android:enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout> 

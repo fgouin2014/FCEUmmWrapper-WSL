@@ -1,0 +1,761 @@
+#include <jni.h>
+#include <string>
+#include <android/log.h>
+#include <dlfcn.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <fstream>
+#include <vector>
+#include <mutex>
+#include <thread>
+#include <chrono>
+#include <SLES/OpenSLES.h>
+#include <SLES/OpenSLES_Android.h>
+
+#define LOG_TAG "LibretroWrapper"
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
+
+// Libretro button constants
+#define RETRO_DEVICE_ID_JOYPAD_B     0
+#define RETRO_DEVICE_ID_JOYPAD_Y     1
+#define RETRO_DEVICE_ID_JOYPAD_SELECT 2
+#define RETRO_DEVICE_ID_JOYPAD_START  3
+#define RETRO_DEVICE_ID_JOYPAD_UP     4
+#define RETRO_DEVICE_ID_JOYPAD_DOWN   5
+#define RETRO_DEVICE_ID_JOYPAD_LEFT   6
+#define RETRO_DEVICE_ID_JOYPAD_RIGHT  7
+#define RETRO_DEVICE_ID_JOYPAD_A      8
+#define RETRO_DEVICE_ID_JOYPAD_X      9
+
+// Libretro API types
+typedef void (*retro_init_t)();
+typedef void (*retro_deinit_t)();
+typedef void (*retro_api_version_t)();
+typedef void (*retro_get_system_info_t)(void* info);
+typedef void (*retro_get_system_av_info_t)(void* info);
+typedef bool (*retro_load_game_t)(const void* game_info);
+typedef void (*retro_run_t)();
+typedef void (*retro_set_environment_t)(void* callback);
+typedef void (*retro_set_video_refresh_t)(void* callback);
+typedef void (*retro_set_audio_sample_batch_t)(void* callback);
+typedef void (*retro_set_input_poll_t)(void* callback);
+typedef void (*retro_set_input_state_t)(void* callback);
+typedef void (*retro_unload_game_t)();
+
+// Fonctions de sauvegarde libretro
+typedef size_t (*retro_serialize_size_t)();
+typedef bool (*retro_serialize_t)(void* data, size_t size);
+typedef bool (*retro_unserialize_t)(const void* data, size_t size);
+
+// Structures libretro
+struct retro_game_info {
+    const char* path;
+    const void* data;
+    size_t size;
+    const char* meta;
+};
+
+struct retro_system_av_info {
+    struct {
+        unsigned width;
+        unsigned height;
+        float aspect_ratio;
+    } geometry;
+    struct {
+        double fps;
+        double sample_rate;
+    } timing;
+};
+
+// Global variables
+void* libretro_handle = nullptr;
+retro_init_t retro_init_func = nullptr;
+retro_deinit_t retro_deinit_func = nullptr;
+retro_load_game_t retro_load_game_func = nullptr;
+retro_run_t retro_run_func = nullptr;
+retro_get_system_av_info_t retro_get_system_av_info_func = nullptr;
+retro_set_environment_t retro_set_environment_func = nullptr;
+retro_set_video_refresh_t retro_set_video_refresh_func = nullptr;
+retro_set_audio_sample_batch_t retro_set_audio_sample_batch_func = nullptr;
+retro_set_input_poll_t retro_set_input_poll_func = nullptr;
+retro_set_input_state_t retro_set_input_state_func = nullptr;
+retro_unload_game_t retro_unload_game_func = nullptr;
+
+// Fonctions de sauvegarde
+retro_serialize_size_t retro_serialize_size_func = nullptr;
+retro_serialize_t retro_serialize_func = nullptr;
+retro_unserialize_t retro_unserialize_func = nullptr;
+
+// Video buffer
+std::vector<uint32_t> frame_buffer;
+int frame_width = 256;
+int frame_height = 240;
+std::mutex frame_mutex;
+bool frame_updated = false;
+
+// État global des boutons (8 boutons au total)
+std::mutex input_mutex;
+bool button_states[8] = {false};
+
+// Audio variables
+SLObjectItf engineObject = nullptr;
+SLEngineItf engineEngine = nullptr;
+SLObjectItf outputMixObject = nullptr;
+SLPlayItf bqPlayerPlay = nullptr;
+SLObjectItf bqPlayerObject = nullptr;
+SLAndroidSimpleBufferQueueItf bqPlayerBufferQueue = nullptr;
+
+// Audio buffer - OPTIMISÉ pour éviter les problèmes de queue
+static const int AUDIO_BUFFER_SIZE = 4096; // Réduit de 32768 à 4096 (8x plus petit)
+static const int SAMPLE_RATE = 44100;
+static const int CHANNELS = 2;
+int16_t audioBuffer[AUDIO_BUFFER_SIZE];
+int16_t callbackBuffer[AUDIO_BUFFER_SIZE]; // Buffer séparé pour le callback
+std::mutex audio_mutex;
+bool audio_initialized = false;
+bool queue_ready = false; // État de la queue
+
+// Déclarations des fonctions audio
+bool initAudio();
+void cleanupAudio();
+
+// Callback functions
+bool environment_callback(unsigned cmd, void* data) {
+    // Réduire le spam des logs - seulement les commandes importantes
+    if (cmd == 1 || cmd == 2 || cmd == 10) { // Commandes importantes
+        LOGI("Environment callback: cmd=%u", cmd);
+    }
+    return false;
+}
+
+void video_refresh_callback(const void* data, unsigned width, unsigned height, size_t pitch) {
+    if (!data) return;
+    
+    std::lock_guard<std::mutex> lock(frame_mutex);
+    
+    // Mettre à jour les dimensions si nécessaire
+    if (width != frame_width || height != frame_height) {
+        frame_width = width;
+        frame_height = height;
+        frame_buffer.resize(width * height);
+        // Log seulement lors du changement de dimensions
+        LOGI("Dimensions vidéo mises à jour: %dx%d, pitch: %zu", width, height, pitch);
+    }
+    
+    // Copier les données vidéo avec conversion de format
+    const uint16_t* src = static_cast<const uint16_t*>(data);
+    for (unsigned y = 0; y < height; y++) {
+        for (unsigned x = 0; x < width; x++) {
+            uint16_t pixel = src[y * (pitch / 2) + x];
+            
+            // Convertir RGB565 vers RGBA8888
+            uint8_t r = ((pixel >> 11) & 0x1F) << 3;
+            uint8_t g = ((pixel >> 5) & 0x3F) << 2;
+            uint8_t b = (pixel & 0x1F) << 3;
+            uint8_t a = 0xFF;
+            
+            frame_buffer[y * width + x] = (a << 24) | (b << 16) | (g << 8) | r;
+        }
+    }
+    
+    frame_updated = true;
+    // Supprimer le log spam de frame vidéo
+}
+
+// Audio callback pour OpenSL ES - CORRIGÉ
+void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context) {
+    // Le callback est appelé quand le buffer est vide
+    // Utiliser un buffer séparé pour éviter les conflits
+    if (bqPlayerBufferQueue != nullptr && queue_ready) {
+        memset(callbackBuffer, 0, sizeof(callbackBuffer));
+        SLresult result = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, callbackBuffer, sizeof(callbackBuffer));
+        if (result != SL_RESULT_SUCCESS) {
+            // Si la queue est pleine, marquer comme non prête
+            if (result == SL_RESULT_BUFFER_INSUFFICIENT) {
+                queue_ready = false;
+            }
+            return;
+        }
+        queue_ready = true;
+    }
+}
+
+size_t audio_sample_batch_callback(const int16_t* data, size_t frames) {
+    if (!data || frames == 0 || !audio_initialized) {
+        return frames; // Retourner le nombre de frames pour éviter le blocage
+    }
+    
+    std::lock_guard<std::mutex> lock(audio_mutex);
+    
+    // Vérifier si la queue est prête
+    if (!queue_ready) {
+        return frames; // Attendre que la queue soit prête
+    }
+    
+    // Copier les données audio dans notre buffer
+    size_t samples_to_copy = std::min(frames * CHANNELS, (size_t)AUDIO_BUFFER_SIZE);
+    memcpy(audioBuffer, data, samples_to_copy * sizeof(int16_t));
+    
+    // Envoyer le buffer à OpenSL ES avec gestion d'erreur
+    if (bqPlayerBufferQueue != nullptr) {
+        SLresult result = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, audioBuffer, samples_to_copy * sizeof(int16_t));
+        if (result != SL_RESULT_SUCCESS) {
+            // Si la queue est pleine, marquer comme non prête
+            if (result == SL_RESULT_BUFFER_INSUFFICIENT) {
+                queue_ready = false;
+            }
+            return frames; // Retourner les frames pour éviter le blocage
+        }
+        queue_ready = true;
+    }
+    
+    return frames;
+}
+
+void input_poll_callback() {
+    // Input poll callback - sera implémenté plus tard
+}
+
+int16_t input_state_callback(unsigned port, unsigned device, unsigned index, unsigned id) {
+    if (port == 0 && device == 1) { // RETRO_DEVICE_JOYPAD
+        std::lock_guard<std::mutex> lock(input_mutex);
+        
+        // Mapping correct des boutons selon les constantes libretro
+        switch (id) {
+            case RETRO_DEVICE_ID_JOYPAD_UP:      return button_states[0] ? 1 : 0; // UP
+            case RETRO_DEVICE_ID_JOYPAD_DOWN:    return button_states[1] ? 1 : 0; // DOWN
+            case RETRO_DEVICE_ID_JOYPAD_LEFT:    return button_states[2] ? 1 : 0; // LEFT
+            case RETRO_DEVICE_ID_JOYPAD_RIGHT:   return button_states[3] ? 1 : 0; // RIGHT
+            case RETRO_DEVICE_ID_JOYPAD_A:       return button_states[4] ? 1 : 0; // A
+            case RETRO_DEVICE_ID_JOYPAD_B:       return button_states[5] ? 1 : 0; // B
+            case RETRO_DEVICE_ID_JOYPAD_START:   return button_states[6] ? 1 : 0; // START
+            case RETRO_DEVICE_ID_JOYPAD_SELECT:  return button_states[7] ? 1 : 0; // SELECT
+            default: return 0;
+        }
+    }
+    return 0;
+}
+
+// Fonction pour mettre à jour l'état des boutons depuis Java
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_input_SimpleInputManager_setButtonState(JNIEnv* env, jobject thiz, jint buttonId, jboolean pressed) {
+    std::lock_guard<std::mutex> lock(input_mutex);
+    if (buttonId >= 0 && buttonId < 8) {
+        // Éviter les logs répétitifs - seulement log lors du changement d'état
+        if (button_states[buttonId] != pressed) {
+            button_states[buttonId] = pressed;
+            // Log seulement lors du press (pas du release) pour éviter le spam
+            if (pressed) {
+                const char* buttonNames[] = {"UP", "DOWN", "LEFT", "RIGHT", "A", "B", "START", "SELECT"};
+                LOGI("Bouton %s pressé (ID: %d)", buttonNames[buttonId], buttonId);
+            }
+        }
+    }
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_input_SimpleInputManager_resetAllButtonsNative(JNIEnv* env, jobject thiz) {
+    std::lock_guard<std::mutex> lock(input_mutex);
+    for (int i = 0; i < 8; i++) {
+        button_states[i] = false;
+    }
+    // Log seulement si on réinitialise vraiment (pas à chaque frame)
+    LOGI("Tous les boutons réinitialisés");
+}
+
+// Méthode pour MainActivity
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_MainActivity_setButtonState(JNIEnv* env, jobject thiz, jint buttonId, jboolean pressed) {
+    std::lock_guard<std::mutex> lock(input_mutex);
+    if (buttonId >= 0 && buttonId < 8) {
+        // Éviter les logs répétitifs - seulement log lors du changement d'état
+        if (button_states[buttonId] != pressed) {
+            button_states[buttonId] = pressed;
+            // Log seulement lors du press (pas du release) pour éviter le spam
+            if (pressed) {
+                const char* buttonNames[] = {"UP", "DOWN", "LEFT", "RIGHT", "A", "B", "START", "SELECT"};
+                LOGI("MainActivity: Bouton %s pressé (ID: %d)", buttonNames[buttonId], buttonId);
+            }
+        }
+    }
+}
+
+extern "C" JNIEXPORT jboolean JNICALL
+Java_com_fceumm_wrapper_MainActivity_initLibretro(JNIEnv* env, jobject thiz) {
+    LOGI("Initialisation du wrapper Libretro");
+    
+    // Charger le core libretro
+    const char* core_path = "/data/data/com.fceumm.wrapper/files/cores/fceumm_libretro_android.so";
+    libretro_handle = dlopen(core_path, RTLD_LAZY);
+    
+    if (!libretro_handle) {
+        LOGE("Impossible de charger le core: %s", dlerror());
+        return JNI_FALSE;
+    }
+    
+    LOGI("Core chargé avec succès");
+    
+    // Récupérer les fonctions
+    retro_init_func = (retro_init_t)dlsym(libretro_handle, "retro_init");
+    retro_deinit_func = (retro_deinit_t)dlsym(libretro_handle, "retro_deinit");
+    retro_load_game_func = (retro_load_game_t)dlsym(libretro_handle, "retro_load_game");
+    retro_run_func = (retro_run_t)dlsym(libretro_handle, "retro_run");
+    retro_get_system_av_info_func = (retro_get_system_av_info_t)dlsym(libretro_handle, "retro_get_system_av_info");
+    retro_set_environment_func = (retro_set_environment_t)dlsym(libretro_handle, "retro_set_environment");
+    retro_set_video_refresh_func = (retro_set_video_refresh_t)dlsym(libretro_handle, "retro_set_video_refresh");
+    retro_set_audio_sample_batch_func = (retro_set_audio_sample_batch_t)dlsym(libretro_handle, "retro_set_audio_sample_batch");
+    retro_set_input_poll_func = (retro_set_input_poll_t)dlsym(libretro_handle, "retro_set_input_poll");
+    retro_set_input_state_func = (retro_set_input_state_t)dlsym(libretro_handle, "retro_set_input_state");
+    retro_unload_game_func = (retro_unload_game_t)dlsym(libretro_handle, "retro_unload_game");
+    
+    // Charger les fonctions de sauvegarde
+    retro_serialize_size_func = (retro_serialize_size_t)dlsym(libretro_handle, "retro_serialize_size");
+    retro_serialize_func = (retro_serialize_t)dlsym(libretro_handle, "retro_serialize");
+    retro_unserialize_func = (retro_unserialize_t)dlsym(libretro_handle, "retro_unserialize");
+    
+    if (!retro_init_func || !retro_load_game_func || !retro_run_func) {
+        LOGE("Fonctions libretro manquantes");
+        return JNI_FALSE;
+    }
+    
+    // Vérifier les fonctions de sauvegarde (optionnelles)
+    if (!retro_serialize_size_func || !retro_serialize_func || !retro_unserialize_func) {
+        LOGW("Fonctions de sauvegarde non disponibles - fonctionnalité limitée");
+    } else {
+        LOGI("Fonctions de sauvegarde disponibles");
+    }
+    
+    LOGI("Fonctions libretro récupérées avec succès");
+    
+    // Configurer les callbacks avec cast explicite
+    retro_set_environment_func((void*)environment_callback);
+    retro_set_video_refresh_func((void*)video_refresh_callback);
+    retro_set_audio_sample_batch_func((void*)audio_sample_batch_callback);
+    retro_set_input_poll_func((void*)input_poll_callback);
+    retro_set_input_state_func((void*)input_state_callback);
+    
+    LOGI("Callbacks configurés");
+    
+    // Initialiser le core
+    retro_init_func();
+    LOGI("Core initialisé");
+    
+    // Initialiser l'audio
+    if (!initAudio()) {
+        LOGE("Échec de l'initialisation audio");
+        return JNI_FALSE;
+    }
+    
+    return JNI_TRUE;
+}
+
+extern "C" JNIEXPORT jboolean JNICALL
+Java_com_fceumm_wrapper_MainActivity_loadROM(JNIEnv* env, jobject thiz, jstring rom_path) {
+    const char* path = env->GetStringUTFChars(rom_path, nullptr);
+    LOGI("Chargement ROM: %s", path);
+    
+    // Vérifier que le fichier existe
+    struct stat st;
+    if (stat(path, &st) != 0) {
+        LOGE("ROM introuvable: %s", path);
+        env->ReleaseStringUTFChars(rom_path, path);
+        return JNI_FALSE;
+    }
+    
+    // Lire le fichier ROM
+    std::ifstream file(path, std::ios::binary);
+    if (!file.is_open()) {
+        LOGE("Impossible d'ouvrir la ROM: %s", path);
+        env->ReleaseStringUTFChars(rom_path, path);
+        return JNI_FALSE;
+    }
+    
+    std::vector<char> rom_data((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    file.close();
+    
+    LOGI("ROM chargée: %zu bytes", rom_data.size());
+    
+    // Structure pour les informations de jeu
+    retro_game_info game_info;
+    game_info.path = path;
+    game_info.data = rom_data.data();
+    game_info.size = rom_data.size();
+    game_info.meta = nullptr;
+    
+    // Charger le jeu
+    bool success = retro_load_game_func(&game_info);
+    
+    env->ReleaseStringUTFChars(rom_path, path);
+    
+    if (success) {
+        LOGI("ROM chargée avec succès");
+        
+        // Récupérer les informations vidéo
+        if (retro_get_system_av_info_func) {
+            retro_system_av_info av_info;
+            retro_get_system_av_info_func(&av_info);
+            
+            frame_width = av_info.geometry.width;
+            frame_height = av_info.geometry.height;
+            frame_buffer.resize(frame_width * frame_height);
+            
+            // Vérifier que le FPS est valide
+            if (av_info.timing.fps <= 0.0) {
+                LOGW("FPS invalide détecté (%.2f), utilisation de 60.0 FPS par défaut", av_info.timing.fps);
+                av_info.timing.fps = 60.0;
+            }
+            
+            LOGI("Informations vidéo: %dx%d, FPS: %.2f", 
+                 frame_width, frame_height, av_info.timing.fps);
+        } else {
+            LOGW("Fonction retro_get_system_av_info non disponible, utilisation des valeurs par défaut");
+            frame_width = 256;
+            frame_height = 240;
+            frame_buffer.resize(frame_width * frame_height);
+        }
+        
+        return JNI_TRUE;
+    } else {
+        LOGE("Échec du chargement de la ROM");
+        return JNI_FALSE;
+    }
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_MainActivity_runFrame(JNIEnv* env, jobject thiz) {
+    if (retro_run_func) {
+        retro_run_func();
+    }
+}
+
+extern "C" JNIEXPORT jbyteArray JNICALL
+Java_com_fceumm_wrapper_EmulatorView_getFrameBuffer(JNIEnv* env, jobject thiz) {
+    std::lock_guard<std::mutex> lock(frame_mutex);
+    
+    if (frame_buffer.empty()) {
+        return nullptr;
+    }
+    
+    // Convertir le buffer en bytes pour Java
+    jbyteArray result = env->NewByteArray(frame_buffer.size() * 4);
+    env->SetByteArrayRegion(result, 0, frame_buffer.size() * 4, 
+                           reinterpret_cast<const jbyte*>(frame_buffer.data()));
+    
+    return result;
+}
+
+extern "C" JNIEXPORT jint JNICALL
+Java_com_fceumm_wrapper_EmulatorView_getFrameWidth(JNIEnv* env, jobject thiz) {
+    return frame_width;
+}
+
+extern "C" JNIEXPORT jint JNICALL
+Java_com_fceumm_wrapper_EmulatorView_getFrameHeight(JNIEnv* env, jobject thiz) {
+    return frame_height;
+}
+
+extern "C" JNIEXPORT jboolean JNICALL
+Java_com_fceumm_wrapper_EmulatorView_isFrameUpdated(JNIEnv* env, jobject thiz) {
+    std::lock_guard<std::mutex> lock(frame_mutex);
+    bool updated = frame_updated;
+    frame_updated = false;
+    return updated;
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_MainActivity_cleanup(JNIEnv* env, jobject thiz) {
+    LOGI("Nettoyage du wrapper Libretro");
+    
+    // Nettoyer l'audio
+    cleanupAudio();
+    
+    if (retro_unload_game_func) {
+        retro_unload_game_func();
+    }
+    
+    if (retro_deinit_func) {
+        retro_deinit_func();
+    }
+    
+    if (libretro_handle) {
+        dlclose(libretro_handle);
+        libretro_handle = nullptr;
+    }
+    
+    LOGI("Wrapper Libretro déinitialisé");
+}
+
+// Méthodes pour les contrôles tactiles
+extern "C" JNIEXPORT jboolean JNICALL
+Java_com_fceumm_wrapper_input_SimpleInputManager_isButtonPressed(JNIEnv* env, jobject thiz, jint buttonId) {
+    std::lock_guard<std::mutex> lock(input_mutex);
+    return (buttonId >= 0 && buttonId < 8) ? button_states[buttonId] : false;
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_input_SimpleInputManager_updateInputState(JNIEnv* env, jobject thiz) {
+    // Cette méthode sera appelée quand l'état des boutons change
+    LOGI("État des entrées mis à jour");
+}
+
+// Initialisation audio avec OpenSL ES
+bool initAudio() {
+    LOGI("Initialisation de l'audio OpenSL ES");
+    
+    // Créer le moteur
+    SLresult result = slCreateEngine(&engineObject, 0, nullptr, 0, nullptr, nullptr);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de la création du moteur OpenSL ES: %d", result);
+        return false;
+    }
+    
+    result = (*engineObject)->Realize(engineObject, SL_BOOLEAN_FALSE);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de la réalisation du moteur: %d", result);
+        return false;
+    }
+    
+    result = (*engineObject)->GetInterface(engineObject, SL_IID_ENGINE, &engineEngine);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de l'obtention de l'interface moteur: %d", result);
+        return false;
+    }
+    
+    // Créer le mixeur de sortie
+    const SLInterfaceID ids[1] = {SL_IID_VOLUME};
+    const SLboolean req[1] = {SL_BOOLEAN_FALSE};
+    result = (*engineEngine)->CreateOutputMix(engineEngine, &outputMixObject, 1, ids, req);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de la création du mixeur de sortie: %d", result);
+        return false;
+    }
+    
+    result = (*outputMixObject)->Realize(outputMixObject, SL_BOOLEAN_FALSE);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de la réalisation du mixeur: %d", result);
+        return false;
+    }
+    
+    // Configuration du buffer queue
+    SLDataLocator_AndroidSimpleBufferQueue loc_bufq = {SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE, 2};
+    SLDataFormat_PCM format_pcm = {
+        SL_DATAFORMAT_PCM,
+        CHANNELS,
+        SAMPLE_RATE * 1000, // Sample rate en milliHz
+        SL_PCMSAMPLEFORMAT_FIXED_16,
+        SL_PCMSAMPLEFORMAT_FIXED_16,
+        SL_SPEAKER_FRONT_LEFT | SL_SPEAKER_FRONT_RIGHT,
+        SL_BYTEORDER_LITTLEENDIAN
+    };
+    SLDataSource audioSrc = {&loc_bufq, &format_pcm};
+    
+    // Configuration du sink
+    SLDataLocator_OutputMix loc_outmix = {SL_DATALOCATOR_OUTPUTMIX, outputMixObject};
+    SLDataSink audioSnk = {&loc_outmix, nullptr};
+    
+    // Interface du buffer queue
+    const SLInterfaceID ids1[2] = {SL_IID_BUFFERQUEUE, SL_IID_VOLUME};
+    const SLboolean req1[2] = {SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE};
+    
+    // Créer le player
+    result = (*engineEngine)->CreateAudioPlayer(engineEngine, &bqPlayerObject, &audioSrc, &audioSnk, 2, ids1, req1);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de la création du player audio: %d", result);
+        return false;
+    }
+    
+    result = (*bqPlayerObject)->Realize(bqPlayerObject, SL_BOOLEAN_FALSE);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de la réalisation du player: %d", result);
+        return false;
+    }
+    
+    // Obtenir les interfaces
+    result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_PLAY, &bqPlayerPlay);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de l'obtention de l'interface play: %d", result);
+        return false;
+    }
+    
+    result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_BUFFERQUEUE, &bqPlayerBufferQueue);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de l'obtention de l'interface buffer queue: %d", result);
+        return false;
+    }
+    
+    // Configurer le callback
+    result = (*bqPlayerBufferQueue)->RegisterCallback(bqPlayerBufferQueue, bqPlayerCallback, nullptr);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de l'enregistrement du callback: %d", result);
+        return false;
+    }
+    
+    // Démarrer la lecture
+    result = (*bqPlayerPlay)->SetPlayState(bqPlayerPlay, SL_PLAYSTATE_PLAYING);
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec du démarrage de la lecture: %d", result);
+        return false;
+    }
+    
+    // Envoyer un buffer initial (silence)
+    memset(callbackBuffer, 0, sizeof(callbackBuffer));
+    result = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, callbackBuffer, sizeof(callbackBuffer));
+    if (result != SL_RESULT_SUCCESS) {
+        LOGE("Échec de l'envoi du buffer initial: %d", result);
+        return false;
+    }
+    
+    // Marquer la queue comme prête
+    queue_ready = true;
+    audio_initialized = true;
+    LOGI("Audio initialisé avec succès - Buffer: %lu bytes", (unsigned long)(AUDIO_BUFFER_SIZE * sizeof(int16_t)));
+    return true;
+}
+
+// Nettoyage audio
+void cleanupAudio() {
+    if (bqPlayerObject != nullptr) {
+        (*bqPlayerObject)->Destroy(bqPlayerObject);
+        bqPlayerObject = nullptr;
+        bqPlayerPlay = nullptr;
+        bqPlayerBufferQueue = nullptr;
+    }
+    
+    if (outputMixObject != nullptr) {
+        (*outputMixObject)->Destroy(outputMixObject);
+        outputMixObject = nullptr;
+    }
+    
+    if (engineObject != nullptr) {
+        (*engineObject)->Destroy(engineObject);
+        engineObject = nullptr;
+        engineEngine = nullptr;
+    }
+    
+    audio_initialized = false;
+    queue_ready = false;
+    LOGI("Audio nettoyé");
+}
+
+// ==========================================
+// MÉTHODES DE SAUVEGARDE ET CHARGEMENT
+// ==========================================
+
+JNIEXPORT jbyteArray JNICALL
+Java_com_fceumm_wrapper_EmulatorView_serializeState(JNIEnv* env, jobject thiz) {
+    if (!retro_serialize_size_func || !retro_serialize_func) {
+        LOGE("Fonctions de sérialisation non disponibles");
+        return nullptr;
+    }
+    
+    size_t size = retro_serialize_size_func();
+    if (size == 0) {
+        LOGE("Taille de sérialisation nulle");
+        return nullptr;
+    }
+    
+    std::vector<uint8_t> buffer(size);
+    if (!retro_serialize_func(buffer.data(), size)) {
+        LOGE("Échec de la sérialisation");
+        return nullptr;
+    }
+    
+    jbyteArray result = env->NewByteArray(size);
+    env->SetByteArrayRegion(result, 0, size, (jbyte*)buffer.data());
+    
+    return result;
+}
+
+JNIEXPORT jboolean JNICALL
+Java_com_fceumm_wrapper_EmulatorView_unserializeState(JNIEnv* env, jobject thiz, jbyteArray stateData) {
+    if (!retro_unserialize_func) {
+        LOGE("Fonction de désérialisation non disponible");
+        return JNI_FALSE;
+    }
+    
+    jsize size = env->GetArrayLength(stateData);
+    jbyte* data = env->GetByteArrayElements(stateData, nullptr);
+    
+    bool success = retro_unserialize_func((const void*)data, size);
+    
+    env->ReleaseByteArrayElements(stateData, data, JNI_ABORT);
+    
+    return success ? JNI_TRUE : JNI_FALSE;
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_EmulatorView_captureScreenshotSafe(JNIEnv* env, jobject thiz, jobject callback) {
+    LOGI("Capture d'écran demandée");
+    
+    // Créer une référence globale pour le callback
+    jobject globalCallback = env->NewGlobalRef(callback);
+    
+    // Capturer l'écran dans un thread séparé pour éviter le blocage
+    std::thread([globalCallback, env]() {
+        // Attendre un peu pour s'assurer que le frame est prêt
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        
+        std::lock_guard<std::mutex> lock(frame_mutex);
+        
+        if (frame_buffer.empty()) {
+            LOGW("Buffer de frame vide, pas de capture possible");
+            // Appeler le callback avec des données nulles
+            JNIEnv* threadEnv;
+            JavaVM* jvm;
+            env->GetJavaVM(&jvm);
+            jvm->AttachCurrentThread(&threadEnv, nullptr);
+            
+            jclass callbackClass = threadEnv->GetObjectClass(globalCallback);
+            jmethodID methodId = threadEnv->GetMethodID(callbackClass, "onScreenshotCaptured", "([B)V");
+            threadEnv->CallVoidMethod(globalCallback, methodId, nullptr);
+            
+            threadEnv->DeleteGlobalRef(globalCallback);
+            jvm->DetachCurrentThread();
+            return;
+        }
+        
+        // Convertir le frame buffer en format PNG
+        // Pour simplifier, on va créer un bitmap RGBA simple
+        int width = frame_width;
+        int height = frame_height;
+        size_t dataSize = width * height * 4; // RGBA
+        
+        // Créer un buffer pour les données PNG
+        std::vector<uint8_t> pngData;
+        
+        // Utiliser stb_image_write pour créer le PNG
+        // Note: Cette implémentation est simplifiée, en production on utiliserait une vraie lib PNG
+        pngData.resize(dataSize);
+        
+        // Copier les données du frame buffer
+        for (size_t i = 0; i < frame_buffer.size(); ++i) {
+            uint32_t pixel = frame_buffer[i];
+            size_t offset = i * 4;
+            pngData[offset] = (pixel >> 16) & 0xFF;     // R
+            pngData[offset + 1] = (pixel >> 8) & 0xFF;  // G
+            pngData[offset + 2] = pixel & 0xFF;          // B
+            pngData[offset + 3] = (pixel >> 24) & 0xFF; // A
+        }
+        
+        // Appeler le callback avec les données
+        JNIEnv* threadEnv;
+        JavaVM* jvm;
+        env->GetJavaVM(&jvm);
+        jvm->AttachCurrentThread(&threadEnv, nullptr);
+        
+        jbyteArray result = threadEnv->NewByteArray(pngData.size());
+        threadEnv->SetByteArrayRegion(result, 0, pngData.size(), 
+                                    reinterpret_cast<const jbyte*>(pngData.data()));
+        
+        jclass callbackClass = threadEnv->GetObjectClass(globalCallback);
+        jmethodID methodId = threadEnv->GetMethodID(callbackClass, "onScreenshotCaptured", "([B)V");
+        threadEnv->CallVoidMethod(globalCallback, methodId, result);
+        
+        threadEnv->DeleteGlobalRef(globalCallback);
+        jvm->DetachCurrentThread();
+        
+        LOGI("Capture d'écran terminée (%zu octets)", pngData.size());
+    }).detach();
+}

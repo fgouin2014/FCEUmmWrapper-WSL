@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.0' // Mets la version que tu veux utiliser
+        classpath 'com.android.tools.build:gradle:8.2.0' // Mets la version que tu veux utiliser
     }
 }
 
@@ -18,53 +18,60 @@ allprojects {
 apply plugin: 'com.android.application'
 
 android {
-    namespace 'com.fceumm.wrapper'
-    compileSdkVersion 33
+    namespace = 'com.fceumm.wrapper'
+    compileSdkVersion = 34
     defaultConfig {
-        applicationId "com.fceumm.wrapper"
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 1
-        versionName "1.0"
+        applicationId = "com.fceumm.wrapper"
+        minSdkVersion = 21
+        targetSdkVersion = 33
+        versionCode = 1
+        versionName = "1.0"
         externalNativeBuild {
             cmake {
-                cppFlags "-std=c++17 -O3 -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
-                arguments "-DANDROID_STL=c++_static", "-DANDROID_PLATFORM=android-21"
+                cppFlags = ["-std=c++17", "-O3", "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"]
+                arguments = ["-DANDROID_STL=c++_static", "-DANDROID_PLATFORM=android-21"]
+                // Configuration pour l'alignement 16 KB requis par Android 16
+                cFlags += ["-Wl,-z,relro,-z,now"]
+                cppFlags += ["-Wl,-z,relro,-z,now"]
             }
         }
     }
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled = false
+            proguardFiles = [getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro']
         }
         debug {
-            jniDebuggable true
-            debuggable true
+            jniDebuggable = true
+            debuggable = true
         }
     }
     externalNativeBuild {
         cmake {
-            path "src/main/cpp/CMakeLists.txt"
-            version "3.22.1"
+            path = "src/main/cpp/CMakeLists.txt"
+            version = "3.22.1"
         }
     }
     packagingOptions {
-        jniLibs.useLegacyPackaging = true
+        // Configuration pour l'alignement 16 KB requis par Android 16
+        jniLibs {
+            useLegacyPackaging = false
+            pickFirsts += ['**/*.so']
+        }
     }
     splits {
         abi {
-            enable true
+            enable = true
             reset()
-            include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-            universalApk false
+            include('armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64')
+            universalApk = false
         }
     }
-    ndkVersion "28.2.13676358"
+    ndkVersion = "28.2.13676358"
 }
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.11.0'
 } 
