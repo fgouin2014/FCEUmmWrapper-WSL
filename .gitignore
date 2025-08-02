@@ -138,4 +138,13 @@ Thumbs.db
 # Test files
 test_*.sh
 *_test.sh
-*.test 
+*.test
+
+# Large files that should not be committed
+*.zip
+*.rar
+gradle-*.zip
+*_libretro_android.so.zip
+*_nightly.zip
+stable_core.zip
+coresOriginal.rar 
