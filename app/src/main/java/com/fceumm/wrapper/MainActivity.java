@@ -378,8 +378,8 @@ public class MainActivity extends Activity {
             
             if (isPortrait) {
                 // En mode portrait : ajouter une marge en haut
-                emulatorParams.topMargin = -100;
-                overlayParams.topMargin = 100;
+                emulatorParams.topMargin = -300;
+                overlayParams.topMargin = -300;
             } else {
                 // En mode paysage : pas de marge
                 emulatorParams.topMargin = 0;

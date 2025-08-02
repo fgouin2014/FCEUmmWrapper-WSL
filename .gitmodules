@@ -1,0 +1,35 @@
+[submodule "android_core_build/fceumm"]
+	path = android_core_build/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "custom_core_build/fceumm"]
+	path = custom_core_build/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "direct_core_build/fceumm"]
+	path = direct_core_build/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "real_core_build/fceumm"]
+	path = real_core_build/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "real_fceumm_build/fceumm"]
+	path = real_fceumm_build/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "simple_android_build/fceumm"]
+	path = simple_android_build/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "simple_core_build/fceumm"]
+	path = simple_core_build/fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "temp_fceumm"]
+	path = temp_fceumm
+	url = https://github.com/libretro/libretro-fceumm.git
+
+[submodule "libretro-super"]
+	path = libretro-super
+	url = https://github.com/libretro/libretro-super.git
