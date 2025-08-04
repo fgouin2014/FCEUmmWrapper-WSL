@@ -147,4 +147,5 @@ gradle-*.zip
 *_libretro_android.so.zip
 *_nightly.zip
 stable_core.zip
-coresOriginal.rar 
+coresOriginal.rar app/src/main/assets/roms/
+app/src/main/assets/roms/

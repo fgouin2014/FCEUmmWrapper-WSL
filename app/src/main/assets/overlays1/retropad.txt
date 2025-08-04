@@ -1,0 +1,5 @@
+# Placeholder pour retropad.png
+# Taille: 64x64
+# Texte: RetroPad
+# Couleur: white
+# Utilisez un éditeur d'image pour créer cette image

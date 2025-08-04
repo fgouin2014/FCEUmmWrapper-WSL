@@ -94,8 +94,8 @@ public class MainMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Bouton Settings pressé");
-                Toast.makeText(MainMenuActivity.this, "Paramètres - Fonctionnalité à venir", Toast.LENGTH_SHORT).show();
-                // TODO: Implémenter l'activité des paramètres
+                Intent intent = new Intent(MainMenuActivity.this, SettingsActivity.class);
+                startActivity(intent);
             }
         });
         

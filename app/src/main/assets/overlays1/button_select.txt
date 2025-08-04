@@ -1,0 +1,5 @@
+# Placeholder pour button_select.png
+# Taille: 64x64
+# Texte: SELECT
+# Couleur: white
+# Utilisez un éditeur d'image pour créer cette image

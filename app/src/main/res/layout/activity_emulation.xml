@@ -11,120 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
         
-    <!-- Overlay des contrôles tactiles -->
-    <com.fceumm.wrapper.input.SimpleOverlay
-        android:id="@+id/input_overlay"
+    <!-- Overlay RetroArch officiel -->
+    <com.fceumm.wrapper.overlay.RetroArchOverlayLoader
+        android:id="@+id/retroarch_overlay_loader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
         android:background="@android:color/transparent"
-        android:alpha="0.9" />
+        android:visibility="visible"
+        android:alpha="0.5"
+        android:elevation="0dp" />
 
-    <!-- Panel de contrôles audio (caché par défaut) -->
-    <LinearLayout
-        android:id="@+id/audio_controls_panel"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:background="#CC333333"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:visibility="gone">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Contrôles Audio"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <!-- Volume général -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Volume: 100%"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <SeekBar
-            android:id="@+id/volume_seekbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:max="100"
-            android:progress="100"
-            android:progressTint="#4CAF50"
-            android:thumbTint="#4CAF50" />
-
-        <!-- Mute/Unmute -->
-        <ToggleButton
-            android:id="@+id/mute_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="#333333"
-            android:textColor="#FFFFFF"
-            android:textOff="Muet"
-            android:textOn="Son" />
-
-        <!-- Qualité audio -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Qualité:"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <Spinner
-            android:id="@+id/quality_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="#333333"
-            android:popupBackground="#333333" />
-
-        <!-- Taux d'échantillonnage -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Échantillonnage:"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <Spinner
-            android:id="@+id/sample_rate_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="#333333"
-            android:popupBackground="#333333" />
-
-        <!-- Bouton fermer -->
-        <Button
-            android:id="@+id/close_audio_panel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#4CAF50"
-            android:text="Fermer"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <!-- Bouton pour ouvrir/fermer le panel audio -->
-    <ImageButton
-        android:id="@+id/audio_settings_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="16dp"
-        android:background="@drawable/blank_button"
-        android:src="@android:drawable/ic_lock_silent_mode_off"
-        android:contentDescription="Paramètres audio" />
 
 </RelativeLayout> 

@@ -151,7 +151,7 @@ bool frame_updated = false;
 
 // État global des boutons (8 boutons au total)
 std::mutex input_mutex;
-bool button_states[8] = {false};
+bool button_states[9] = {false}; // Augmenter à 9 pour supporter le code 8 (A)
 
 // Audio buffer pour stocker les données audio
 std::vector<int16_t> audio_buffer;
@@ -223,7 +223,12 @@ bool environment_callback(unsigned cmd, void* data) {
 }
 
 void video_refresh_callback(const void* data, unsigned width, unsigned height, size_t pitch) {
-    if (!data) return;
+            // LOGI("🎬 Video callback appelé: %dx%d, pitch: %zu, data: %p", width, height, pitch, data);
+    
+    if (!data) {
+        LOGI("🎬 Video callback: données nulles");
+        return;
+    }
     
     std::lock_guard<std::mutex> lock(frame_mutex);
     
@@ -232,7 +237,7 @@ void video_refresh_callback(const void* data, unsigned width, unsigned height, s
         frame_width = width;
         frame_height = height;
         frame_buffer.resize(width * height);
-        LOGI("Dimensions vidéo mises à jour: %dx%d, pitch: %zu", width, height, pitch);
+        LOGI("🎬 Dimensions vidéo mises à jour: %dx%d, pitch: %zu", width, height, pitch);
     }
     
     // Copier les données vidéo avec conversion de format
@@ -252,7 +257,7 @@ void video_refresh_callback(const void* data, unsigned width, unsigned height, s
     }
     
     frame_updated = true;
-    // Supprimer le log spam de frame vidéo
+            // LOGI("🎬 Frame vidéo mise à jour: %dx%d, %zu pixels", width, height, frame_buffer.size());
 }
 
 // Callback OpenSL ES pour maintenir le flux audio
@@ -410,14 +415,14 @@ int16_t input_state_callback(unsigned port, unsigned device, unsigned index, uns
         
         // Mapping correct des boutons selon les constantes libretro
         switch (id) {
-            case RETRO_DEVICE_ID_JOYPAD_UP:      return button_states[0] ? 1 : 0; // UP
-            case RETRO_DEVICE_ID_JOYPAD_DOWN:    return button_states[1] ? 1 : 0; // DOWN
-            case RETRO_DEVICE_ID_JOYPAD_LEFT:    return button_states[2] ? 1 : 0; // LEFT
-            case RETRO_DEVICE_ID_JOYPAD_RIGHT:   return button_states[3] ? 1 : 0; // RIGHT
-            case RETRO_DEVICE_ID_JOYPAD_A:       return button_states[4] ? 1 : 0; // A
-            case RETRO_DEVICE_ID_JOYPAD_B:       return button_states[5] ? 1 : 0; // B
-            case RETRO_DEVICE_ID_JOYPAD_START:   return button_states[6] ? 1 : 0; // START
-            case RETRO_DEVICE_ID_JOYPAD_SELECT:  return button_states[7] ? 1 : 0; // SELECT
+            case RETRO_DEVICE_ID_JOYPAD_UP:      return button_states[4] ? 1 : 0; // UP = 4
+            case RETRO_DEVICE_ID_JOYPAD_DOWN:    return button_states[5] ? 1 : 0; // DOWN = 5
+            case RETRO_DEVICE_ID_JOYPAD_LEFT:    return button_states[6] ? 1 : 0; // LEFT = 6
+            case RETRO_DEVICE_ID_JOYPAD_RIGHT:   return button_states[7] ? 1 : 0; // RIGHT = 7
+            case RETRO_DEVICE_ID_JOYPAD_A:       return button_states[8] ? 1 : 0; // A = 8
+            case RETRO_DEVICE_ID_JOYPAD_B:       return button_states[0] ? 1 : 0; // B = 0
+            case RETRO_DEVICE_ID_JOYPAD_START:   return button_states[3] ? 1 : 0; // START = 3
+            case RETRO_DEVICE_ID_JOYPAD_SELECT:  return button_states[2] ? 1 : 0; // SELECT = 2
             default: return 0;
         }
     }
@@ -428,12 +433,28 @@ int16_t input_state_callback(unsigned port, unsigned device, unsigned index, uns
 extern "C" JNIEXPORT void JNICALL
 Java_com_fceumm_wrapper_input_SimpleInputManager_setButtonState(JNIEnv* env, jobject thiz, jint buttonId, jboolean pressed) {
     std::lock_guard<std::mutex> lock(input_mutex);
-    if (buttonId >= 0 && buttonId < 8) {
+    if (buttonId >= 0 && buttonId < 9) {
         button_states[buttonId] = pressed;
         // Log pour déboguer le mapping
         if (pressed) {
-            const char* buttonNames[] = {"UP", "DOWN", "LEFT", "RIGHT", "A", "B", "START", "SELECT"};
+            const char* buttonNames[] = {"B", "UNUSED", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A"};
             LOGI("Bouton %s pressé (ID: %d)", buttonNames[buttonId], buttonId);
+        }
+    }
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_fceumm_wrapper_MainActivity_setJoypadButton(JNIEnv* env, jobject thiz, jint buttonId, jboolean pressed) {
+    std::lock_guard<std::mutex> lock(input_mutex);
+    if (buttonId >= 0 && buttonId < 9) {
+        button_states[buttonId] = pressed;
+        // Log pour déboguer le mapping
+        if (pressed) {
+            const char* buttonNames[] = {"B", "UNUSED", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A"};
+            LOGI("🎮 Bouton %s pressé (ID: %d)", buttonNames[buttonId], buttonId);
+        } else {
+            const char* buttonNames[] = {"B", "UNUSED", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A"};
+            LOGI("🎮 Bouton %s relâché (ID: %d)", buttonNames[buttonId], buttonId);
         }
     }
 }
@@ -441,7 +462,7 @@ Java_com_fceumm_wrapper_input_SimpleInputManager_setButtonState(JNIEnv* env, job
 extern "C" JNIEXPORT void JNICALL
 Java_com_fceumm_wrapper_input_SimpleInputManager_resetAllButtonsNative(JNIEnv* env, jobject thiz) {
     std::lock_guard<std::mutex> lock(input_mutex);
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 9; i++) {
         button_states[i] = false;
     }
     LOGI("Tous les boutons réinitialisés");
@@ -743,8 +764,16 @@ Java_com_fceumm_wrapper_MainActivity_loadROM(JNIEnv* env, jobject thiz, jstring 
 
 extern "C" JNIEXPORT void JNICALL
 Java_com_fceumm_wrapper_MainActivity_runFrame(JNIEnv* env, jobject thiz) {
+    static int frame_counter = 0;
+    frame_counter++;
+    
     if (retro_run_func) {
         retro_run_func();
+                    // if (frame_counter % 60 == 0) {
+            //     LOGI("🎮 Frame libretro exécutée #%d", frame_counter);
+            // }
+    } else {
+        LOGI("🎮 ERREUR: retro_run_func est null!");
     }
 }
 
@@ -839,7 +868,7 @@ Java_com_fceumm_wrapper_MainActivity_cleanup(JNIEnv* env, jobject thiz) {
 extern "C" JNIEXPORT jboolean JNICALL
 Java_com_fceumm_wrapper_input_SimpleInputManager_isButtonPressed(JNIEnv* env, jobject thiz, jint buttonId) {
     std::lock_guard<std::mutex> lock(input_mutex);
-    return (buttonId >= 0 && buttonId < 8) ? button_states[buttonId] : false;
+    return (buttonId >= 0 && buttonId < 9) ? button_states[buttonId] : false;
 }
 
 extern "C" JNIEXPORT void JNICALL

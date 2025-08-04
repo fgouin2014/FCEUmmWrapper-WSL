@@ -70,7 +70,9 @@ public class RomSelectionActivity extends Activity {
             // Lister les fichiers dans le dossier assets/roms/nes
             String[] files = getAssets().list("roms/nes");
             if (files != null) {
+                Log.d(TAG, "Fichiers trouvés dans roms/nes: " + files.length);
                 for (String file : files) {
+                    Log.d(TAG, "Fichier: " + file);
                     if (file.toLowerCase().endsWith(".nes")) {
                         // Enlever l'extension .nes pour l'affichage
                         String displayName = file.substring(0, file.length() - 4);
