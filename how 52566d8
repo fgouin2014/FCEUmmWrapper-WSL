@@ -1,0 +1,8 @@
+[33mf2712f8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m chore: Ajouter temp_retroarch au .gitignore pour préserver les fichiers locaux
+[33mfb27a3c[m feat: Finaliser l'intégration des overlays RetroArch - Mise à jour du .gitignore pour exclure les ROMs - Ajout de SettingsActivity dans AndroidManifest.xml - Correction des mappings de boutons et liaison JNI - Amélioration des layouts d'interface - Suppression des anciens fichiers de contrôle obsolètes
+[33m52566d8[m feat: Implémenter le système d'overlays RetroArch complet - Intégration des overlays RetroArch officiels (retropad, flat/nes, flat/snes) - Support des orientations portrait/paysage avec index automatiques (overlay1_/overlay0_) - Système de sélection d'overlays dans Settings avec persistance - Hitboxes optimisées pour boutons directionnels (1.15x) et diagonales adaptatives (1.8x portrait, 2.5x paysage) - Multitouch avec slide tolerance (500ms) et gestion des boutons combinés (left|up, a|b) - Correction du mapping Start/Select et liaison JNI pour setJoypadButton - Rendu vidéo corrigé avec EmulatorView.updateFrame() et transparence des overlays - Chargement automatique des images d'overlay et support des IDs Libretro
+[33m648d2cc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix: Mise à jour du sous-module libretro-super avec normalisation des fins de ligne
+[33m38ba669[m fix: Suppression des fichiers volumineux et mise à jour .gitignore
+[33m9d014b0[m feat: Configuration des sous-modules Git
+[33mf347f23[m feat: Améliorations majeures de l'émulateur FCEUmm
+[33m9256baa[m Initial commit: FCEUmm Wrapper - Émulateur NES Android avec affichage vidéo OpenGL

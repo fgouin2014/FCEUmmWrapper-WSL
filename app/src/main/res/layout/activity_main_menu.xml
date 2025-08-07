@@ -1,74 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@android:color/black"
-    android:padding="20dp">
+    android:background="@android:color/black">
 
-    <!-- Titre de l'application -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FCEUmm Wrapper"
-        android:textColor="@android:color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="40dp" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
 
-    <!-- Bouton Sélection ROM -->
-    <Button
-        android:id="@+id/btn_select_rom"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="📁 Sélection ROM"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:background="@android:color/holo_green_dark"
-        android:layout_marginBottom="20dp" />
+        <!-- Titre de l'application -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎮 FCEUmm Wrapper"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp" />
 
-    <!-- Bouton Play (ROM par défaut) -->
-    <Button
-        android:id="@+id/btn_play"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="🎮 Jouer (ROM par défaut)"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/holo_blue_light"
-        android:layout_marginBottom="20dp" />
+        <!-- Section Jeu -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎮 Jeu"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
 
-    <!-- Bouton Choix Core -->
-    <Button
-        android:id="@+id/btn_core_selection"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="🔧 Choix Core"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/holo_purple"
-        android:layout_marginBottom="20dp" />
+        <!-- Bouton Sélection ROM -->
+        <Button
+            android:id="@+id/btn_select_rom"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="📁 Sélection ROM"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_green_dark"
+            android:layout_marginBottom="15dp" />
 
-    <!-- Bouton Settings -->
-    <Button
-        android:id="@+id/btn_settings"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="⚙️ Paramètres"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:background="@android:color/holo_blue_dark"
-        android:layout_marginBottom="20dp" />
+        <!-- Bouton Play (ROM par défaut) -->
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="▶️ Jouer (ROM par défaut)"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_blue_light"
+            android:layout_marginBottom="20dp" />
 
-    <!-- Bouton About -->
-    <Button
-        android:id="@+id/btn_about"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="ℹ️ À propos"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:background="@android:color/holo_orange_dark" />
+        <!-- Section Configuration -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Configuration"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
 
-</LinearLayout> 
+        <!-- Bouton Choix Core -->
+        <Button
+            android:id="@+id/btn_core_selection"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="🔧 Choix Core"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_purple"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Bouton Settings -->
+        <Button
+            android:id="@+id/btn_settings"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="⚙️ Paramètres"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Bouton Audio Settings -->
+        <Button
+            android:id="@+id/btn_audio_settings"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="🔊 Paramètres Audio"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_green_light"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Bouton Overlay Integration -->
+        <Button
+            android:id="@+id/btn_overlay_integration"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="🎮 Intégration Overlays"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_orange_light"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Section Informations -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ℹ️ Informations"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp" />
+
+        <!-- Bouton About -->
+        <Button
+            android:id="@+id/btn_about"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="ℹ️ À propos"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_orange_dark" />
+
+    </LinearLayout>
+</ScrollView> 

@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 public class MainMenuActivity extends Activity {
     private static final String TAG = "MainMenuActivity";
+    private static final String PREF_NAME = "FCEUmmSettings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,9 @@ public class MainMenuActivity extends Activity {
         
         // Configurer les boutons
         setupButtons();
+        
+        // Afficher les informations de configuration actuelle
+        displayCurrentConfiguration();
     }
     
     private void setupButtons() {
@@ -110,12 +115,105 @@ public class MainMenuActivity extends Activity {
             }
         });
         
+        // Bouton Audio Settings (si disponible)
+        Button btnAudioSettings = findViewById(R.id.btn_audio_settings);
+        if (btnAudioSettings != null) {
+            btnAudioSettings.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(TAG, "Bouton Audio Settings pressé");
+                    Intent intent = new Intent(MainMenuActivity.this, AudioSettingsActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        
+        // Bouton Overlay Integration (si disponible)
+        Button btnOverlayIntegration = findViewById(R.id.btn_overlay_integration);
+        if (btnOverlayIntegration != null) {
+            btnOverlayIntegration.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(TAG, "Bouton Overlay Integration pressé");
+                    Intent intent = new Intent(MainMenuActivity.this, OverlayIntegrationActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        
         Log.i(TAG, "Boutons du menu principal configurés");
+    }
+    
+    private void displayCurrentConfiguration() {
+        try {
+            SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
+            String currentOverlay = prefs.getString("selected_overlay", "flat/nes");
+            int diagonalSensitivity = prefs.getInt("diagonal_sensitivity", 50);
+            int overlayOpacity = prefs.getInt("overlay_opacity", 80);
+            boolean detailedLogs = prefs.getBoolean("detailed_logs", false);
+            
+            Log.i(TAG, "Configuration actuelle:");
+            Log.i(TAG, "  - Overlay: " + currentOverlay);
+            Log.i(TAG, "  - Sensibilité diagonales: " + diagonalSensitivity + "%");
+            Log.i(TAG, "  - Opacité overlay: " + overlayOpacity + "%");
+            Log.i(TAG, "  - Logs détaillés: " + (detailedLogs ? "activés" : "désactivés"));
+            
+            // Afficher un toast avec la configuration actuelle
+            String configInfo = "🎮 " + getOverlayDisplayName(currentOverlay) + 
+                              " | 🎯 " + diagonalSensitivity + "%" +
+                              " | 🎨 " + overlayOpacity + "%";
+            Toast.makeText(this, configInfo, Toast.LENGTH_LONG).show();
+            
+        } catch (Exception e) {
+            Log.w(TAG, "Erreur lors de l'affichage de la configuration: " + e.getMessage());
+        }
+    }
+    
+    private String getOverlayDisplayName(String overlayPath) {
+        if (overlayPath == null) return "Défaut";
+        
+        switch (overlayPath) {
+            case "flat/nes":
+                return "NES (Flat)";
+            case "retropad":
+                return "Retropad";
+            case "flat/snes":
+                return "SNES";
+            case "flat/nintendo64":
+                return "Nintendo 64";
+            case "neo-retropad":
+                return "Neo-Retropad";
+            case "debug/visual":
+                return "Debug Visuel";
+            case "test/simple":
+                return "Test Simple";
+            default:
+                return overlayPath;
+        }
     }
     
     @Override
     protected void onResume() {
         super.onResume();
         Log.i(TAG, "Menu principal affiché");
+        
+        // Recharger la configuration si l'utilisateur revient des paramètres
+        displayCurrentConfiguration();
+    }
+    
+    @Override
+    public void onBackPressed() {
+        // Demander confirmation avant de quitter
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("❓ Confirmation");
+        builder.setMessage("Voulez-vous vraiment quitter l'application ?");
+        builder.setPositiveButton("✅ Oui", new android.content.DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(android.content.DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("❌ Non", null);
+        builder.show();
     }
 } 

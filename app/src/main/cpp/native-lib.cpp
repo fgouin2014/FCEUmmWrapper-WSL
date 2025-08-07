@@ -17,17 +17,24 @@
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
-// Libretro button constants
-#define RETRO_DEVICE_ID_JOYPAD_B     0
-#define RETRO_DEVICE_ID_JOYPAD_Y     1
-#define RETRO_DEVICE_ID_JOYPAD_SELECT 2
-#define RETRO_DEVICE_ID_JOYPAD_START  3
-#define RETRO_DEVICE_ID_JOYPAD_UP     4
-#define RETRO_DEVICE_ID_JOYPAD_DOWN   5
-#define RETRO_DEVICE_ID_JOYPAD_LEFT   6
-#define RETRO_DEVICE_ID_JOYPAD_RIGHT  7
-#define RETRO_DEVICE_ID_JOYPAD_A      8
-#define RETRO_DEVICE_ID_JOYPAD_X      9
+// Libretro official device ID constants - 100% compatible with RetroArch
+#define RETRO_DEVICE_ID_JOYPAD_B        0
+#define RETRO_DEVICE_ID_JOYPAD_Y        1
+#define RETRO_DEVICE_ID_JOYPAD_SELECT   2
+#define RETRO_DEVICE_ID_JOYPAD_START    3
+#define RETRO_DEVICE_ID_JOYPAD_UP       4
+#define RETRO_DEVICE_ID_JOYPAD_DOWN     5
+#define RETRO_DEVICE_ID_JOYPAD_LEFT     6
+#define RETRO_DEVICE_ID_JOYPAD_RIGHT    7
+#define RETRO_DEVICE_ID_JOYPAD_A        8
+#define RETRO_DEVICE_ID_JOYPAD_X        9
+#define RETRO_DEVICE_ID_JOYPAD_L       10
+#define RETRO_DEVICE_ID_JOYPAD_R       11
+#define RETRO_DEVICE_ID_JOYPAD_L2      12
+#define RETRO_DEVICE_ID_JOYPAD_R2      13
+#define RETRO_DEVICE_ID_JOYPAD_L3      14
+#define RETRO_DEVICE_ID_JOYPAD_R3      15
+#define RETRO_DEVICE_ID_JOYPAD_MASK    256
 
 // Libretro API types
 typedef void (*retro_init_t)();
@@ -151,7 +158,7 @@ bool frame_updated = false;
 
 // État global des boutons (8 boutons au total)
 std::mutex input_mutex;
-bool button_states[9] = {false}; // Augmenter à 9 pour supporter le code 8 (A)
+bool button_states[16] = {false}; // Support pour tous les boutons libretro (0-15)
 
 // Audio buffer pour stocker les données audio
 std::vector<int16_t> audio_buffer;
@@ -223,10 +230,7 @@ bool environment_callback(unsigned cmd, void* data) {
 }
 
 void video_refresh_callback(const void* data, unsigned width, unsigned height, size_t pitch) {
-            // LOGI("🎬 Video callback appelé: %dx%d, pitch: %zu, data: %p", width, height, pitch, data);
-    
     if (!data) {
-        LOGI("🎬 Video callback: données nulles");
         return;
     }
     
@@ -237,7 +241,6 @@ void video_refresh_callback(const void* data, unsigned width, unsigned height, s
         frame_width = width;
         frame_height = height;
         frame_buffer.resize(width * height);
-        LOGI("🎬 Dimensions vidéo mises à jour: %dx%d, pitch: %zu", width, height, pitch);
     }
     
     // Copier les données vidéo avec conversion de format
@@ -257,7 +260,6 @@ void video_refresh_callback(const void* data, unsigned width, unsigned height, s
     }
     
     frame_updated = true;
-            // LOGI("🎬 Frame vidéo mise à jour: %dx%d, %zu pixels", width, height, frame_buffer.size());
 }
 
 // Callback OpenSL ES pour maintenir le flux audio
@@ -303,12 +305,7 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context) {
                 // Mettre à jour la position de lecture
                 audioBuffer.readPos = (audioBuffer.readPos + to_read) % audioBuffer.size;
                 
-                // Log pour debug
-                static int callback_counter = 0;
-                callback_counter++;
-                if (callback_counter % 200 == 0) {  // Réduit la fréquence des logs
-                    LOGI("Audio Callback: %zu samples lus, position: %zu (latence optimisée)", to_read, audioBuffer.readPos);
-                }
+                // Log supprimé pour réduire le bruit
             } else {
                 // Pas de données disponibles, utiliser du silence avec crossfade pour éviter les clicks
                 static int16_t last_samples[CHANNELS] = {0, 0};
@@ -321,12 +318,7 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context) {
                     }
                 }
                 
-                // Log pour debug
-                static int silence_counter = 0;
-                silence_counter++;
-                if (silence_counter % 100 == 0) {
-                    LOGI("Audio Callback: Silence avec crossfade (pas de données disponibles)");
-                }
+                // Log supprimé pour réduire le bruit
             }
         }
         
@@ -335,9 +327,6 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context) {
         if (result != SL_RESULT_SUCCESS) {
             if (result == SL_RESULT_BUFFER_INSUFFICIENT) {
                 queue_ready = false;
-                LOGI("Audio Callback: Buffer insuffisant, queue désactivée");
-            } else {
-                LOGI("Audio Callback: Erreur Enqueue: %d", result);
             }
             return;
         }
@@ -413,7 +402,12 @@ int16_t input_state_callback(unsigned port, unsigned device, unsigned index, uns
     if (port == 0 && device == 1) { // RETRO_DEVICE_JOYPAD
         std::lock_guard<std::mutex> lock(input_mutex);
         
-        // Mapping correct des boutons selon les constantes libretro
+        // Support complet pour tous les boutons libretro (0-15)
+        if (id >= 0 && id < 16) {
+            return button_states[id] ? 1 : 0;
+        }
+        
+        // Fallback pour compatibilité avec l'ancien mapping
         switch (id) {
             case RETRO_DEVICE_ID_JOYPAD_UP:      return button_states[4] ? 1 : 0; // UP = 4
             case RETRO_DEVICE_ID_JOYPAD_DOWN:    return button_states[5] ? 1 : 0; // DOWN = 5
@@ -421,6 +415,14 @@ int16_t input_state_callback(unsigned port, unsigned device, unsigned index, uns
             case RETRO_DEVICE_ID_JOYPAD_RIGHT:   return button_states[7] ? 1 : 0; // RIGHT = 7
             case RETRO_DEVICE_ID_JOYPAD_A:       return button_states[8] ? 1 : 0; // A = 8
             case RETRO_DEVICE_ID_JOYPAD_B:       return button_states[0] ? 1 : 0; // B = 0
+            case RETRO_DEVICE_ID_JOYPAD_Y:       return button_states[1] ? 1 : 0; // Y = 1
+            case RETRO_DEVICE_ID_JOYPAD_X:       return button_states[9] ? 1 : 0; // X = 9
+            case RETRO_DEVICE_ID_JOYPAD_L:       return button_states[10] ? 1 : 0; // L = 10
+            case RETRO_DEVICE_ID_JOYPAD_R:       return button_states[11] ? 1 : 0; // R = 11
+            case RETRO_DEVICE_ID_JOYPAD_L2:      return button_states[12] ? 1 : 0; // L2 = 12
+            case RETRO_DEVICE_ID_JOYPAD_R2:      return button_states[13] ? 1 : 0; // R2 = 13
+            case RETRO_DEVICE_ID_JOYPAD_L3:      return button_states[14] ? 1 : 0; // L3 = 14
+            case RETRO_DEVICE_ID_JOYPAD_R3:      return button_states[15] ? 1 : 0; // R3 = 15
             case RETRO_DEVICE_ID_JOYPAD_START:   return button_states[3] ? 1 : 0; // START = 3
             case RETRO_DEVICE_ID_JOYPAD_SELECT:  return button_states[2] ? 1 : 0; // SELECT = 2
             default: return 0;
@@ -429,47 +431,42 @@ int16_t input_state_callback(unsigned port, unsigned device, unsigned index, uns
     return 0;
 }
 
-// Fonction pour mettre à jour l'état des boutons depuis Java
-extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_input_SimpleInputManager_setButtonState(JNIEnv* env, jobject thiz, jint buttonId, jboolean pressed) {
-    std::lock_guard<std::mutex> lock(input_mutex);
-    if (buttonId >= 0 && buttonId < 9) {
-        button_states[buttonId] = pressed;
-        // Log pour déboguer le mapping
-        if (pressed) {
-            const char* buttonNames[] = {"B", "UNUSED", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A"};
-            LOGI("Bouton %s pressé (ID: %d)", buttonNames[buttonId], buttonId);
-        }
-    }
-}
+// Système d'input 100% RetroArch natif - remplace l'ancien SimpleInputManager
 
+// Système d'input 100% RetroArch natif
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_setJoypadButton(JNIEnv* env, jobject thiz, jint buttonId, jboolean pressed) {
+Java_com_fceumm_wrapper_EmulationActivity_sendRetroArchInput(JNIEnv* env, jobject thiz, jint deviceId, jboolean pressed) {
     std::lock_guard<std::mutex> lock(input_mutex);
-    if (buttonId >= 0 && buttonId < 9) {
-        button_states[buttonId] = pressed;
-        // Log pour déboguer le mapping
+    
+    // Système d'input RetroArch natif - pas de conversion nécessaire
+    if (deviceId >= 0 && deviceId < 16) {
+        button_states[deviceId] = pressed;
+        
+        // Log pour debug avec les noms des boutons RetroArch
         if (pressed) {
-            const char* buttonNames[] = {"B", "UNUSED", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A"};
-            LOGI("🎮 Bouton %s pressé (ID: %d)", buttonNames[buttonId], buttonId);
+            const char* buttonNames[] = {"B", "Y", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A", "X", "L", "R", "L2", "R2", "L3", "R3"};
+            LOGI("🎮 RetroArch Input: %s PRESSÉ (ID: %d)", buttonNames[deviceId], deviceId);
         } else {
-            const char* buttonNames[] = {"B", "UNUSED", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A"};
-            LOGI("🎮 Bouton %s relâché (ID: %d)", buttonNames[buttonId], buttonId);
+            const char* buttonNames[] = {"B", "Y", "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A", "X", "L", "R", "L2", "R2", "L3", "R3"};
+            LOGI("🎮 RetroArch Input: %s RELÂCHÉ (ID: %d)", buttonNames[deviceId], deviceId);
         }
+    } else {
+        LOGE("❌ Device ID invalide: %d (doit être entre 0 et 15)", deviceId);
     }
 }
 
+// Fonction RetroArch pour réinitialiser tous les inputs
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_input_SimpleInputManager_resetAllButtonsNative(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_resetAllRetroArchInputs(JNIEnv* env, jobject thiz) {
     std::lock_guard<std::mutex> lock(input_mutex);
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 16; i++) {
         button_states[i] = false;
     }
-    LOGI("Tous les boutons réinitialisés");
+    LOGI("🎮 Tous les inputs RetroArch réinitialisés");
 }
 
 extern "C" JNIEXPORT jboolean JNICALL
-Java_com_fceumm_wrapper_MainActivity_initLibretro(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_initLibretro(JNIEnv* env, jobject thiz) {
     LOGI("Initialisation du wrapper Libretro");
     
     // Charger le core libretro FCEUmm
@@ -681,7 +678,7 @@ Java_com_fceumm_wrapper_MainActivity_initLibretro(JNIEnv* env, jobject thiz) {
 }
 
 extern "C" JNIEXPORT jboolean JNICALL
-Java_com_fceumm_wrapper_MainActivity_loadROM(JNIEnv* env, jobject thiz, jstring rom_path) {
+Java_com_fceumm_wrapper_EmulationActivity_loadROM(JNIEnv* env, jobject thiz, jstring rom_path) {
     const char* path = env->GetStringUTFChars(rom_path, nullptr);
     LOGI("Chargement ROM: %s", path);
     
@@ -763,7 +760,7 @@ Java_com_fceumm_wrapper_MainActivity_loadROM(JNIEnv* env, jobject thiz, jstring 
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_runFrame(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_runFrame(JNIEnv* env, jobject thiz) {
     static int frame_counter = 0;
     frame_counter++;
     
@@ -812,7 +809,7 @@ Java_com_fceumm_wrapper_EmulatorView_isFrameUpdated(JNIEnv* env, jobject thiz) {
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_cleanup(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_cleanup(JNIEnv* env, jobject thiz) {
     LOGI("Nettoyage du wrapper Libretro");
     
     // Nettoyer OpenSL ES
@@ -865,21 +862,19 @@ Java_com_fceumm_wrapper_MainActivity_cleanup(JNIEnv* env, jobject thiz) {
 }
 
 // Méthodes pour les contrôles tactiles
+// Fonction RetroArch pour vérifier l'état d'un input
 extern "C" JNIEXPORT jboolean JNICALL
-Java_com_fceumm_wrapper_input_SimpleInputManager_isButtonPressed(JNIEnv* env, jobject thiz, jint buttonId) {
+Java_com_fceumm_wrapper_EmulationActivity_isRetroArchInputPressed(JNIEnv* env, jobject thiz, jint deviceId) {
     std::lock_guard<std::mutex> lock(input_mutex);
-    return (buttonId >= 0 && buttonId < 9) ? button_states[buttonId] : false;
-}
-
-extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_input_SimpleInputManager_updateInputState(JNIEnv* env, jobject thiz) {
-    // Cette méthode sera appelée quand l'état des boutons change
-    LOGI("État des entrées mis à jour");
+    if (deviceId >= 0 && deviceId < 16) {
+        return button_states[deviceId] ? JNI_TRUE : JNI_FALSE;
+    }
+    return JNI_FALSE;
 }
 
 // Fonction pour récupérer les données audio depuis Java
 extern "C" JNIEXPORT jbyteArray JNICALL
-Java_com_fceumm_wrapper_MainActivity_getAudioData(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_getAudioData(JNIEnv* env, jobject thiz) {
     std::lock_guard<std::mutex> lock(audio_mutex);
     
     if (audio_buffer.empty()) {
@@ -909,27 +904,27 @@ Java_com_fceumm_wrapper_MainActivity_getAudioData(JNIEnv* env, jobject thiz) {
 
 // Fonction pour activer/désactiver l'audio
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_setAudioEnabled(JNIEnv* env, jobject thiz, jboolean enabled) {
+Java_com_fceumm_wrapper_EmulationActivity_setAudioEnabled(JNIEnv* env, jobject thiz, jboolean enabled) {
     audio_enabled = enabled;
     LOGI("Audio %s", enabled ? "activé" : "désactivé");
 }
 
 // Fonction pour obtenir le taux d'échantillonnage
 extern "C" JNIEXPORT jint JNICALL
-Java_com_fceumm_wrapper_MainActivity_getAudioSampleRate(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_getAudioSampleRate(JNIEnv* env, jobject thiz) {
     return audio_sample_rate;
 }
 
 // Fonction pour obtenir la taille du buffer audio
 extern "C" JNIEXPORT jint JNICALL
-Java_com_fceumm_wrapper_MainActivity_getAudioBufferSize(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_getAudioBufferSize(JNIEnv* env, jobject thiz) {
     std::lock_guard<std::mutex> lock(audio_mutex);
     return static_cast<jint>(audio_buffer.size());
 }
 
 // Fonction pour forcer le traitement immédiat de l'audio
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_forceAudioProcessing(JNIEnv* env, jobject thiz) {
+Java_com_fceumm_wrapper_EmulationActivity_forceAudioProcessing(JNIEnv* env, jobject thiz) {
     std::lock_guard<std::mutex> lock(audio_mutex);
     
     // Forcer le nettoyage ultra-agressif du buffer pour éliminer la latence
@@ -942,7 +937,7 @@ Java_com_fceumm_wrapper_MainActivity_forceAudioProcessing(JNIEnv* env, jobject t
 
 // Fonction pour contrôler le volume général (0-100)
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_setMasterVolume(JNIEnv* env, jobject thiz, jint volume) {
+Java_com_fceumm_wrapper_EmulationActivity_setMasterVolume(JNIEnv* env, jobject thiz, jint volume) {
     if (volume < 0) volume = 0;
     if (volume > 100) volume = 100;
     
@@ -982,14 +977,14 @@ Java_com_fceumm_wrapper_MainActivity_setMasterVolume(JNIEnv* env, jobject thiz, 
 
 // Fonction pour activer/désactiver le son (mute/unmute)
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_setAudioMuted(JNIEnv* env, jobject thiz, jboolean muted) {
+Java_com_fceumm_wrapper_EmulationActivity_setAudioMuted(JNIEnv* env, jobject thiz, jboolean muted) {
     audio_enabled = !muted;
     LOGI("Audio %s", muted ? "muet" : "activé");
 }
 
 // Fonction pour définir la qualité audio (0=Low, 1=High, 2=Highest)
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_setAudioQuality(JNIEnv* env, jobject thiz, jint quality) {
+Java_com_fceumm_wrapper_EmulationActivity_setAudioQuality(JNIEnv* env, jobject thiz, jint quality) {
     if (quality < 0) quality = 0;
     if (quality > 2) quality = 2;
     
@@ -1032,7 +1027,7 @@ Java_com_fceumm_wrapper_MainActivity_setAudioQuality(JNIEnv* env, jobject thiz, 
 
 // Fonction pour définir le taux d'échantillonnage
 extern "C" JNIEXPORT void JNICALL
-Java_com_fceumm_wrapper_MainActivity_setSampleRate(JNIEnv* env, jobject thiz, jint sampleRate) {
+Java_com_fceumm_wrapper_EmulationActivity_setSampleRate(JNIEnv* env, jobject thiz, jint sampleRate) {
     if (sampleRate == 22050 || sampleRate == 44100 || sampleRate == 48000) {
         audio_sample_rate = sampleRate;
         

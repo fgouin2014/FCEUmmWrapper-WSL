@@ -1,26 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1E1E1E">
+    android:orientation="vertical"
+    android:background="@android:color/black">
 
-    <!-- Vue d'émulation -->
-    <com.fceumm.wrapper.EmulatorView
-        android:id="@+id/emulator_view"
+    <!-- Zone de jeu principale (70% en portrait) -->
+    <FrameLayout
+        android:id="@+id/game_viewport"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+        <!-- Vue de l'émulateur -->
+        <com.fceumm.wrapper.EmulatorView
+            android:id="@+id/emulator_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Vue de rendu des overlays RetroArch -->
+        <com.fceumm.wrapper.overlay.OverlayRenderView
+            android:id="@+id/overlay_render_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <!-- Zone de contrôles en bas (30% en portrait) -->
+    <LinearLayout
+        android:id="@+id/controls_area"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:background="#80000000"
+        android:visibility="visible">
+
+        <!-- L'OverlayRenderView sera déplacé ici dynamiquement en mode portrait -->
         
-    <!-- Overlay RetroArch officiel -->
-    <com.fceumm.wrapper.overlay.RetroArchOverlayLoader
-        android:id="@+id/retroarch_overlay_loader"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:visibility="visible"
-        android:alpha="0.5"
-        android:elevation="0dp" />
+    </LinearLayout>
 
-
-
-</RelativeLayout> 
+</LinearLayout> 

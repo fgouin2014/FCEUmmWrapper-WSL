@@ -20,6 +20,12 @@ apply plugin: 'com.android.application'
 android {
     namespace = 'com.fceumm.wrapper'
     compileSdkVersion = 34
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    
     defaultConfig {
         applicationId = "com.fceumm.wrapper"
         minSdkVersion = 21

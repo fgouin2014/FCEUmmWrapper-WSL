@@ -1,66 +1,53 @@
-# Script de test pour vérifier que le problème de l'overlay noir est résolu
+# Test des corrections overlay et layout
+Write-Host "Test des corrections overlay et layout" -ForegroundColor Green
 
-Write-Host "=== Test de Correction de l'Overlay Noir ===" -ForegroundColor Green
+# Verifier les fichiers modifies
+Write-Host "`nVérification des fichiers modifiés:" -ForegroundColor Yellow
 
-# Vérifier que les images PNG existent
-$overlayDir = "app/src/main/assets/overlays"
-$requiredImages = @(
-    "retropad.png",
-    "button_a.png", 
-    "button_b.png",
-    "button_start.png",
-    "button_select.png",
-    "dpad_up.png",
-    "dpad_down.png",
-    "dpad_left.png",
-    "dpad_right.png"
-)
-
-Write-Host "`n--- Vérification des Images PNG ---" -ForegroundColor Cyan
-$allImagesExist = $true
-
-foreach ($image in $requiredImages) {
-    $imagePath = Join-Path $overlayDir $image
-    if (Test-Path $imagePath) {
-        $size = (Get-Item $imagePath).Length
-        Write-Host "✓ $image ($size bytes)" -ForegroundColor Green
+# Layout portrait corrigé
+$layoutPortrait = "app/src/main/res/layout-port/activity_retroarch.xml"
+if (Test-Path $layoutPortrait) {
+    $content = Get-Content $layoutPortrait -Raw
+    if ($content -match "LinearLayout" -and $content -match "layout_weight" -and $content -match "controls_overlay_view") {
+        Write-Host "Layout portrait corrigé (LinearLayout + layout_weight + controls_overlay_view)" -ForegroundColor Green
     } else {
-        Write-Host "✗ $image (MANQUANT)" -ForegroundColor Red
-        $allImagesExist = $false
+        Write-Host "Layout portrait non corrigé" -ForegroundColor Red
     }
+} else {
+    Write-Host "Layout portrait introuvable" -ForegroundColor Red
 }
 
-# Vérifier la compilation
-Write-Host "`n--- Vérification de la Compilation ---" -ForegroundColor Cyan
-try {
-    Write-Host "Compilation en cours..." -ForegroundColor Yellow
-    & "./gradlew" "assembleDebug" | Out-Null
-    
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "✓ Compilation réussie" -ForegroundColor Green
+# EmulationActivity avec les deux OverlayRenderView
+$emulationActivity = "app/src/main/java/com/fceumm/wrapper/EmulationActivity.java"
+if (Test-Path $emulationActivity) {
+    $content = Get-Content $emulationActivity -Raw
+    if ($content -match "controlsOverlayView" -and $content -match "LinearLayout\.LayoutParams") {
+        Write-Host "EmulationActivity avec gestion des deux OverlayRenderView" -ForegroundColor Green
     } else {
-        Write-Host "✗ Erreur de compilation" -ForegroundColor Red
+        Write-Host "EmulationActivity non mis à jour" -ForegroundColor Red
+    }
+} else {
+    Write-Host "EmulationActivity introuvable" -ForegroundColor Red
+}
+
+# Verifier la compilation
+Write-Host "`nTest de compilation:" -ForegroundColor Yellow
+try {
+    $result = & ./gradlew assembleDebug 2>&1
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "Compilation réussie" -ForegroundColor Green
+    } else {
+        Write-Host "Erreur de compilation" -ForegroundColor Red
+        Write-Host $result
     }
 } catch {
-    Write-Host "✗ Erreur lors de la compilation : $_" -ForegroundColor Red
+    Write-Host "Erreur lors de la compilation" -ForegroundColor Red
 }
 
-# Résumé
-Write-Host "`n=== RÉSUMÉ ===" -ForegroundColor Green
-if ($allImagesExist) {
-    Write-Host "✅ Toutes les images PNG sont présentes" -ForegroundColor Green
-    Write-Host "✅ L'overlay principal (retropad.png) est transparent" -ForegroundColor Green
-    Write-Host "✅ Les boutons ont des couleurs semi-transparentes" -ForegroundColor Green
-    Write-Host "✅ Le code ne rend plus l'overlay principal" -ForegroundColor Green
-    Write-Host "`n🎉 Le problème de l'overlay noir devrait être résolu !" -ForegroundColor Green
-    Write-Host "`nInstructions pour tester :" -ForegroundColor Yellow
-    Write-Host "1. Installez l'APK sur votre appareil" -ForegroundColor White
-    Write-Host "2. Lancez l'application" -ForegroundColor White
-    Write-Host "3. Vous devriez voir le jeu sans overlay noir" -ForegroundColor White
-    Write-Host "4. Les boutons tactiles devraient être visibles et fonctionnels" -ForegroundColor White
-} else {
-    Write-Host "⚠ Certaines images sont manquantes" -ForegroundColor Yellow
-    Write-Host "Relancez le script create_simple_images.ps1" -ForegroundColor Yellow
-}
+Write-Host "`nRésumé des corrections:" -ForegroundColor Cyan
+Write-Host "1. Layout portrait: LinearLayout avec layout_weight pour 50/50 split" -ForegroundColor White
+Write-Host "2. Ajout de controls_overlay_view dans la zone de contrôles" -ForegroundColor White
+Write-Host "3. EmulationActivity gère les deux OverlayRenderView" -ForegroundColor White
+Write-Host "4. Correction des LayoutParams pour portrait (LinearLayout) et landscape (RelativeLayout)" -ForegroundColor White
 
-Write-Host "`nTest terminé." -ForegroundColor Green 
+Write-Host "`nPrêt pour le test sur l'appareil!" -ForegroundColor Green 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- Vue de rendu des overlays tactiles -->
+    <com.fceumm.wrapper.overlay.OverlayRenderView
+        android:id="@+id/touch_overlay_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent" />
+
+    <!-- Indicateur de mode tactile -->
+    <TextView
+        android:id="@+id/touch_mode_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:text="Mode Tactile"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:background="#80000000"
+        android:padding="4dp"
+        android:layout_margin="8dp"
+        android:visibility="gone" />
+
+</FrameLayout> 

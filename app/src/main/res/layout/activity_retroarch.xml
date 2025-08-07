@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black">
+
+    <!-- Zone de jeu (70% en haut - comme RetroArch) -->
+    <FrameLayout
+        android:id="@+id/game_viewport"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+        <!-- Vue d'émulation -->
+        <com.fceumm.wrapper.EmulatorView
+            android:id="@+id/emulator_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- SEUL overlay transparent RetroArch (comme RetroArch) -->
+        <com.fceumm.wrapper.overlay.OverlayRenderView
+            android:id="@+id/overlay_render_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
+    </FrameLayout>
+
+    <!-- Zone de contrôles (30% en bas - comme RetroArch) -->
+    <LinearLayout
+        android:id="@+id/controls_area"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <!-- Pas d'overlay ici - SEUL overlay dans game_viewport -->
+
+    </LinearLayout>
+
+</LinearLayout> 

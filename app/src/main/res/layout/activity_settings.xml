@@ -1,85 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@android:color/black"
-    android:padding="20dp">
+    android:background="@android:color/black">
 
-    <!-- Titre -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="⚙️ Paramètres"
-        android:textColor="@android:color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="40dp" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
 
-    <!-- Section Overlays -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🎮 Overlays de Contrôles"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp" />
+        <!-- Titre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Paramètres Avancés"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp" />
 
-    <!-- Overlay NES (Flat) -->
-    <Button
-        android:id="@+id/btn_overlay_nes"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="🕹️ NES (Flat) - Officiel"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/holo_green_dark"
-        android:layout_marginBottom="10dp" />
+        <!-- Section Overlays -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎮 Overlays de Contrôles"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
 
-    <!-- Overlay Retropad -->
-    <Button
-        android:id="@+id/btn_overlay_retropad"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="🎮 Retropad - Universel"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/holo_blue_dark"
-        android:layout_marginBottom="10dp" />
+        <!-- Overlay NES (Flat) -->
+        <Button
+            android:id="@+id/btn_overlay_nes"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🕹️ NES (Flat) - Officiel"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_green_dark"
+            android:layout_marginBottom="10dp" />
 
-    <!-- Overlay SNES -->
-    <Button
-        android:id="@+id/btn_overlay_snes"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="🎮 SNES - 4 boutons"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/holo_purple"
-        android:layout_marginBottom="10dp" />
+        <!-- Overlay Retropad -->
+        <Button
+            android:id="@+id/btn_overlay_retropad"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🎮 Retropad - Universel"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_marginBottom="10dp" />
 
-    <!-- Overlay Nintendo 64 -->
-    <Button
-        android:id="@+id/btn_overlay_n64"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="🎮 Nintendo 64 - 6 boutons"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/holo_orange_dark"
-        android:layout_marginBottom="20dp" />
+        <!-- Overlay SNES -->
+        <Button
+            android:id="@+id/btn_overlay_snes"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🎮 SNES - 4 boutons"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_purple"
+            android:layout_marginBottom="10dp" />
 
-    <!-- Bouton Retour -->
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="⬅️ Retour"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginTop="20dp" />
+        <!-- Overlay Nintendo 64 -->
+        <Button
+            android:id="@+id/btn_overlay_n64"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🎮 Nintendo 64 - 6 boutons"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_orange_dark"
+            android:layout_marginBottom="10dp" />
 
-</LinearLayout> 
+        <!-- Overlay Retropad -->
+        <Button
+            android:id="@+id/btn_overlay_retropad_original"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🎮 Retropad Original"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_green_light"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Overlay Neo-Retropad -->
+        <Button
+            android:id="@+id/btn_overlay_neo_retropad"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🎮 Neo-Retropad Avancé"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_green_dark"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Section Debug -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔧 Options de Debug"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Overlay Debug Visuel -->
+        <Button
+            android:id="@+id/btn_overlay_debug"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🔍 Debug Visuel - Hitboxes"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_red_dark"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Overlay Test Simple -->
+        <Button
+            android:id="@+id/btn_overlay_test"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🧪 Test Simple - 4 boutons"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_red_light"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Section Paramètres Avancés -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Paramètres Avancés"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Sensibilité des diagonales -->
+        <Button
+            android:id="@+id/btn_diagonal_sensitivity"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🎯 Sensibilité Diagonales"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_blue_light"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Opacité des overlays -->
+        <Button
+            android:id="@+id/btn_overlay_opacity"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="🎨 Opacité Overlays"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_blue_light"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Logs détaillés -->
+        <Button
+            android:id="@+id/btn_detailed_logs"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="📋 Logs Détaillés"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/holo_blue_light"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Bouton Retour -->
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="⬅️ Retour"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+</ScrollView> 

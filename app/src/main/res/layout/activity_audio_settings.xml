@@ -1,157 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#1E1E1E">
+    android:background="#1a1a1a">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Paramètres Audio"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="32dp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <!-- Volume général -->
-    <TextView
-        android:id="@+id/volume_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Volume: 100%"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        <!-- Titre -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔊 Paramètres Audio"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
 
-    <SeekBar
-        android:id="@+id/volume_seekbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="100"
-        android:progress="100"
-        android:layout_marginBottom="24dp"
-        android:progressTint="#4CAF50"
-        android:thumbTint="#4CAF50" />
+        <!-- Section Volume -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎚️ Volume Principal"
+            android:textSize="18sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="8dp" />
 
-    <!-- Mute/Unmute -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Son"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        <TextView
+            android:id="@+id/text_volume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volume: 100%"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
 
-    <ToggleButton
-        android:id="@+id/mute_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textOff="Muet"
-        android:textOn="Son"
-        android:layout_marginBottom="24dp"
-        android:background="#333333"
-        android:textColor="#FFFFFF" />
+        <SeekBar
+            android:id="@+id/seekbar_volume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100"
+            android:layout_marginBottom="16dp" />
 
-    <!-- Qualité audio -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Qualité Audio"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        <!-- Section Contrôles de Base -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎛️ Contrôles de Base"
+            android:textSize="18sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="8dp" />
 
-    <Spinner
-        android:id="@+id/quality_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:background="#333333"
-        android:popupBackground="#333333" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
-    <!-- Taux d'échantillonnage -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Taux d'échantillonnage"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+            <Switch
+                android:id="@+id/switch_mute"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔇 Mute"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
 
-    <Spinner
-        android:id="@+id/sample_rate_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:background="#333333"
-        android:popupBackground="#333333" />
+            <Switch
+                android:id="@+id/switch_low_latency"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="⚡ Low Latency"
+                android:textColor="#FFFFFF"
+                android:checked="true"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
 
-    <!-- Filtre RF Audio -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Filtre RF Audio"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        <!-- Section Qualité Audio -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎵 Qualité Audio"
+            android:textSize="18sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="8dp" />
 
-    <ToggleButton
-        android:id="@+id/rf_filter_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textOff="Désactivé"
-        android:textOn="Activé"
-        android:layout_marginBottom="24dp"
-        android:background="#333333"
-        android:textColor="#FFFFFF" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
-    <!-- Effet Stéréo -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Effet Stéréo"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btn_quality_low"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Faible"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp"
+                android:background="@android:color/darker_gray" />
 
-    <Spinner
-        android:id="@+id/stereo_delay_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:background="#333333"
-        android:popupBackground="#333333" />
+            <Button
+                android:id="@+id/btn_quality_high"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Élevée"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@android:color/darker_gray" />
 
-    <!-- Échange Cycles de Devoir -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Échange Cycles de Devoir"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btn_quality_max"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Maximum"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"
+                android:background="@android:color/holo_green_dark" />
+        </LinearLayout>
 
-    <ToggleButton
-        android:id="@+id/swap_duty_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textOff="Désactivé"
-        android:textOn="Activé"
-        android:layout_marginBottom="24dp"
-        android:background="#333333"
-        android:textColor="#FFFFFF" />
+        <!-- Section Sample Rate -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎼 Taux d'Échantillonnage"
+            android:textSize="18sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="8dp" />
 
-    <!-- Bouton fermer -->
-    <Button
-        android:id="@+id/close_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fermer"
-        android:textSize="16sp"
-        android:background="#4CAF50"
-        android:textColor="#FFFFFF" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
-</LinearLayout> 
+            <Button
+                android:id="@+id/btn_sample_rate_22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="22.05 kHz"
+                android:textSize="10sp"
+                android:layout_marginEnd="4dp"
+                android:background="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/btn_sample_rate_44"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="44.1 kHz"
+                android:textSize="10sp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/btn_sample_rate_48"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="48 kHz"
+                android:textSize="10sp"
+                android:layout_marginStart="4dp"
+                android:background="@android:color/holo_blue_dark" />
+        </LinearLayout>
+
+        <!-- Section Options Avancées -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔧 Options Avancées"
+            android:textSize="18sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <Switch
+                android:id="@+id/switch_rf_filter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔧 RF Filter"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
+
+            <Switch
+                android:id="@+id/switch_swap_duty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔄 Swap Duty"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Délai Stéréo -->
+        <TextView
+            android:id="@+id/text_stereo_delay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎧 Délai Stéréo: 0ms"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <SeekBar
+            android:id="@+id/seekbar_stereo_delay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="50"
+            android:progress="0"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Section Actions Spéciales -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎯 Actions Spéciales"
+            android:textSize="18sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_optimize_duck_hunt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎯 Optimiser pour Duck Hunt"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/holo_orange_dark" />
+
+        <Button
+            android:id="@+id/btn_force_apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ Forcer l'Application"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/holo_green_dark" />
+
+        <Button
+            android:id="@+id/btn_reset_defaults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔄 Réinitialiser aux Défauts"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/holo_red_dark" />
+
+        <!-- Bouton Retour -->
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⬅️ Retour"
+            android:textSize="16sp"
+            android:background="@android:color/holo_blue_dark" />
+
+    </LinearLayout>
+</ScrollView> 

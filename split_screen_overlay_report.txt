@@ -1,0 +1,42 @@
+=== RAPPORT OVERLAYS SPLIT SCREEN ===
+Date: 08/04/2025 22:47:58
+
+Dépôts analysés:
+- .git
+- .gradle
+- .idea
+- .vscode
+- advanced_core_build
+- android_core_build
+- app
+- backup_controls_current
+- build
+- common-overlays_git
+- custom_core_build
+- direct_core_build
+- drawable
+- dump
+- extracted_apk
+- fceumm_git
+- gradle
+- imports
+- libretro-super
+- minimal_core_build
+- official_cores
+- png
+- proper_core_build
+- real_core_build
+- real_fceumm_build
+- retroarch_git
+- simple_android_build
+- simple_core_build
+- stable_cores
+- svg
+
+
+Overlays split screen trouvés:
+- /
+
+
+Configurations avancées:
+

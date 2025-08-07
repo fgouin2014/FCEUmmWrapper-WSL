@@ -140,6 +140,10 @@ test_*.sh
 *_test.sh
 *.test
 
+# Test Apk Extracted
+extracted_apk/
+app/src/main/assets/overlaysX/
+
 # Large files that should not be committed
 *.zip
 *.rar
@@ -149,4 +153,8 @@ gradle-*.zip
 stable_core.zip
 coresOriginal.rar app/src/main/assets/roms/
 app/src/main/assets/roms/
-temp_retroarch/
+
+# Git repositories (external dependencies)
+retroarch_git/
+fceumm_git/
+libretro-super/
