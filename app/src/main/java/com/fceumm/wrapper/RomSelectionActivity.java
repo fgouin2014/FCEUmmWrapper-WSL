@@ -107,8 +107,8 @@ public class RomSelectionActivity extends Activity {
                 if (!selectedRom.equals("Aucune ROM trouvée")) {
                     Log.i(TAG, "ROM sélectionnée: " + selectedRom);
                     
-                    // Lancer l'activité d'émulation avec la ROM sélectionnée
-                    Intent intent = new Intent(RomSelectionActivity.this, MainActivity.class);
+                    // Lancer directement EmulationActivity avec la ROM sélectionnée
+                    Intent intent = new Intent(RomSelectionActivity.this, EmulationActivity.class);
                     intent.putExtra("selected_rom", selectedRom + ".nes");
                     startActivity(intent);
                 } else {

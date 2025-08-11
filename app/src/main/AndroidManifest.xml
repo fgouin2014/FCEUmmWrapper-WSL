@@ -11,12 +11,12 @@
         android:allowBackup="true"
         android:label="FCEUmm Wrapper"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         
         <!-- Activité principale : Menu -->
         <activity
             android:name=".MainMenuActivity"
-            android:screenOrientation="unspecified"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true">
             <intent-filter>
@@ -25,19 +25,17 @@
             </intent-filter>
         </activity>
         
-        <!-- Activité d'émulation (remplacée par EmulationActivity) -->
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="unspecified"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="false" />
+
             
         <!-- Activité d'émulation spécialisée (PRINCIPALE) -->
         <activity
             android:name=".EmulationActivity"
             android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            
+
             
         <!-- Activité About -->
         <activity
@@ -94,7 +92,31 @@
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            
+        <!-- Activité Effets Visuels RetroArch -->
+        <activity
+            android:name=".VisualEffectsActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            
+        <!-- Activité Menu Style RetroArch -->
+        <activity
+            android:name=".RetroArchStyleMenuActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            
+        <!-- Activité Menu Style MaterialUI -->
+        <activity
+            android:name=".MaterialUIStyleMenuActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
             
     </application>
 

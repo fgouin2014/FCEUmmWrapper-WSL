@@ -7,12 +7,21 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import com.fceumm.wrapper.input.RetroArchInputSystem;
+import com.fceumm.wrapper.overlay.RetroArchOverlayRenderer;
 
 public class OverlayRenderView extends View {
     private static final String TAG = "OverlayRenderView";
     
     private RetroArchOverlaySystem overlaySystem;
+    private RetroArchInputSystem inputSystem;
+    private RetroArchOverlayRenderer overlayRenderer;
     private Paint paint;
+    
+    // **OPTIMISATION LOGS** : Variables pour réduire la fréquence des logs
+    private long lastDebugLogTime = 0;
+    private static final long DEBUG_LOG_INTERVAL = 5000; // 5 secondes entre les logs
+    private int drawCount = 0;
     
     public OverlayRenderView(Context context) {
         super(context);
@@ -44,34 +53,62 @@ public class OverlayRenderView extends View {
         Log.d(TAG, "Système d'overlay assigné à la vue");
     }
     
+    public void setInputSystem(RetroArchInputSystem inputSystem) {
+        this.inputSystem = inputSystem;
+        this.overlayRenderer = new RetroArchOverlayRenderer(getContext(), inputSystem);
+        Log.d(TAG, "Nouveau système d'input assigné à la vue");
+    }
+    
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         
-        // **100% RETROARCH NATIF** : Debug dimensions
-        Log.d(TAG, "🎨 onDraw - View: " + getWidth() + "x" + getHeight() + 
-              " - Canvas: " + canvas.getWidth() + "x" + canvas.getHeight() +
-              " - Parent: " + (getParent() != null ? getParent().getClass().getSimpleName() : "null"));
+        // **OPTIMISATION LOGS** : Log périodique au lieu de 60 FPS
+        long currentTime = System.currentTimeMillis();
+        drawCount++;
         
-        if (overlaySystem != null) {
+        if (currentTime - lastDebugLogTime > DEBUG_LOG_INTERVAL) {
+            Log.d(TAG, "🎨 onDraw - View: " + getWidth() + "x" + getHeight() + 
+                  " - Canvas: " + canvas.getWidth() + "x" + canvas.getHeight() +
+                  " - Parent: " + (getParent() != null ? getParent().getClass().getSimpleName() : "null") +
+                  " - Draws depuis dernier log: " + drawCount);
+            lastDebugLogTime = currentTime;
+            drawCount = 0;
+        }
+        
+        // **NOUVEAU** : Utiliser le nouveau système de rendu
+        if (overlayRenderer != null) {
+            overlayRenderer.render(canvas);
+        } else if (overlaySystem != null) {
             overlaySystem.render(canvas);
         }
     }
     
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (overlaySystem != null) {
+        // **NOUVEAU** : Utiliser le nouveau système d'input
+        if (inputSystem != null) {
             Log.i(TAG, "🎯 onTouchEvent - action=" + event.getActionMasked() + ", coordonnées locales: (" + event.getX() + ", " + event.getY() + ")");
             
-            // **CORRECTION** : Passer directement les coordonnées locales à l'overlay
-            // L'overlay se chargera de la normalisation
-            boolean handled = overlaySystem.handleTouch(event);
+            boolean handled = inputSystem.handleTouchEvent(event);
             if (handled) {
-                Log.d(TAG, "✅ Événement tactile géré par l'overlay");
+                Log.d(TAG, "✅ Événement tactile géré par le nouveau système d'input");
                 invalidate(); // Redessiner après traitement
                 return true;
             } else {
-                Log.d(TAG, "❌ Événement tactile non géré par l'overlay");
+                Log.d(TAG, "❌ Événement tactile non géré par le nouveau système d'input");
+            }
+        } else if (overlaySystem != null) {
+            // **FALLBACK** : Ancien système
+            Log.i(TAG, "🎯 onTouchEvent - action=" + event.getActionMasked() + ", coordonnées locales: (" + event.getX() + ", " + event.getY() + ")");
+            
+            boolean handled = overlaySystem.handleTouch(event);
+            if (handled) {
+                Log.d(TAG, "✅ Événement tactile géré par l'ancien système d'overlay");
+                invalidate(); // Redessiner après traitement
+                return true;
+            } else {
+                Log.d(TAG, "❌ Événement tactile non géré par l'ancien système d'overlay");
             }
         }
         

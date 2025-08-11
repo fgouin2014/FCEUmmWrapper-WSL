@@ -14,6 +14,8 @@ set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-z,relro,-z,now"
 # Sources principales
 set(SOURCES
     native-lib.cpp
+    RetroArchAudioManager.cpp
+    RetroArchVideoManager.cpp
 )
 
 add_library(
@@ -42,11 +44,23 @@ find_library(
     OpenSLES
 )
 
+find_library(
+    egl-lib
+    EGL
+)
+
+find_library(
+    gl-lib
+    GLESv3
+)
+
 target_link_libraries(
     fceummwrapper
     ${log-lib}
     ${android-lib}
     ${opensles-lib}
+    ${egl-lib}
+    ${gl-lib}
 )
 
 # Spécifier explicitement les architectures

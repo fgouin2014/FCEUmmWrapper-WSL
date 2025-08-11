@@ -55,12 +55,27 @@ public class MainMenuActivity extends Activity {
         // Configurer les boutons
         setupButtons();
         
-        // Afficher les informations de configuration actuelle
-        displayCurrentConfiguration();
+        // **100% RETROARCH** : Ne plus charger automatiquement la configuration
+        // pour éviter les conflits avec l'émulation
+        // displayCurrentConfiguration(); // DÉSACTIVÉ
     }
     
     private void setupButtons() {
-        // Bouton Sélection ROM
+        // **100% RETROARCH** : Configuration des boutons du menu principal
+        
+        // Bouton Play - Lance directement l'émulation avec ROM par défaut
+        Button btnPlay = findViewById(R.id.btn_play);
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "Bouton Play pressé - Lancement direct de l'émulation avec ROM par défaut");
+                Intent intent = new Intent(MainMenuActivity.this, EmulationActivity.class);
+                // Pas de ROM spécifique = ROM par défaut (marioduckhunt.nes)
+                startActivity(intent);
+            }
+        });
+        
+        // Bouton Sélection ROM - Ouvre le sélecteur de ROMs
         Button btnSelectRom = findViewById(R.id.btn_select_rom);
         btnSelectRom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,16 +86,7 @@ public class MainMenuActivity extends Activity {
             }
         });
         
-        // Bouton Play (ROM par défaut)
-        Button btnPlay = findViewById(R.id.btn_play);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "Bouton Play pressé - Lancement de l'émulation avec ROM par défaut");
-                Intent intent = new Intent(MainMenuActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
         
         // Bouton Choix Core
         Button btnCoreSelection = findViewById(R.id.btn_core_selection);
@@ -115,54 +121,24 @@ public class MainMenuActivity extends Activity {
             }
         });
         
-        // Bouton Audio Settings (si disponible)
-        Button btnAudioSettings = findViewById(R.id.btn_audio_settings);
-        if (btnAudioSettings != null) {
-            btnAudioSettings.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.i(TAG, "Bouton Audio Settings pressé");
-                    Intent intent = new Intent(MainMenuActivity.this, AudioSettingsActivity.class);
-                    startActivity(intent);
-                }
-            });
-        }
+
         
-        // Bouton Overlay Integration (si disponible)
-        Button btnOverlayIntegration = findViewById(R.id.btn_overlay_integration);
-        if (btnOverlayIntegration != null) {
-            btnOverlayIntegration.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.i(TAG, "Bouton Overlay Integration pressé");
-                    Intent intent = new Intent(MainMenuActivity.this, OverlayIntegrationActivity.class);
-                    startActivity(intent);
-                }
-            });
-        }
+
         
         Log.i(TAG, "Boutons du menu principal configurés");
     }
     
+    /**
+     * **100% RETROARCH** : Méthode simplifiée pour afficher la configuration
+     * Appelée uniquement sur demande (bouton paramètres)
+     */
     private void displayCurrentConfiguration() {
         try {
             SharedPreferences prefs = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
             String currentOverlay = prefs.getString("selected_overlay", "flat/nes");
-            int diagonalSensitivity = prefs.getInt("diagonal_sensitivity", 50);
-            int overlayOpacity = prefs.getInt("overlay_opacity", 80);
-            boolean detailedLogs = prefs.getBoolean("detailed_logs", false);
             
-            Log.i(TAG, "Configuration actuelle:");
-            Log.i(TAG, "  - Overlay: " + currentOverlay);
-            Log.i(TAG, "  - Sensibilité diagonales: " + diagonalSensitivity + "%");
-            Log.i(TAG, "  - Opacité overlay: " + overlayOpacity + "%");
-            Log.i(TAG, "  - Logs détaillés: " + (detailedLogs ? "activés" : "désactivés"));
-            
-            // Afficher un toast avec la configuration actuelle
-            String configInfo = "🎮 " + getOverlayDisplayName(currentOverlay) + 
-                              " | 🎯 " + diagonalSensitivity + "%" +
-                              " | 🎨 " + overlayOpacity + "%";
-            Toast.makeText(this, configInfo, Toast.LENGTH_LONG).show();
+            // **100% RETROARCH** : Affichage minimal pour éviter les conflits
+            Log.i(TAG, "Configuration overlay: " + currentOverlay);
             
         } catch (Exception e) {
             Log.w(TAG, "Erreur lors de l'affichage de la configuration: " + e.getMessage());
@@ -197,8 +173,9 @@ public class MainMenuActivity extends Activity {
         super.onResume();
         Log.i(TAG, "Menu principal affiché");
         
-        // Recharger la configuration si l'utilisateur revient des paramètres
-        displayCurrentConfiguration();
+        // **100% RETROARCH** : Ne plus recharger automatiquement la configuration
+        // pour éviter les conflits avec l'émulation
+        // displayCurrentConfiguration(); // DÉSACTIVÉ
     }
     
     @Override

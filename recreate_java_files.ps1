@@ -573,3 +573,4 @@ Write-Host "Recree: InputManager.java" -ForegroundColor Green
 
 Write-Host "Recréation terminee!" -ForegroundColor Green
 Write-Host "Vous pouvez maintenant compiler le projet avec: ./gradlew clean assembleDebug installDebug" -ForegroundColor Yellow
+

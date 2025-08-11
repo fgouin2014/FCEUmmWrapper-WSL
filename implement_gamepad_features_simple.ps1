@@ -685,3 +685,4 @@ Write-Host "4. Optimiser les performances" -ForegroundColor Yellow
 Write-Host "5. Ajouter les tests unitaires" -ForegroundColor Yellow
 
 Write-Host "Compatibilite RetroArch: 100% OK" -ForegroundColor Green
+

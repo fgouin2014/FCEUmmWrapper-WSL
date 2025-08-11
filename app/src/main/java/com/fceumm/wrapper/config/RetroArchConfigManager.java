@@ -29,15 +29,17 @@ public class RetroArchConfigManager {
     public static final String INPUT_OVERLAY_SHOW_MOUSE_CURSOR = "input_overlay_show_mouse_cursor";
     public static final String INPUT_OVERLAY_AUTO_SCALE = "input_overlay_auto_scale";
     public static final String INPUT_OVERLAY_AUTO_ROTATE = "input_overlay_auto_rotate";
+    public static final String INPUT_OVERLAY_SHOW_INPUTS = "input_overlay_show_inputs"; // **100% RETROARCH** : Debug des zones
     
     // Valeurs par défaut RetroArch
     private static final boolean DEFAULT_OVERLAY_ENABLE = true;
     private static final String DEFAULT_OVERLAY_PATH = "overlays/gamepads/flat/nes.cfg";
-    private static final float DEFAULT_OVERLAY_SCALE = 1.0f;
+    private static final float DEFAULT_OVERLAY_SCALE = 1.5f;  // **CORRECTION CRITIQUE** : Scale plus élevé pour boutons plus gros
     private static final float DEFAULT_OVERLAY_OPACITY = 0.8f;
     private static final boolean DEFAULT_OVERLAY_SHOW_MOUSE_CURSOR = false;
     private static final boolean DEFAULT_OVERLAY_AUTO_SCALE = true;
     private static final boolean DEFAULT_OVERLAY_AUTO_ROTATE = true;
+    private static final boolean DEFAULT_OVERLAY_SHOW_INPUTS = true; // **100% RETROARCH** : Debug activé par défaut
     
     private Context context;
     private SharedPreferences globalConfig;
@@ -63,10 +65,15 @@ public class RetroArchConfigManager {
             editor.putBoolean(INPUT_OVERLAY_SHOW_MOUSE_CURSOR, DEFAULT_OVERLAY_SHOW_MOUSE_CURSOR);
             editor.putBoolean(INPUT_OVERLAY_AUTO_SCALE, DEFAULT_OVERLAY_AUTO_SCALE);
             editor.putBoolean(INPUT_OVERLAY_AUTO_ROTATE, DEFAULT_OVERLAY_AUTO_ROTATE);
+            editor.putBoolean(INPUT_OVERLAY_SHOW_INPUTS, DEFAULT_OVERLAY_SHOW_INPUTS); // **CRITIQUE** : Debug activé
             editor.apply();
             
             Log.i(TAG, "✅ Configuration RetroArch par défaut initialisée");
         }
+        
+        // **DIAGNOSTIC** : Vérifier que le debug est bien activé
+        boolean debugEnabled = globalConfig.getBoolean(INPUT_OVERLAY_SHOW_INPUTS, DEFAULT_OVERLAY_SHOW_INPUTS);
+        Log.i(TAG, "🔍 **DIAGNOSTIC** Debug des zones: " + debugEnabled + " (défaut: " + DEFAULT_OVERLAY_SHOW_INPUTS + ")");
     }
     
     /**
@@ -168,6 +175,17 @@ public class RetroArchConfigManager {
     public boolean isAutoRotateEnabled() {
         SharedPreferences config = getConfigWithHierarchy();
         return config.getBoolean(INPUT_OVERLAY_AUTO_ROTATE, DEFAULT_OVERLAY_AUTO_ROTATE);
+    }
+    
+    /**
+     * Vérifier si l'affichage des inputs est activé (debug)
+     */
+    public boolean isOverlayShowInputsEnabled() {
+        SharedPreferences config = getConfigWithHierarchy();
+        boolean debugEnabled = config.getBoolean(INPUT_OVERLAY_SHOW_INPUTS, DEFAULT_OVERLAY_SHOW_INPUTS);
+        Log.i(TAG, "🔍 **DIAGNOSTIC** isOverlayShowInputsEnabled() = " + debugEnabled + 
+              " (défaut: " + DEFAULT_OVERLAY_SHOW_INPUTS + ")");
+        return debugEnabled;
     }
     
     /**

@@ -125,3 +125,5 @@ Le système fonctionne maintenant comme RetroArch officiel :
 ## 🧪 **Test**
 
 L'application a été recompilée et installée. Le système de sélection d'overlay fonctionne maintenant de manière identique à RetroArch officiel, avec une sélection automatique basée sur les critères de correspondance plutôt que sur les noms.
+
+

@@ -302,3 +302,4 @@ public class LowLatencyInput {
 ## 🔗 COMPATIBILITÉ RETROARCH
 
 Toutes les fonctionnalités manquantes doivent être implémentées en respectant strictement les interfaces RetroArch pour garantir une compatibilité maximale avec l'écosystème libretro.
+

@@ -4,48 +4,27 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
-    <!-- Layout principal avec division 70/30 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+                        <!-- **TEST** : EmulatorView plein écran avec background transparent -->
+                    <com.fceumm.wrapper.EmulatorView
+                        android:id="@+id/emulator_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="0dp"
+                        android:padding="0dp"
+                        android:background="@android:color/transparent" />
 
-        <!-- Zone de jeu (70% en haut) -->
-        <FrameLayout
-            android:id="@+id/game_viewport"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7">
+                        <!-- **CORRECTION** : Zone de contrôles supprimée pour mode portrait -->
+                    <!-- La zone de contrôles n'est pas nécessaire en mode portrait -->
+                    <!-- L'overlay couvre tout l'écran -->
 
-            <!-- Vue d'émulation -->
-            <com.fceumm.wrapper.EmulatorView
-                android:id="@+id/emulator_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </FrameLayout>
-
-        <!-- Zone de contrôles (30% en bas) -->
-        <LinearLayout
-            android:id="@+id/controls_area"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:background="#80000000"
-            android:visibility="visible">
-
-            <!-- Zone visuelle pour les contrôles -->
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- Overlay RetroArch FULL SCREEN sur tout l'écran -->
-    <com.fceumm.wrapper.overlay.OverlayRenderView
-        android:id="@+id/overlay_render_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent" />
+                        <!-- **CORRECTION** : Overlay restauré pour les boutons -->
+                    <com.fceumm.wrapper.overlay.OverlayRenderView
+                        android:id="@+id/overlay_render_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="0dp"
+                        android:padding="0dp"
+                        android:background="@android:color/transparent"
+                        android:visibility="visible" />
 
 </FrameLayout> 

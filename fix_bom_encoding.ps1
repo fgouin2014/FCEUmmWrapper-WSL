@@ -34,3 +34,4 @@ foreach ($file in $javaFiles) {
 
 Write-Host "Correction terminee!" -ForegroundColor Green
 Write-Host "Vous pouvez maintenant compiler le projet avec: ./gradlew clean assembleDebug installDebug" -ForegroundColor Yellow
+

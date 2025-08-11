@@ -267,3 +267,4 @@ private void initInputManager() {
 **AUDIT TERMINÉ AVEC SUCCÈS** ✅
 **IMPLÉMENTATION CRITIQUE RÉALISÉE** ✅
 **COMPATIBILITÉ RETROARCH 100%** ✅
+

@@ -22,3 +22,5 @@ Write-Host "🎯 Vérification des coordonnées L/R..." -ForegroundColor Yellow
 adb logcat -d | Select-String -Pattern "🎯.*(l|r).*inversé" | Select-Object -Last 5
 
 Write-Host "✅ Test terminé !" -ForegroundColor Green
+
+

@@ -67,3 +67,5 @@ Maintenant le système devrait :
 ## 🧪 **Test**
 
 L'application a été recompilée et installée. Les overlays devraient maintenant s'adapter automatiquement à l'aspect ratio de l'écran.
+
+

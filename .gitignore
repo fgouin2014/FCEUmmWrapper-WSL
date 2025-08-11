@@ -158,3 +158,4 @@ app/src/main/assets/roms/
 retroarch_git/
 fceumm_git/
 libretro-super/
+/common-overlays_git

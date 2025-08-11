@@ -1,5 +1,0 @@
-# Placeholder pour button_a.png
-# Taille: 64x64
-# Texte: A
-# Couleur: white
-# Utilisez un éditeur d'image pour créer cette image

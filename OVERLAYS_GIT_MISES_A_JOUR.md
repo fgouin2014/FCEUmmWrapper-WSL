@@ -115,3 +115,5 @@ L'application dispose maintenant d'une collection complète d'overlays officiels
 ## 🧪 **Test**
 
 L'application a été recompilée et installée. Les overlays officiels RetroArch sont maintenant disponibles et se chargent automatiquement selon le système détecté !
+
+

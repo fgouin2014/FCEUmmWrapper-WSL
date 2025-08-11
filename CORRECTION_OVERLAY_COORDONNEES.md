@@ -60,3 +60,5 @@ Les coordonnées dans les fichiers CFG RetroArch sont **déjà dans le système 
 ## 🧪 **Test**
 
 L'application a été recompilée et installée. Les overlays devraient maintenant s'afficher correctement en portrait et landscape.
+
+

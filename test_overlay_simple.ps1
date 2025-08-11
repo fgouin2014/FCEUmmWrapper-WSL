@@ -13,3 +13,5 @@ Write-Host "Recuperation des logs..." -ForegroundColor Yellow
 adb logcat -d | Select-String -Pattern "RetroArchOverlaySystem" | Select-Object -Last 10
 
 Write-Host "Test termine !" -ForegroundColor Green
+
+

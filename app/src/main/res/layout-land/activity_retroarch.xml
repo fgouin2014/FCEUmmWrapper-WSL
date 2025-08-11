@@ -10,20 +10,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Vue d'émulation -->
-        <com.fceumm.wrapper.EmulatorView
-            android:id="@+id/emulator_view"
+                    <!-- Vue d'émulation -->
+            <com.fceumm.wrapper.EmulatorView
+                android:id="@+id/emulator_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:padding="0dp"
+                android:background="@android:color/black" />
+
+        <!-- Overlay tactile RetroArch dans la zone de jeu (100% RetroArch) -->
+        <com.fceumm.wrapper.overlay.OverlayRenderView
+            android:id="@+id/overlay_render_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:background="@android:color/transparent" />
 
     </FrameLayout>
-
-    <!-- Overlay tactile RetroArch full screen (100% RetroArch) -->
-    <com.fceumm.wrapper.overlay.OverlayRenderView
-        android:id="@+id/overlay_render_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent" />
 
     <!-- Zone de contrôles cachée en landscape (0% - comme RetroArch) -->
     <LinearLayout

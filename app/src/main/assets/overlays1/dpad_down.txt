@@ -1,5 +1,0 @@
-# Placeholder pour dpad_down.png
-# Taille: 64x64
-# Texte: ↓
-# Couleur: white
-# Utilisez un éditeur d'image pour créer cette image

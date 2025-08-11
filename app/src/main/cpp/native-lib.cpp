@@ -482,22 +482,65 @@ Java_com_fceumm_wrapper_EmulationActivity_initLibretro(JNIEnv* env, jobject thiz
     
     // Récupérer les fonctions
     retro_init_func = (retro_init_t)dlsym(libretro_handle, "retro_init");
+    LOGI("retro_init_func: %s", retro_init_func ? "OK" : "NULL");
+    
     retro_deinit_func = (retro_deinit_t)dlsym(libretro_handle, "retro_deinit");
+    LOGI("retro_deinit_func: %s", retro_deinit_func ? "OK" : "NULL");
+    
     retro_load_game_func = (retro_load_game_t)dlsym(libretro_handle, "retro_load_game");
+    LOGI("retro_load_game_func: %s", retro_load_game_func ? "OK" : "NULL");
+    
     retro_run_func = (retro_run_t)dlsym(libretro_handle, "retro_run");
+    LOGI("retro_run_func: %s", retro_run_func ? "OK" : "NULL");
+    
     retro_get_system_av_info_func = (retro_get_system_av_info_t)dlsym(libretro_handle, "retro_get_system_av_info");
+    LOGI("retro_get_system_av_info_func: %s", retro_get_system_av_info_func ? "OK" : "NULL");
+    
     retro_set_environment_func = (retro_set_environment_t)dlsym(libretro_handle, "retro_set_environment");
+    LOGI("retro_set_environment_func: %s", retro_set_environment_func ? "OK" : "NULL");
+    
     retro_set_video_refresh_func = (retro_set_video_refresh_t)dlsym(libretro_handle, "retro_set_video_refresh");
+    LOGI("retro_set_video_refresh_func: %s", retro_set_video_refresh_func ? "OK" : "NULL");
+    
     retro_set_audio_sample_batch_func = (retro_set_audio_sample_batch_t)dlsym(libretro_handle, "retro_set_audio_sample_batch");
+    LOGI("retro_set_audio_sample_batch_func: %s", retro_set_audio_sample_batch_func ? "OK" : "NULL");
+    
     retro_set_input_poll_func = (retro_set_input_poll_t)dlsym(libretro_handle, "retro_set_input_poll");
+    LOGI("retro_set_input_poll_func: %s", retro_set_input_poll_func ? "OK" : "NULL");
+    
     retro_set_input_state_func = (retro_set_input_state_t)dlsym(libretro_handle, "retro_set_input_state");
+    LOGI("retro_set_input_state_func: %s", retro_set_input_state_func ? "OK" : "NULL");
+    
     retro_unload_game_func = (retro_unload_game_t)dlsym(libretro_handle, "retro_unload_game");
+    LOGI("retro_unload_game_func: %s", retro_unload_game_func ? "OK" : "NULL");
+    
+    // Vérifier les fonctions critiques
+    if (!retro_init_func) {
+        LOGE("❌ retro_init_func est NULL - Core corrompu ou incompatible");
+        return JNI_FALSE;
+    }
+    
+    if (!retro_run_func) {
+        LOGE("❌ retro_run_func est NULL - Core corrompu ou incompatible");
+        return JNI_FALSE;
+    }
+    
+    if (!retro_load_game_func) {
+        LOGE("❌ retro_load_game_func est NULL - Core corrompu ou incompatible");
+        return JNI_FALSE;
+    }
+    
+    LOGI("✅ Toutes les fonctions critiques chargées avec succès");
     
     // Charger les fonctions FCEUmm audio
     FCEUI_SetSoundVolume_func = (FCEUI_SetSoundVolume_t)dlsym(libretro_handle, "FCEUI_SetSoundVolume");
+    LOGI("FCEUI_SetSoundVolume_func: %s", FCEUI_SetSoundVolume_func ? "OK" : "NULL");
     FCEUI_SetSoundQuality_func = (FCEUI_SetSoundQuality_t)dlsym(libretro_handle, "FCEUI_SetSoundQuality");
+    LOGI("FCEUI_SetSoundQuality_func: %s", FCEUI_SetSoundQuality_func ? "OK" : "NULL");
     FCEUI_Sound_func = (FCEUI_Sound_t)dlsym(libretro_handle, "FCEUI_Sound");
+    LOGI("FCEUI_Sound_func: %s", FCEUI_Sound_func ? "OK" : "NULL");
     FCEUI_SetLowPass_func = (FCEUI_SetLowPass_t)dlsym(libretro_handle, "FCEUI_SetLowPass");
+    LOGI("FCEUI_SetLowPass_func: %s", FCEUI_SetLowPass_func ? "OK" : "NULL");
     
     // Charger la structure FCEUmm settings (optionnel)
     FSettings_ptr = (FCEUS_t*)dlsym(libretro_handle, "FSettings");
@@ -634,20 +677,6 @@ Java_com_fceumm_wrapper_EmulationActivity_initLibretro(JNIEnv* env, jobject thiz
     
     LOGI("OpenSL ES initialisé avec succès - Buffer circulaire: %lu bytes", (unsigned long)(audioBuffer.size * sizeof(int16_t)));
     LOGI("Callback d'environnement sera défini lors de l'initialisation");
-    
-    if (!retro_init_func || !retro_load_game_func || !retro_run_func) {
-        LOGE("Fonctions libretro manquantes");
-        return JNI_FALSE;
-    }
-    
-    LOGI("Fonctions libretro récupérées avec succès");
-    
-    // Vérifier les fonctions FCEUmm audio
-    if (FCEUI_SetSoundVolume_func && FCEUI_SetSoundQuality_func && FCEUI_Sound_func) {
-        LOGI("Fonctions FCEUmm audio récupérées avec succès");
-    } else {
-        LOGI("Certaines fonctions FCEUmm audio non disponibles");
-    }
     
     // Configurer les callbacks avec cast explicite
     retro_set_environment_func((void*)environment_callback);
