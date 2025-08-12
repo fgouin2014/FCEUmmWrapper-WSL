@@ -74,6 +74,9 @@ android {
         }
     }
     ndkVersion = "28.2.13676358"
+    
+    // Optimisations pour accélérer le build
+    // Note: dexOptions est obsolète, optimisé automatiquement par AGP
 }
 
 dependencies {

@@ -147,15 +147,46 @@ app/src/main/assets/overlaysX/
 # Large files that should not be committed
 *.zip
 *.rar
+*.7z
 gradle-*.zip
 *_libretro_android.so.zip
 *_nightly.zip
 stable_core.zip
-coresOriginal.rar app/src/main/assets/roms/
+coresOriginal.rar
 app/src/main/assets/roms/
+
+# Temporary build directories
+temp_*/
+temp_retroarch/
+temp_retroarch_*/
+temp_libretro_super/
+temp_common_overlays/
+
+# Backup directories
+backup_*/
+*_backup/
 
 # Git repositories (external dependencies)
 retroarch_git/
 fceumm_git/
 libretro-super/
 /common-overlays_git
+
+# Documentation RetroArch (volumineuse, peut être re-téléchargée)
+retroarch_docs/
+
+# Project-specific cache and logs
+build_logs/
+cache/
+*.cache
+
+# IDE and editor specific files
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+*.sublime-project
+*.sublime-workspace
+
+# OS specific files (additional)
+desktop.ini
+$RECYCLE.BIN/

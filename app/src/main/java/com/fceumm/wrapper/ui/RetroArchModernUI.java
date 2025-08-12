@@ -621,33 +621,33 @@ public class RetroArchModernUI extends View {
      * **100% RETROARCH** : Rendu des boutons du menu
      */
     private void renderMenuButtons(Canvas canvas, float width, float height) {
-        String[] buttons = {
-            "🎮 Retour au jeu",
-            "📁 Sélection ROM",
-            "⚙️ Paramètres",
-            "💾 Sauvegarder",
-            "📂 Charger",
-            "🏠 Menu Principal"
-        };
-        
         float buttonWidth = 300;
         float buttonHeight = 60;
         float startY = 200;
         float spacing = 20;
         
-        for (int i = 0; i < buttons.length; i++) {
-            float x = width / 2 - buttonWidth / 2;
-            float y = startY + i * (buttonHeight + spacing);
+        String[] buttonTexts = {
+            "🎮 Démarrer le Jeu",
+            "📁 Sélectionner ROM",
+            "⚙️ Paramètres",
+            "💾 Sauvegarder",
+            "📂 Charger",
+            "🔄 Restaurer Overlay", // **100% RETROARCH AUTHENTIQUE** : Nouveau bouton
+            "🏠 Menu Principal"
+        };
+        
+        for (int i = 0; i < buttonTexts.length; i++) {
+            float buttonX = width / 2 - buttonWidth / 2;
+            float buttonY = startY + i * (buttonHeight + spacing);
             
-            // **100% RETROARCH** : Fond du bouton
-            buttonPaint.setColor(Color.parseColor("#404040"));
-            RectF buttonRect = new RectF(x, y, x + buttonWidth, y + buttonHeight);
+            // **100% RETROARCH AUTHENTIQUE** : Fond du bouton
+            RectF buttonRect = new RectF(buttonX, buttonY, buttonX + buttonWidth, buttonY + buttonHeight);
             canvas.drawRoundRect(buttonRect, 10, 10, buttonPaint);
             
-            // **100% RETROARCH** : Texte du bouton - TAILLE CORRIGÉE
-            textPaint.setColor(Color.WHITE);
-            textPaint.setTextSize(28.0f); // TAILLE AUGMENTÉE
-            canvas.drawText(buttons[i], x + buttonWidth / 2, y + buttonHeight / 2 + 12, textPaint);
+            // **100% RETROARCH AUTHENTIQUE** : Texte du bouton
+            textPaint.setTextAlign(Paint.Align.CENTER);
+            textPaint.setTextSize(18);
+            canvas.drawText(buttonTexts[i], buttonX + buttonWidth / 2, buttonY + buttonHeight / 2 + 6, textPaint);
         }
     }
     
@@ -1105,16 +1105,11 @@ public class RetroArchModernUI extends View {
                 invalidate();
                 break;
                 
-            case "overlay_next":
-                // **100% RETROARCH AUTHENTIQUE** : Changer d'overlay selon next_target
+            case "force_restore_overlay":
+                // **100% RETROARCH AUTHENTIQUE** : Forcer la restauration de l'overlay
                 if (overlayManager != null) {
-                    // L'overlayManager doit gérer le next_target automatiquement
-                    boolean switched = overlayManager.switchToNextOverlay();
-                    if (switched) {
-                        Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Changement d'overlay via next_target");
-                    } else {
-                        Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Impossible de changer d'overlay");
-                    }
+                    overlayManager.forceRestoreOverlay();
+                    Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Restauration forcée de l'overlay");
                 }
                 break;
                 
@@ -1143,7 +1138,7 @@ public class RetroArchModernUI extends View {
         float startY = 200;
         float spacing = 20;
         
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 7; i++) { // Augmenté à 7 boutons
             float buttonX = width / 2 - buttonWidth / 2;
             float buttonY = startY + i * (buttonHeight + spacing);
             
@@ -1156,6 +1151,7 @@ public class RetroArchModernUI extends View {
                     "settings",
                     "save_state",
                     "load_state",
+                    "restore_overlay", // **100% RETROARCH AUTHENTIQUE** : Nouveau bouton
                     "back_to_main"
                 };
                 
@@ -1340,6 +1336,13 @@ public class RetroArchModernUI extends View {
                 break;
             case "screenshot":
                 takeScreenshot();
+                break;
+            case "restore_overlay":
+                // Restaurer l'overlay
+                if (overlayManager != null) {
+                    overlayManager.forceRestoreOverlay();
+                    showNotification("🔄 Overlay restauré", 2000, 0);
+                }
                 break;
             case "back_to_main":
                 // Retour au menu principal

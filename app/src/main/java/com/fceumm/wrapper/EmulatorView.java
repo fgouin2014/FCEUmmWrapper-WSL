@@ -222,9 +222,9 @@ public class EmulatorView extends GLSurfaceView {
                 gameZoneHeight = height * 0.7f;
                 Log.i(TAG, "📱 **100% RETROARCH AUTHENTIQUE** - Mode portrait: Zone de jeu = 70% de la hauteur");
             } else {
-                // **100% RETROARCH AUTHENTIQUE** : En landscape, utiliser 80% de la hauteur pour le jeu
-                gameZoneHeight = height * 0.8f;
-                Log.i(TAG, "🖥️ **100% RETROARCH AUTHENTIQUE** - Mode landscape: Zone de jeu = 80% de la hauteur");
+                // **100% RETROARCH AUTHENTIQUE** : En landscape, utiliser 100% de la hauteur pour le jeu
+                gameZoneHeight = height;
+                Log.i(TAG, "🖥️ **100% RETROARCH AUTHENTIQUE** - Mode landscape: Zone de jeu = 100% de la hauteur");
             }
             
             // **100% RETROARCH AUTHENTIQUE** : Calculer les dimensions du jeu dans la zone

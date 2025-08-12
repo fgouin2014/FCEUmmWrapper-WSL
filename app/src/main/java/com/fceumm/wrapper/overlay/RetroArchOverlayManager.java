@@ -43,6 +43,11 @@ public class RetroArchOverlayManager {
     public static final int RETRO_DEVICE_ID_JOYPAD_L3 = 14;
     public static final int RETRO_DEVICE_ID_JOYPAD_R3 = 15;
     
+    // **100% RETROARCH AUTHENTIQUE** : Constantes d'actions spéciales (comme RetroArch)
+    public static final int RARCH_OVERLAY_NEXT = -100;
+    public static final int RARCH_MENU_TOGGLE = -101;
+    public static final int RARCH_OSK = -102;
+    
     private Context context;
     private Map<String, OverlayConfig> overlays = new HashMap<>();
     private OverlayConfig currentOverlay;
@@ -50,9 +55,17 @@ public class RetroArchOverlayManager {
     private Paint paint = new Paint();
     private Map<Integer, Boolean> pressedButtons = new HashMap<>();
     
-    // **100% RETROARCH AUTHENTIQUE** : Support multi-touch pour combinaisons
+    // **100% RETROARCH AUTHENTIQUE** : Support multi-touch
     private Map<Integer, TouchPoint> activeTouches = new HashMap<>();
     private static final int MAX_TOUCH_POINTS = 10; // Support jusqu'à 10 touches simultanées
+    
+    // **100% RETROARCH AUTHENTIQUE** : État de visibilité de l'overlay
+    private boolean overlayVisible = true;
+    private String lastVisibleOverlayName = "landscape-A"; // Sauvegarder l'overlay avant de cacher
+    
+    // **100% RETROARCH AUTHENTIQUE** : Gestion de la sensibilité des boutons spéciaux
+    private Map<Integer, Long> specialButtonLastPress = new HashMap<>();
+    private static final long SPECIAL_BUTTON_DEBOUNCE_MS = 500; // 500ms de debounce
     
     // **100% RETROARCH AUTHENTIQUE** : Classe pour gérer les points de touche
     private static class TouchPoint {
@@ -73,6 +86,7 @@ public class RetroArchOverlayManager {
     // **100% RETROARCH AUTHENTIQUE** : Dimensions du canvas pour la normalisation
     private float canvasWidth = 1080.0f;
     private float canvasHeight = 2241.0f;
+    private boolean firstRender = true;
     
     // **100% RETROARCH AUTHENTIQUE** : Interface de callback
     public interface OverlayInputCallback {
@@ -381,11 +395,26 @@ public class RetroArchOverlayManager {
     }
     
     /**
-     * **100% RETROARCH AUTHENTIQUE** : Mapper les noms d'input vers les IDs libretro
+     * **100% RETROARCH AUTHENTIQUE** : Mapper un nom d'input vers l'ID libretro correspondant
      */
     private int mapInputToLibretro(String inputName) {
         if (inputName == null) return -1;
         
+        // **100% RETROARCH AUTHENTIQUE** : Actions spéciales RetroArch
+        if ("overlay_next".equals(inputName)) {
+            return RARCH_OVERLAY_NEXT;
+        } else if ("menu_toggle".equals(inputName)) {
+            return RARCH_MENU_TOGGLE;
+        } else if ("osk".equals(inputName)) {
+            return RARCH_OSK;
+        }
+        
+        // **100% RETROARCH AUTHENTIQUE** : Combinaisons de touches (diagonales prédéfinies)
+        if (inputName.contains("|")) {
+            return -2; // Code spécial pour les combinaisons
+        }
+        
+        // **100% RETROARCH AUTHENTIQUE** : Boutons libretro standard
         switch (inputName.toLowerCase()) {
             case "b": return RETRO_DEVICE_ID_JOYPAD_B;
             case "y": return RETRO_DEVICE_ID_JOYPAD_Y;
@@ -403,7 +432,7 @@ public class RetroArchOverlayManager {
             case "r2": return RETRO_DEVICE_ID_JOYPAD_R2;
             case "l3": return RETRO_DEVICE_ID_JOYPAD_L3;
             case "r3": return RETRO_DEVICE_ID_JOYPAD_R3;
-            default: return -1; // Action spéciale
+            default: return -1; // Input non reconnu
         }
     }
     
@@ -580,49 +609,60 @@ public class RetroArchOverlayManager {
     }
     
     /**
-     * **100% RETROARCH AUTHENTIQUE** : Détecter les combinaisons manuelles de directions
-     */
-    private void detectManualCombinations() {
-        // **100% RETROARCH AUTHENTIQUE** : Vérifier les combinaisons de directions
-        boolean upPressed = pressedButtons.getOrDefault(RETRO_DEVICE_ID_JOYPAD_UP, false);
-        boolean downPressed = pressedButtons.getOrDefault(RETRO_DEVICE_ID_JOYPAD_DOWN, false);
-        boolean leftPressed = pressedButtons.getOrDefault(RETRO_DEVICE_ID_JOYPAD_LEFT, false);
-        boolean rightPressed = pressedButtons.getOrDefault(RETRO_DEVICE_ID_JOYPAD_RIGHT, false);
-        
-        // **100% RETROARCH AUTHENTIQUE** : Log des combinaisons détectées
-        if (upPressed && leftPressed) {
-            Log.d(TAG, "🎮 **100% RETROARCH AUTHENTIQUE** - Combinaison manuelle détectée: UP + LEFT");
-        }
-        if (upPressed && rightPressed) {
-            Log.d(TAG, "🎮 **100% RETROARCH AUTHENTIQUE** - Combinaison manuelle détectée: UP + RIGHT");
-        }
-        if (downPressed && leftPressed) {
-            Log.d(TAG, "🎮 **100% RETROARCH AUTHENTIQUE** - Combinaison manuelle détectée: DOWN + LEFT");
-        }
-        if (downPressed && rightPressed) {
-            Log.d(TAG, "🎮 **100% RETROARCH AUTHENTIQUE** - Combinaison manuelle détectée: DOWN + RIGHT");
-        }
-    }
-    
-    /**
      * **100% RETROARCH AUTHENTIQUE** : Activer/désactiver un bouton
      */
     private void activateButton(OverlayDesc button, boolean pressed) {
-        if (button.libretroDeviceId >= 0) {
+        if (button.libretroDeviceId == -2) {
+            // **100% RETROARCH AUTHENTIQUE** : Combinaison de touches (diagonales prédéfinies)
+            String[] inputs = button.inputName.split("\\|");
+            for (String input : inputs) {
+                int deviceId = mapInputToLibretro(input.trim());
+                if (deviceId >= 0) {
+                    pressedButtons.put(deviceId, pressed);
+                    if (inputCallback != null) {
+                        inputCallback.onOverlayInput(deviceId, pressed);
+                    }
+                    Log.d(TAG, "🎮 **100% RETROARCH AUTHENTIQUE** - Diagonale prédéfinie: " + input.trim() + " = " + (pressed ? "PRESSED" : "RELEASED"));
+                }
+            }
+        } else if (button.libretroDeviceId >= 0) {
             // **100% RETROARCH AUTHENTIQUE** : Bouton libretro normal
             pressedButtons.put(button.libretroDeviceId, pressed);
             if (inputCallback != null) {
                 inputCallback.onOverlayInput(button.libretroDeviceId, pressed);
             }
-            
-            // **100% RETROARCH AUTHENTIQUE** : Détecter les combinaisons manuelles pour les directions
-            if (button.libretroDeviceId >= RETRO_DEVICE_ID_JOYPAD_UP && button.libretroDeviceId <= RETRO_DEVICE_ID_JOYPAD_RIGHT) {
-                detectManualCombinations();
-            }
         } else {
             // **100% RETROARCH AUTHENTIQUE** : Action spéciale (menu_toggle, overlay_next, etc.)
             if (pressed && inputCallback != null) {
-                inputCallback.onOverlayAction(button.inputName);
+                // **100% RETROARCH AUTHENTIQUE** : Debounce pour éviter la sensibilité excessive
+                long currentTime = System.currentTimeMillis();
+                Long lastPressTime = specialButtonLastPress.get(button.libretroDeviceId);
+                
+                if (lastPressTime != null && (currentTime - lastPressTime) < SPECIAL_BUTTON_DEBOUNCE_MS) {
+                    Log.d(TAG, "⏱️ **100% RETROARCH AUTHENTIQUE** - Bouton spécial ignoré (debounce): " + button.inputName);
+                    return;
+                }
+                
+                specialButtonLastPress.put(button.libretroDeviceId, currentTime);
+                
+                if (button.libretroDeviceId == RARCH_OVERLAY_NEXT) {
+                    // **100% RETROARCH AUTHENTIQUE** : Gérer overlay_next avec le bouton spécifique
+                    boolean switched = switchToNextOverlay(button);
+                    if (switched) {
+                        Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Overlay changé via bouton: " + button.nextTarget);
+                    } else {
+                        Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Échec changement overlay via bouton");
+                    }
+                } else if (button.libretroDeviceId == RARCH_MENU_TOGGLE) {
+                    // **100% RETROARCH AUTHENTIQUE** : Gérer menu_toggle
+                    inputCallback.onOverlayAction("menu_toggle");
+                } else if (button.libretroDeviceId == RARCH_OSK) {
+                    // **100% RETROARCH AUTHENTIQUE** : Gérer osk
+                    inputCallback.onOverlayAction("osk");
+                } else {
+                    // **100% RETROARCH AUTHENTIQUE** : Autres actions (menu_toggle, etc.)
+                    inputCallback.onOverlayAction(button.inputName);
+                }
             }
         }
     }
@@ -651,6 +691,11 @@ public class RetroArchOverlayManager {
     public void render(Canvas canvas) {
         if (currentOverlay == null) return;
         
+        // **100% RETROARCH AUTHENTIQUE** : Ne rien afficher si l'overlay est caché
+        if (!overlayVisible) {
+            return;
+        }
+        
         // **100% RETROARCH AUTHENTIQUE** : Mettre à jour les dimensions du canvas
         float newCanvasWidth = canvas.getWidth();
         float newCanvasHeight = canvas.getHeight();
@@ -660,63 +705,94 @@ public class RetroArchOverlayManager {
         boolean isPortrait = newCanvasHeight > newCanvasWidth;
         
         // **100% RETROARCH AUTHENTIQUE** : Forcer la détection au premier rendu ou si orientation changée
-        if (canvasWidth == 1080.0f && canvasHeight == 2241.0f) {
+        if (firstRender) {
             // Premier rendu - détecter l'orientation
             detectOrientationAndSetOverlay(newCanvasWidth, newCanvasHeight);
-            Log.i(TAG, "🎯 **100% RETROARCH AUTHENTIQUE** - Premier rendu, orientation détectée: " + currentOverlayName);
+            Log.d(TAG, "🎯 Premier rendu, overlay: " + currentOverlayName);
+            firstRender = false;
         } else if (wasPortrait != isPortrait) {
             // Orientation changée - adapter l'overlay
             detectOrientationAndSetOverlay(newCanvasWidth, newCanvasHeight);
-            Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Orientation changée, overlay adapté: " + currentOverlayName);
+            Log.i(TAG, "🔄 Orientation changée, overlay: " + currentOverlayName);
         }
         
         canvasWidth = newCanvasWidth;
         canvasHeight = newCanvasHeight;
         
+        // **100% RETROARCH AUTHENTIQUE** : Appliquer le range_mod comme RetroArch officiel
+        float rangeMod = currentOverlay.rangeMod;
+        
+        // **100% RETROARCH AUTHENTIQUE** : Log pour déboguer les boutons spéciaux
+        boolean foundSpecialButtons = false;
+        
         for (OverlayDesc desc : currentOverlay.descriptions) {
             if (desc.bitmap != null) {
-                // **100% RETROARCH AUTHENTIQUE** : Rendu de l'image
+                // **100% RETROARCH AUTHENTIQUE** : Rendu direct comme RetroArch officiel
                 float x = desc.x * canvasWidth;
                 float y = desc.y * canvasHeight;
-                float rangeX = desc.rangeX * canvasWidth;
-                float rangeY = desc.rangeY * canvasHeight;
+                float rangeX = desc.rangeX * canvasWidth * rangeMod;
+                float rangeY = desc.rangeY * canvasHeight * rangeMod;
                 
+                // **100% RETROARCH AUTHENTIQUE** : Log des boutons spéciaux
+                if (desc.libretroDeviceId == RARCH_OVERLAY_NEXT || desc.libretroDeviceId == RARCH_MENU_TOGGLE || desc.libretroDeviceId == RARCH_OSK) {
+                    foundSpecialButtons = true;
+                    Log.d(TAG, "🎮 **100% RETROARCH AUTHENTIQUE** - Bouton spécial: " + desc.inputName + 
+                          " à (" + x + ", " + y + ") taille (" + rangeX + ", " + rangeY + ") " +
+                          "bitmap: " + (desc.bitmap != null ? "OK" : "NULL"));
+                }
+                
+                // **100% RETROARCH AUTHENTIQUE** : Rendu uniforme respectant le range_mod du .cfg
                 RectF destRect = new RectF(
                     x - rangeX, y - rangeY,
                     x + rangeX, y + rangeY
                 );
-                
                 canvas.drawBitmap(desc.bitmap, null, destRect, paint);
+            } else if (desc.libretroDeviceId == RARCH_OVERLAY_NEXT || desc.libretroDeviceId == RARCH_MENU_TOGGLE || desc.libretroDeviceId == RARCH_OSK) {
+                // **100% RETROARCH AUTHENTIQUE** : Log des boutons spéciaux sans bitmap
+                Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Bouton spécial sans bitmap: " + desc.inputName);
             }
+        }
+        
+        // **100% RETROARCH AUTHENTIQUE** : Log si aucun bouton spécial trouvé
+        if (!foundSpecialButtons) {
+            Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Aucun bouton spécial trouvé dans l'overlay: " + currentOverlayName);
         }
     }
     
     /**
-     * **100% RETROARCH AUTHENTIQUE** : Détecter l'orientation et choisir l'overlay approprié
+     * **100% RETROARCH AUTHENTIQUE** : Détecter l'orientation et définir l'overlay approprié
      */
     public void detectOrientationAndSetOverlay(float screenWidth, float screenHeight) {
         boolean isPortrait = screenHeight > screenWidth;
         
         if (isPortrait) {
-            // **100% RETROARCH AUTHENTIQUE** : Chercher un overlay portrait
-            String[] portraitOverlays = {"portrait-A", "portrait-B", "portrait-gb-A", "portrait-gb-B"};
+            // **100% RETROARCH AUTHENTIQUE** : Chercher un overlay portrait selon la documentation
+            String[] portraitOverlays = {
+                "portrait-A", "portrait-B", "portrait-gb-A", "portrait-gb-B",
+                "portrait", "portrait-1", "portrait-2", "portrait-3"
+            };
             for (String overlayName : portraitOverlays) {
                 if (overlays.containsKey(overlayName)) {
                     currentOverlay = overlays.get(overlayName);
                     currentOverlayName = overlayName;
-                    Log.i(TAG, "📱 **100% RETROARCH AUTHENTIQUE** - Orientation portrait détectée, overlay: " + overlayName);
+                    overlayVisible = true; // **100% RETROARCH AUTHENTIQUE** : S'assurer que l'overlay est visible
+                    Log.d(TAG, "📱 Portrait overlay: " + overlayName);
                     return;
                 }
             }
             Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Aucun overlay portrait trouvé");
         } else {
-            // **100% RETROARCH AUTHENTIQUE** : Chercher un overlay landscape
-            String[] landscapeOverlays = {"landscape-A", "landscape-B", "landscape-gb-A", "landscape-gb-B"};
+            // **100% RETROARCH AUTHENTIQUE** : Chercher un overlay landscape selon la documentation
+            String[] landscapeOverlays = {
+                "landscape-A", "landscape-B", "landscape-gb-A", "landscape-gb-B",
+                "landscape", "landscape-1", "landscape-2", "landscape-3"
+            };
             for (String overlayName : landscapeOverlays) {
                 if (overlays.containsKey(overlayName)) {
                     currentOverlay = overlays.get(overlayName);
                     currentOverlayName = overlayName;
-                    Log.i(TAG, "🖥️ **100% RETROARCH AUTHENTIQUE** - Orientation landscape détectée, overlay: " + overlayName);
+                    overlayVisible = true; // **100% RETROARCH AUTHENTIQUE** : S'assurer que l'overlay est visible
+                    Log.d(TAG, "🖥️ Landscape overlay: " + overlayName);
                     return;
                 }
             }
@@ -728,24 +804,121 @@ public class RetroArchOverlayManager {
             String firstOverlayName = overlays.keySet().iterator().next();
             currentOverlay = overlays.get(firstOverlayName);
             currentOverlayName = firstOverlayName;
+            overlayVisible = true; // **100% RETROARCH AUTHENTIQUE** : S'assurer que l'overlay est visible
             Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Utilisation de l'overlay par défaut: " + firstOverlayName);
         }
     }
     
     /**
-     * **100% RETROARCH AUTHENTIQUE** : Changer d'overlay selon next_target
+     * **100% RETROARCH AUTHENTIQUE** : Forcer l'affichage de l'overlay
      */
-    public boolean switchToNextOverlay() {
+    public void showOverlay() {
+        overlayVisible = true;
+        Log.i(TAG, "👁️ **100% RETROARCH AUTHENTIQUE** - Overlay forcé visible");
+    }
+    
+    /**
+     * **100% RETROARCH AUTHENTIQUE** : Cacher l'overlay
+     */
+    public void hideOverlay() {
+        overlayVisible = false;
+        Log.i(TAG, "👻 **100% RETROARCH AUTHENTIQUE** - Overlay caché");
+    }
+    
+    /**
+     * **100% RETROARCH AUTHENTIQUE** : Vérifier si l'overlay est visible
+     */
+    public boolean isOverlayVisible() {
+        return overlayVisible;
+    }
+    
+    /**
+     * **100% RETROARCH AUTHENTIQUE** : Forcer la restauration de l'overlay (en cas de problème)
+     */
+    public void forceRestoreOverlay() {
+        if (!overlayVisible) {
+            // **100% RETROARCH AUTHENTIQUE** : Essayer de restaurer l'overlay précédent
+            OverlayConfig previousOverlay = overlays.get(lastVisibleOverlayName);
+            if (previousOverlay != null) {
+                currentOverlay = previousOverlay;
+                currentOverlayName = lastVisibleOverlayName;
+                overlayVisible = true;
+                Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Overlay restauré: " + currentOverlayName);
+            } else {
+                // **100% RETROARCH AUTHENTIQUE** : Fallback vers la détection d'orientation
+                detectOrientationAndSetOverlay(canvasWidth, canvasHeight);
+                overlayVisible = true;
+                Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Restauration par détection d'orientation");
+            }
+        }
+    }
+    
+    /**
+     * **100% RETROARCH AUTHENTIQUE** : Changer d'overlay selon next_target du bouton spécifique
+     */
+    public boolean switchToNextOverlay(OverlayDesc specificButton) {
         if (currentOverlay == null) return false;
         
-        // **100% RETROARCH AUTHENTIQUE** : Chercher le next_target dans l'overlay actuel
+        // **100% RETROARCH AUTHENTIQUE** : Si un bouton spécifique est fourni, utiliser son next_target
+        if (specificButton != null && "overlay_next".equals(specificButton.inputName) && specificButton.nextTarget != null) {
+            
+            // **100% RETROARCH AUTHENTIQUE** : Gestion spéciale pour l'overlay "hidden" selon la documentation
+            if (specificButton.nextTarget.startsWith("hidden")) {
+                if (overlayVisible) {
+                    // **100% RETROARCH AUTHENTIQUE** : Cacher l'overlay et sauvegarder l'état actuel
+                    lastVisibleOverlayName = currentOverlayName;
+                    overlayVisible = false;
+                    Log.i(TAG, "👻 **100% RETROARCH AUTHENTIQUE** - Overlay caché (sauvegardé: " + lastVisibleOverlayName + ")");
+                } else {
+                    // **100% RETROARCH AUTHENTIQUE** : Afficher l'overlay précédent
+                    OverlayConfig previousOverlay = overlays.get(lastVisibleOverlayName);
+                    if (previousOverlay != null) {
+                        currentOverlay = previousOverlay;
+                        currentOverlayName = lastVisibleOverlayName;
+                        overlayVisible = true;
+                        Log.i(TAG, "👁️ **100% RETROARCH AUTHENTIQUE** - Overlay affiché: " + currentOverlayName);
+                    } else {
+                        // **100% RETROARCH AUTHENTIQUE** : Fallback si l'overlay précédent n'existe plus
+                        detectOrientationAndSetOverlay(canvasWidth, canvasHeight);
+                        overlayVisible = true;
+                        Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Overlay précédent introuvable, utilisation par défaut");
+                    }
+                }
+                return true;
+            }
+            
+            // **100% RETROARCH AUTHENTIQUE** : Changement d'overlay normal
+            OverlayConfig nextOverlay = overlays.get(specificButton.nextTarget);
+            if (nextOverlay != null) {
+                // **100% RETROARCH AUTHENTIQUE** : Sauvegarder l'overlay actuel avant de changer
+                if (overlayVisible) {
+                    lastVisibleOverlayName = currentOverlayName;
+                }
+                
+                currentOverlay = nextOverlay;
+                currentOverlayName = specificButton.nextTarget;
+                overlayVisible = true; // S'assurer que l'overlay est visible
+                Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Changement overlay: " + currentOverlayName + " (via bouton spécifique)");
+                return true;
+            } else {
+                Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Overlay next_target introuvable: " + specificButton.nextTarget);
+            }
+        }
+        
+        // **100% RETROARCH AUTHENTIQUE** : Fallback - chercher le premier next_target dans l'overlay actuel
         for (OverlayDesc desc : currentOverlay.descriptions) {
             if ("overlay_next".equals(desc.inputName) && desc.nextTarget != null) {
                 OverlayConfig nextOverlay = overlays.get(desc.nextTarget);
                 if (nextOverlay != null) {
+                    // **100% RETROARCH AUTHENTIQUE** : Sauvegarder l'overlay actuel avant de changer
+                    if (overlayVisible) {
+                        lastVisibleOverlayName = currentOverlayName;
+                    }
+                    
                     currentOverlay = nextOverlay;
                     currentOverlayName = desc.nextTarget;
-                    Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Changement overlay: " + currentOverlayName + " (via next_target)");
+                    overlayVisible = true;
+                    Log.i(TAG, "🔄 **100% RETROARCH AUTHENTIQUE** - Changement overlay: " + currentOverlayName + " (via fallback)");
                     return true;
                 } else {
                     Log.w(TAG, "⚠️ **100% RETROARCH AUTHENTIQUE** - Overlay next_target introuvable: " + desc.nextTarget);
@@ -758,6 +931,13 @@ public class RetroArchOverlayManager {
     }
     
     /**
+     * **100% RETROARCH AUTHENTIQUE** : Changer d'overlay selon next_target (méthode legacy)
+     */
+    public boolean switchToNextOverlay() {
+        return switchToNextOverlay(null);
+    }
+    
+    /**
      * **100% RETROARCH AUTHENTIQUE** : Changer d'overlay
      */
     public boolean switchOverlay(String overlayName) {
@@ -765,7 +945,7 @@ public class RetroArchOverlayManager {
         if (newOverlay != null) {
             currentOverlay = newOverlay;
             currentOverlayName = overlayName;
-            Log.i(TAG, "🔄 **100% RETROARCH** - Changement overlay: " + overlayName);
+            Log.i(TAG, "�� **100% RETROARCH** - Changement overlay: " + overlayName);
             return true;
         }
         return false;
