@@ -104,10 +104,10 @@ public class EmulationActivity extends Activity {
             }
             Log.i(TAG, "✅ **DEBUG** Étape 7: copySelectedRom - RÉUSSI");
 
-            Log.i(TAG, "🚀 **DEBUG** Étape 8: startEmulation");
-            // Démarrer l'émulation
-            startEmulation();
-            Log.i(TAG, "✅ **DEBUG** Étape 8: startEmulation - RÉUSSI");
+            Log.i(TAG, "🚀 **DEBUG** Étape 8: showRetroArchMainMenu");
+            // **100% RETROARCH** : Afficher le menu RetroArch au démarrage
+            showRetroArchMainMenu();
+            Log.i(TAG, "✅ **DEBUG** Étape 8: showRetroArchMainMenu - RÉUSSI");
 
             Log.i(TAG, "🎉 **DEBUG** EmulationActivity.onCreate() - TERMINÉ AVEC SUCCÈS");
 
@@ -833,6 +833,30 @@ public class EmulationActivity extends Activity {
             return true;
         }
         return super.onGenericMotionEvent(event);
+    }
+    
+    /**
+     * **100% RETROARCH** : Afficher le menu RetroArch principal au démarrage
+     * Conforme à l'architecture RetroArch officielle
+     */
+    private void showRetroArchMainMenu() {
+        Log.i(TAG, "🎮 **100% RETROARCH** - Affichage du menu principal RetroArch");
+        
+        try {
+            // Afficher le menu RetroArch principal
+            if (modernUI != null) {
+                modernUI.showMainMenu();
+                Log.i(TAG, "✅ Menu RetroArch principal affiché");
+            } else {
+                Log.w(TAG, "⚠️ modernUI non initialisé, lancement direct de l'émulation");
+                // Fallback : lancer directement l'émulation avec ROM par défaut
+                startEmulation();
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "❌ Erreur lors de l'affichage du menu RetroArch: " + e.getMessage(), e);
+            // Fallback : lancer directement l'émulation
+            startEmulation();
+        }
     }
     
     // Méthodes natives

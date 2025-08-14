@@ -193,3 +193,4 @@ La suppression de `MainMenuActivity` et son remplacement par `EmulationActivity`
 - Réduit la complexité du code
 
 **Status** : ✅ **APPROUVÉ POUR EXÉCUTION**
+

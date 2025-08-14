@@ -3,51 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/black"
-    android:padding="20dp">
+    android:background="#1A1A1A"
+    android:padding="0dp">
 
-    <!-- Titre de l'application -->
+    <!-- **100% RETROARCH AUTHENTIQUE** : Titre du menu - FULLSCREEN -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="🎮 Sélection ROM"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp" />
 
-    <!-- Sous-titre -->
+    <!-- **100% RETROARCH AUTHENTIQUE** : Sous-titre -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choisissez votre jeu NES"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textColor="#CCCCCC"
+        android:textSize="24sp"
         android:layout_gravity="center"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="40dp" />
 
-    <!-- Liste des ROMs -->
+    <!-- **100% RETROARCH AUTHENTIQUE** : Liste des ROMs - FULLSCREEN -->
     <ListView
         android:id="@+id/rom_list_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@android:color/transparent"
-        android:divider="@android:color/holo_blue_dark"
-        android:dividerHeight="1dp"
-        android:padding="10dp" />
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:padding="20dp"
+        android:scrollbars="none" />
 
-    <!-- Bouton Retour -->
+    <!-- **100% RETROARCH AUTHENTIQUE** : Bouton Retour - STYLE RETROARCH -->
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="⬅️ Retour"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="⬅️ Retour au Menu"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:background="@android:color/holo_red_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@drawable/retroarch_button_background"
         android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
         android:layout_marginTop="20dp" />
 
 </LinearLayout> 

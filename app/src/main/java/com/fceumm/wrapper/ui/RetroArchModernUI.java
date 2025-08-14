@@ -423,47 +423,49 @@ public class RetroArchModernUI extends View {
     }
     
     /**
-     * **100% RETROARCH** : Rendu du menu principal
+     * **100% RETROARCH** : Rendu du menu principal - FULLSCREEN
      */
     private void renderMenuUI(Canvas canvas) {
         float width = canvas.getWidth();
         float height = canvas.getHeight();
         
-        // **100% RETROARCH** : Fond semi-transparent
-        backgroundPaint.setColor(Color.parseColor("#80000000"));
+        // **100% RETROARCH** : Fond fullscreen opaque comme RetroArch officiel
+        backgroundPaint.setColor(Color.parseColor("#1A1A1A")); // Fond sombre RetroArch
         canvas.drawRect(0, 0, width, height, backgroundPaint);
         
-        // **100% RETROARCH** : Titre du menu - TAILLE CORRIGÉE
+        // **100% RETROARCH** : Titre du menu - CENTRÉ ET PLUS GRAND
         textPaint.setColor(Color.WHITE);
-        textPaint.setTextSize(72.0f); // TAILLE AUGMENTÉE
-        canvas.drawText("🎮 RetroArch", width / 2, 150, textPaint);
+        textPaint.setTextSize(96.0f); // TAILLE AUGMENTÉE POUR FULLSCREEN
+        textPaint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("🎮 RetroArch", width / 2, height * 0.15f, textPaint);
         
-        // **100% RETROARCH** : Sous-titre - TAILLE CORRIGÉE
-        textPaint.setTextSize(36.0f); // TAILLE AUGMENTÉE
+        // **100% RETROARCH** : Sous-titre - CENTRÉ
+        textPaint.setTextSize(48.0f); // TAILLE AUGMENTÉE POUR FULLSCREEN
         textPaint.setColor(Color.LTGRAY);
-        canvas.drawText("Interface Native Moderne", width / 2, 200, textPaint);
+        canvas.drawText("Interface Native Moderne", width / 2, height * 0.22f, textPaint);
         
-        // **100% RETROARCH** : Boutons du menu
+        // **100% RETROARCH** : Boutons du menu - FULLSCREEN
         renderMenuButtons(canvas, width, height);
     }
     
     /**
-     * **100% RETROARCH** : Rendu du menu rapide
+     * **100% RETROARCH** : Rendu du menu rapide - FULLSCREEN
      */
     private void renderQuickMenuUI(Canvas canvas) {
         float width = canvas.getWidth();
         float height = canvas.getHeight();
         
-        // **100% RETROARCH** : Fond semi-transparent
-        backgroundPaint.setColor(Color.parseColor("#80000000"));
+        // **100% RETROARCH** : Fond fullscreen opaque comme RetroArch officiel
+        backgroundPaint.setColor(Color.parseColor("#1A1A1A")); // Fond sombre RetroArch
         canvas.drawRect(0, 0, width, height, backgroundPaint);
         
-        // **100% RETROARCH** : Titre du menu rapide
+        // **100% RETROARCH** : Titre du menu rapide - CENTRÉ ET PLUS GRAND
         textPaint.setColor(Color.WHITE);
-        textPaint.setTextSize(36.0f);
-        canvas.drawText("⚡ Menu Rapide", width / 2, 80, textPaint);
+        textPaint.setTextSize(72.0f); // TAILLE AUGMENTÉE POUR FULLSCREEN
+        textPaint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("⚡ Menu Rapide", width / 2, height * 0.15f, textPaint);
         
-        // **100% RETROARCH** : Boutons rapides
+        // **100% RETROARCH** : Boutons rapides - FULLSCREEN
         renderQuickMenuButtons(canvas, width, height);
     }
     
@@ -621,12 +623,13 @@ public class RetroArchModernUI extends View {
      * **100% RETROARCH** : Rendu des boutons du menu
      */
     private void renderMenuButtons(Canvas canvas, float width, float height) {
-        float buttonWidth = 300;
-        float buttonHeight = 60;
-        float startY = 200;
-        float spacing = 20;
+        float buttonWidth = width * 0.7f; // Boutons plus larges pour fullscreen
+        float buttonHeight = height * 0.06f; // Boutons plus petits pour tenir dans l'écran
+        float startY = height * 0.3f; // Commencer plus haut pour avoir plus d'espace
+        float spacing = height * 0.015f; // Espacement réduit
         
         String[] buttonTexts = {
+            "▶️ Retour au Jeu", // **100% RETROARCH AUTHENTIQUE** : Bouton principal pour revenir au jeu
             "🎮 Démarrer le Jeu",
             "📁 Sélectionner ROM",
             "⚙️ Paramètres",
@@ -636,26 +639,43 @@ public class RetroArchModernUI extends View {
             "🏠 Menu Principal"
         };
         
+        // **100% RETROARCH** : Vérifier que tous les boutons tiennent dans l'écran
+        float totalHeight = buttonTexts.length * buttonHeight + (buttonTexts.length - 1) * spacing;
+        float availableHeight = height * 0.6f; // 60% de l'écran disponible pour les boutons
+        
+        if (totalHeight > availableHeight) {
+            // Ajuster la taille si nécessaire
+            buttonHeight = availableHeight / buttonTexts.length * 0.8f;
+            spacing = availableHeight / buttonTexts.length * 0.2f;
+        }
+        
         for (int i = 0; i < buttonTexts.length; i++) {
             float buttonX = width / 2 - buttonWidth / 2;
             float buttonY = startY + i * (buttonHeight + spacing);
             
-            // **100% RETROARCH AUTHENTIQUE** : Fond du bouton
-            RectF buttonRect = new RectF(buttonX, buttonY, buttonX + buttonWidth, buttonY + buttonHeight);
-            canvas.drawRoundRect(buttonRect, 10, 10, buttonPaint);
+            // **100% RETROARCH AUTHENTIQUE** : Vérifier que le bouton ne dépasse pas
+            if (buttonY + buttonHeight > height * 0.9f) {
+                break; // Arrêter si on dépasse 90% de la hauteur
+            }
             
-            // **100% RETROARCH AUTHENTIQUE** : Texte du bouton
+            // **100% RETROARCH AUTHENTIQUE** : Fond du bouton - FULLSCREEN
+            RectF buttonRect = new RectF(buttonX, buttonY, buttonX + buttonWidth, buttonY + buttonHeight);
+            canvas.drawRoundRect(buttonRect, 12, 12, buttonPaint);
+            
+            // **100% RETROARCH AUTHENTIQUE** : Texte du bouton - FULLSCREEN
             textPaint.setTextAlign(Paint.Align.CENTER);
-            textPaint.setTextSize(18);
-            canvas.drawText(buttonTexts[i], buttonX + buttonWidth / 2, buttonY + buttonHeight / 2 + 6, textPaint);
+            textPaint.setTextSize(buttonHeight * 0.35f); // Taille proportionnelle réduite
+            textPaint.setColor(Color.WHITE);
+            canvas.drawText(buttonTexts[i], buttonX + buttonWidth / 2, buttonY + buttonHeight / 2 + (buttonHeight * 0.15f), textPaint);
         }
     }
     
     /**
-     * **100% RETROARCH** : Rendu des boutons du menu rapide
+     * **100% RETROARCH** : Rendu des boutons du menu rapide - FULLSCREEN
      */
     private void renderQuickMenuButtons(Canvas canvas, float width, float height) {
         String[] buttons = {
+            "▶️ Retour au Jeu", // **100% RETROARCH AUTHENTIQUE** : Bouton principal pour revenir au jeu
             "⏪ Rewind",
             "⏩ Fast Forward",
             "💾 Save State",
@@ -664,24 +684,40 @@ public class RetroArchModernUI extends View {
             "🎮 Menu Principal"
         };
         
-        float buttonWidth = 200;
-        float buttonHeight = 50;
-        float startY = 120;
-        float spacing = 15;
+        float buttonWidth = width * 0.6f; // Boutons plus larges pour fullscreen
+        float buttonHeight = height * 0.05f; // Boutons plus petits pour tenir dans l'écran
+        float startY = height * 0.25f; // Commencer plus bas pour centrer
+        float spacing = height * 0.015f; // Espacement réduit
+        
+        // **100% RETROARCH** : Vérifier que tous les boutons tiennent dans l'écran
+        float totalHeight = buttons.length * buttonHeight + (buttons.length - 1) * spacing;
+        float availableHeight = height * 0.6f; // 60% de l'écran disponible pour les boutons
+        
+        if (totalHeight > availableHeight) {
+            // Ajuster la taille si nécessaire
+            buttonHeight = availableHeight / buttons.length * 0.8f;
+            spacing = availableHeight / buttons.length * 0.2f;
+        }
         
         for (int i = 0; i < buttons.length; i++) {
             float x = width / 2 - buttonWidth / 2;
             float y = startY + i * (buttonHeight + spacing);
             
-            // **100% RETROARCH** : Fond du bouton
+            // **100% RETROARCH** : Vérifier que le bouton ne dépasse pas
+            if (y + buttonHeight > height * 0.9f) {
+                break; // Arrêter si on dépasse 90% de la hauteur
+            }
+            
+            // **100% RETROARCH** : Fond du bouton - FULLSCREEN
             buttonPaint.setColor(Color.parseColor("#404040"));
             RectF buttonRect = new RectF(x, y, x + buttonWidth, y + buttonHeight);
-            canvas.drawRoundRect(buttonRect, 8, 8, buttonPaint);
+            canvas.drawRoundRect(buttonRect, 10, 10, buttonPaint);
             
-            // **100% RETROARCH** : Texte du bouton - TAILLE CORRIGÉE
+            // **100% RETROARCH** : Texte du bouton - FULLSCREEN
             textPaint.setColor(Color.WHITE);
-            textPaint.setTextSize(22.0f); // TAILLE AUGMENTÉE
-            canvas.drawText(buttons[i], x + buttonWidth / 2, y + buttonHeight / 2 + 8, textPaint);
+            textPaint.setTextSize(buttonHeight * 0.35f); // Taille proportionnelle réduite
+            textPaint.setTextAlign(Paint.Align.CENTER);
+            canvas.drawText(buttons[i], x + buttonWidth / 2, y + buttonHeight / 2 + (buttonHeight * 0.15f), textPaint);
         }
     }
     
@@ -1129,23 +1165,49 @@ public class RetroArchModernUI extends View {
     }
     
     /**
-     * **100% RETROARCH** : Gestion des touches
+     * **100% RETROARCH** : Gestion des touches - CORRIGÉ POUR FULLSCREEN
      */
     private boolean handleMenuTouch(float x, float y) {
         float width = getWidth();
-        float buttonWidth = 300;
-        float buttonHeight = 60;
-        float startY = 200;
-        float spacing = 20;
+        float height = getHeight();
+        float buttonWidth = width * 0.7f; // Même largeur que le rendu
+        float buttonHeight = height * 0.06f; // Même hauteur que le rendu
+        float startY = height * 0.3f; // Même position que le rendu
+        float spacing = height * 0.015f; // Même espacement que le rendu
         
-        for (int i = 0; i < 7; i++) { // Augmenté à 7 boutons
+        // **100% RETROARCH** : Vérifier que tous les boutons tiennent dans l'écran
+        float totalHeight = 7 * buttonHeight + 6 * spacing;
+        float availableHeight = height * 0.6f;
+        
+        if (totalHeight > availableHeight) {
+            buttonHeight = availableHeight / 7 * 0.8f;
+            spacing = availableHeight / 7 * 0.2f;
+        }
+        
+        String[] buttonTexts = {
+            "🎮 Démarrer le Jeu",
+            "📁 Sélectionner ROM",
+            "⚙️ Paramètres",
+            "💾 Sauvegarder",
+            "📂 Charger",
+            "🔄 Restaurer Overlay",
+            "🏠 Menu Principal"
+        };
+        
+        for (int i = 0; i < buttonTexts.length; i++) {
             float buttonX = width / 2 - buttonWidth / 2;
             float buttonY = startY + i * (buttonHeight + spacing);
+            
+            // **100% RETROARCH AUTHENTIQUE** : Vérifier que le bouton ne dépasse pas
+            if (buttonY + buttonHeight > height * 0.9f) {
+                break; // Arrêter si on dépasse 90% de la hauteur
+            }
             
             if (x >= buttonX && x <= buttonX + buttonWidth &&
                 y >= buttonY && y <= buttonY + buttonHeight) {
                 
                 String[] actions = {
+                    "resume_game", // **100% RETROARCH AUTHENTIQUE** : Retour au jeu en cours
                     "start_game",
                     "rom_selection",
                     "settings",
@@ -1163,23 +1225,48 @@ public class RetroArchModernUI extends View {
     }
     
     /**
-     * **100% RETROARCH** : Gestion des touches du menu rapide
+     * **100% RETROARCH** : Gestion des touches du menu rapide - CORRIGÉ POUR FULLSCREEN
      */
     private boolean handleQuickMenuTouch(float x, float y) {
         float width = getWidth();
-        float buttonWidth = 200;
-        float buttonHeight = 50;
-        float startY = 120;
-        float spacing = 15;
+        float height = getHeight();
+        float buttonWidth = width * 0.6f; // Même largeur que le rendu
+        float buttonHeight = height * 0.05f; // Même hauteur que le rendu
+        float startY = height * 0.25f; // Même position que le rendu
+        float spacing = height * 0.015f; // Même espacement que le rendu
         
-        for (int i = 0; i < 6; i++) {
+        // **100% RETROARCH** : Vérifier que tous les boutons tiennent dans l'écran
+        float totalHeight = 7 * buttonHeight + 6 * spacing; // 7 boutons maintenant
+        float availableHeight = height * 0.6f;
+        
+        if (totalHeight > availableHeight) {
+            buttonHeight = availableHeight / 7 * 0.8f; // 7 boutons maintenant
+            spacing = availableHeight / 7 * 0.2f;
+        }
+        
+        String[] buttons = {
+            "⏪ Rewind",
+            "⏩ Fast Forward",
+            "💾 Save State",
+            "📂 Load State",
+            "📸 Screenshot",
+            "🎮 Menu Principal"
+        };
+        
+        for (int i = 0; i < buttons.length; i++) {
             float buttonX = width / 2 - buttonWidth / 2;
             float buttonY = startY + i * (buttonHeight + spacing);
+            
+            // **100% RETROARCH** : Vérifier que le bouton ne dépasse pas
+            if (buttonY + buttonHeight > height * 0.9f) {
+                break; // Arrêter si on dépasse 90% de la hauteur
+            }
             
             if (x >= buttonX && x <= buttonX + buttonWidth &&
                 y >= buttonY && y <= buttonY + buttonHeight) {
                 
                 String[] actions = {
+                    "resume_game", // **100% RETROARCH AUTHENTIQUE** : Retour au jeu en cours
                     "rewind",
                     "fast_forward",
                     "save_state",
@@ -1310,6 +1397,12 @@ public class RetroArchModernUI extends View {
      */
     private void executeMenuAction(String action) {
         switch (action) {
+            case "resume_game":
+                // **100% RETROARCH AUTHENTIQUE** : Retour au jeu en cours
+                setUIState(UIState.UI_STATE_GAMEPLAY);
+                showNotification("▶️ Retour au jeu en cours", 2000, 1);
+                Log.i(TAG, "🎮 **100% RETROARCH** - Retour au jeu en cours");
+                break;
             case "start_game":
                 setUIState(UIState.UI_STATE_GAMEPLAY);
                 showNotification("🎮 Retour au jeu", 2000, 1);
@@ -1322,11 +1415,12 @@ public class RetroArchModernUI extends View {
                 showNotification("📁 Sélection ROM", 2000, 0);
                 break;
             case "settings":
-                // Ouvrir les paramètres
+                // **100% RETROARCH AUTHENTIQUE** : Ouvrir les paramètres
                 if (uiCallback != null) {
                     uiCallback.onSettingsRequested();
                 }
                 showNotification("⚙️ Paramètres", 2000, 0);
+                Log.i(TAG, "🎮 **100% RETROARCH** - Ouverture des paramètres");
                 break;
             case "save_state":
                 saveState();
@@ -1359,6 +1453,12 @@ public class RetroArchModernUI extends View {
      */
     private void executeQuickMenuAction(String action) {
         switch (action) {
+            case "resume_game":
+                // **100% RETROARCH AUTHENTIQUE** : Retour au jeu en cours
+                setUIState(UIState.UI_STATE_GAMEPLAY);
+                showNotification("▶️ Retour au jeu en cours", 2000, 1);
+                Log.i(TAG, "🎮 **100% RETROARCH** - Retour au jeu en cours (menu rapide)");
+                break;
             case "rewind":
                 activateRewind();
                 break;
